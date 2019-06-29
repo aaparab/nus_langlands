@@ -443,7 +443,7 @@ Because it covers many important aspects of the trace formula, we will go into d
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %     Proof of Theorem 6.1
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Discussion on the proof of Theorem 6.1}
+\section{Discussion on the proof of Theorem 6.1} \label{6.1proof}
 
 \cb{In the case of $\sl(2)$, consider the characteristic function $\hat\tau_0(H_0(\delta x) - T)$ appearing in \cref{k_sl2}. For what values of $\delta x$ does it equal 1? }
 
@@ -520,10 +520,11 @@ by replacing $\Delta_0, \hat\Delta_0$ and $G(\Q)\bs G(\A)$ with $\Delta_0^P, \ha
 \end{lemma}
 For a geometric interpretation of this lemma, see \cite{clay}*{p. 39}. \cb{In the case of $\sl(2)$ the content of this lemma is that the fundamental domain for $\sl(2)$ is partitioned according to standard parabolic subgroups as in \cref{fig:sd}. }
 
-We now begin the proof of \cite{clay}*{Theorem 6.1} for $G=\sl(2)$. There are many simplifications since $\sl(2)$ has rank one. In particular,
+\cb{We now begin the proof of \cite{clay}*{Theorem 6.1} for $G=\sl(2)$. There are many simplifications since $\sl(2)$ has rank one. In particular,
 \[ k^T(x) = K_G(x, x) - \sum_{\delta \in P_0(\Q)\bs G(\Q)} \hat\tau_0(H_0(\delta x) - T) K_0(\delta x, \delta x). \]
+}
 
-We multiply the first term above by the LHS of \cref{partition_lemma} which yields (for $P=G$),
+\cb{We multiply the first term above by the LHS of \cref{partition_lemma} which yields (for $P=G$),
 \[ F(x, T) + \sum_{\delta \in P_0(\Q)\bs G(\Q)} \tau_0(H_0(\delta x) - T) = 1. \]
 \begin{flalign*} 
 	\therefore k^T(x) = F(x, T) K_G(x, x) \ +  
@@ -531,8 +532,9 @@ We multiply the first term above by the LHS of \cref{partition_lemma} which yiel
 		\tau_0(H_0(\delta x) - T) K_G(\delta x, \delta x)
 		- \hat\tau_0(H_0(\delta x) - T) . K_{P_0}(\delta x, \delta x) \right).
 \end{flalign*}
+}
 
-The first term (corresponding to $P=G$),
+\cb{The first term (corresponding to $P=G$),
 \[ F(x, T) K_G(x, x) = F(x, T) \sum_{\gamma \in G(\Q)} f(x^{-1}\gamma x) \]
 is nonzero when $F(x, T)=1$, i.e., when the image of $x$ is in a compact subset of the Siegel set. Thus the integral over $G(\Q) \bs G(\A)^1$ of this term converges absolutely. It only remains to analyze the second term. Since $\tau_0(H-T) = 1$ if and only if $\hat\tau_0(H-T) = 1$ we may as well assume this to be the case. Thus we only need to consider the integral over $x \in G(\Q)\bs G(\A)$ for which $\tau_0(H_0(x) - T) = \hat\tau_0(H_0(x) - T) = 1$. Thus $x$ lies in the ``upper" unbounded subset of the Siegel domain of \cref{fig:sd}. We would like to show the integral
 \begin{flalign*}
@@ -541,7 +543,9 @@ is nonzero when $F(x, T)=1$, i.e., when the image of $x$ is in a compact subset 
 \end{flalign*}
 converges absolutely. Write $x = p_0 a_0 k$ where $p_0 \in P_0(\Q) \bs M_0(\A)^1 N_0(\A), a_0 \in A_0(\R)^\circ$ and $k \in K$. Since $p_0$ and $k$ belong to compact sets, it suffices to consider the integral over $a_0 \in A_0(\R)^\circ$ such that 
 \[ \tau_0(H_0(a_0)-T) = 1. \]
-Let 
+}
+
+\cb{Let 
 \begin{flalign*}
 	K_{P_0, G}(x) & := K_G(x, x) - K_0(x, x) \\
 			& = \sum_{\mu \in G(\Q)} f(x^{-1}\mu x) - \sum_{\gamma \in M_0(\Q)} \int_{N_0(\A)} 
@@ -554,98 +558,24 @@ Using the isomorphism $\exp : \nnn_0 \xrightarrow{\sim} N_0$, one replaces the s
 \[ k_{P_0, G}(x) = \sum_{\mu \in M_0(\Q)} \left[ \sum_{\zeta \in \nnn_0(\Q)} f(x^{-1} \mu \exp(\zeta) x) -
 		\int_{X \in \nnn_0(\A)} f(x^{-1} \mu \exp(X) x) \d X.		
  \right] \]
-Fixing a nontrivial additive character $\psi$ on $\A/\Q$ and a bilinear form on $\nnn_0(\A) \simeq \A$ and applying Poisson summation formula to the first term yields
+}
+
+\cb{Fixing a nontrivial additive character $\psi$ on $\A/\Q$ and a bilinear form on $\nnn_0(\A) \simeq \A$ and applying Poisson summation formula to the first term yields
 \[ k_{P_0, G}(x) = \sum_{\mu \in M_0(\Q)} \sum_{\xi \in \nnn_0(\Q) \bs \{0 \}} \int_{\nnn_0(\A)}
 		f(x^{-1} \mu \exp(X_1) x) \psi(\sprod{\xi, X_1}) \d X_1.
 \]
-It is here that the cancellation occurs due to the alternating sum over standard parabolic subgroups. For $\sl(2)$, this cancellation is reflected in the sum over $\xi \in \nnn_0(\Q) \bs \{0\}$. Since $f$ is of compact support so the function
+}
+
+\cb{It is here that the cancellation occurs due to the alternating sum over standard parabolic subgroups. For $\sl(2)$, this cancellation is reflected in the sum over $\xi \in \nnn_0(\Q) \bs \{0\}$. Since $f$ is of compact support so the function
 \[ h_{x, \mu}(Y_0) = \int_{X_1 \in \nnn_0(\A)} f(x^{-1} \mu \exp(X_1) . \psi(\sprod{Y_1, X_1})) \d X_1 \]
 is rapidly decreasing. It is a basic property of Fourier transforms that the $a_0$-component of $x = p_0 a_0 k$ acts on $\xi \in \nnn_0(\Q) \bs \{0\}$ by dilations. The function $h_{x, \mu}$ is finitely supported in $\mu \in M_0(\Q)$ again because of the compact support of $f$. Thus the integral of $k_{P_0, G}(x)$ over $P_0(\Q)\bs G(\A)$ converges absolutely. 
+}
 
-\qed
-
-
-
-
-
-
-
+\qedsymbol
 
 \begin{remark}
-	Arthur says the integrand is compactly supported in $H_2 \in \aaa_{P_2}$ which doesn't seem to be the case. However following the proof of this theorem in \cite{duke}*{p. 947}, we only need the bound $\norm{H_2} \leq c \norm{H_1^2}$. 
+	Arthur says the integrand is compactly supported in $H_2 \in \aaa_{P_2}$ which doesn't seem to be the case. However following the steps in the proof of this theorem in \cite{duke}*{p. 947}, we only need the bound $\norm{H_2} \leq c \norm{H_1^2}$. 
 \end{remark}
-
-By above remark it suffices to study the behavior in $H_1^2$ for points $H_1^2$ satisfying $\tau_{P_1}^{P_2}(H_1^2 - T) = 1$. It is here that we exploit the cancellation implicit in the alternating sum over $P$. 
-
-Now we start an analysis of $k_{P_1, P_2}(x)$. First we claim that given $P_1 \se P \se P_2, T \in \aaa_0$ sufficiently regular and $x \in P_1(\Q)\bs G(\A)^1$ with $\chi^T(x) = 1$, the integral 
-\[ \int_{N_P(\A)} f(x^{-1}\gamma n x) \d n = 0 \]
-whenever $\gamma \in M_P(\Q) \bs (P_1(\Q) \cap M_P(\Q))$. \cb{We illustrate this for $\sl(2)$. 
-The only possibility for $P_1 \se P \se P_2$ is that $P_1 = P_0$ and $P = P_2 = G$. If the element 
-\[ \gamma = \begin{pmatrix} a & b \\ c & d \end{pmatrix} \in M_P(\Q) \bs P_1(\Q) \]
-then $c = 0$. Assume $\chi^T(x) = 1$, i.e., $F_{P_0}(x, T) \tau_{P_0}^G (H_0(x) - T) = 1$. In particular, $F^{P_0}(x, T) = 1$ so writing $x = p_1 a_1 k$ with $p_1 \in \omega$ and $a_1 \in \AAA_{P_0} \cap G(\A)^1$, we must have 
-\[ a_1 = \begin{pmatrix} \exp(r) & \\ & \exp(-r) \end{pmatrix} \quad \text{for } r \gg 0. \]
-Finally, $N_P(\A) = \{1 \}$ so
-\[ \int_{N_P(\A)} f(x^{-1}\gamma n x) \d x = f(x^{-1}\gamma x) = f(k^{-1}a_1^{-1}p_1^{-1} \gamma p_1 a_1 k). \]
-\begin{align*}
-	a_1^{-1}p_1^{-1} \gamma p_1 a_1 & = \begin{pmatrix}	\exp(r) & \\ & \exp(-r) \end{pmatrix} 
-			\begin{pmatrix} u_1 & * \\ 0 & u_1^{-1}	\end{pmatrix} \begin{pmatrix} a & b \\ c & d \end{pmatrix}
-			\begin{pmatrix} u_1^{-1} & * \\ 0 & u_1	\end{pmatrix} \begin{pmatrix} \exp(-r) & \\ & \exp(r)\end{pmatrix} \\
-			& = \begin{pmatrix}	* & * \\ u_1^2 \exp(2r) c & * \end{pmatrix}.
-\end{align*}
-If $f$ is compactly supported then the set $K.\operatorname{supp}(f).K$ is compact. However $\mod{u_1^2 \exp(2r) c} = \exp(2r)$, since $c \in \Q^*, \mod{u_1} = 1 $as $H_{P_0}(p_1) = 0$. Thus for $\gamma = \begin{pmatrix} a & b \\ c & d \end{pmatrix} : c \neq 0$, if $T \in \aaa_0$ is chosen sufficiently regular then this integral vanishes. 
-}
-This is proven in general in the Duke paper \cite{duke}. Hence the sum over $\gamma$ in the expression
-\[ K_P(x, x) = \int_{N_P(\A)} \sum_{\gamma \in M_P(\Q)} f(x^{-1} \gamma n x) \d n, \]
-can be taken over the smaller set $P_1(\Q) \cap M(\Q) = M_{P_1}(\Q) N_{P_1}^P(\Q)$. 
-Thus, 
-\[ k_{P_1, P_2}(x) = \sum_{\substack{P : \\ P_1 \se P \se P_2}} (-1)^{\apg} \sum_{\mu \in M_{P_1}(\Q)} \sum_{\nu \in N_{P_1}^P(\A)} \int_{N_P(\A)} f(x^{-1} \mu \nu n x) \d n. \]
-We have an isomorphism of algebraic varieties over $\Q$:
-\[ \exp : \nnn_{P_1} = \nnn_{P_1}^P \oplus \nnn_P \to N_{P_1}^P N_P = N_{P_1} \]
-which maps the Haar measure on $\nnn_{P_1}(\A)$ to that on $N_{P_1}(\A)$. Thus $k_{P_1, P_2}(x)$ equals
-\[ \sum_{\mu \in M_{P_1}(\Q)} \left( \sum_P (-1)^{\apg} \sum_{\zeta \in \nnn_{P_1}^P(\Q)} \int_{N_P(\A)} 
-		f(x^{-1}\mu \exp(\zeta + X)x) \d X \right). \]
-We are now in a position to apply Poisson summation formula to the discrete co-compact lattice $\nnn_{P_1}^P(\Q)$ of $\nnn_{P_1}^P(\A)$, which states that if $\Gamma$ is a discrete co-compact subgroup of an abelian group $H$ then 
-\begin{align*} \sum_{\zeta \in \Gamma} f(\zeta) & = \sum_{\xi \in \hat\Gamma} \hat f(\xi) \\
-	& = \sum_{\xi \in \hat \Gamma} \int_{\tilde X \in H} f(\tilde X) \psi(\sprod{\tilde X}{\xi}) \d \tilde X,
-\end{align*}
-where $\psi$ is a fixed nontrivial additive character of $H$. Thus,
-\[ k_{P_1, P_2}(x) = \sum_{\mu \in M_{P_1}(\Q)} \sum_P (-1)^{\apg} \sum_{\xi \in \nnn_{P_1}^P(\Q)}
-		\int_{\tilde X \in \nnn_{P_1}^P(\A)} \int_{X \in \nnn_P(\A)} f(x^{-1}\mu \exp(\tilde X) \exp(X) x)
-		\psi(\sprod{\xi}{\tilde X}) d\tilde X d X. \]
-Here we identify the lattice dual to $\nnn_{P_1}^P(\Q) \se \nnn_{P_1}^P(\A)$ with itself via usual Euclidean product on $\A_{\Q}^n$ where $n = \dim_{\Q}(\nnn_{P_1}^P(\Q))$. Combining the integrals over $\nnn_{P_1}^P$ and $\nnn_P$ we get
-\[ k_{P_1, P_2}(x) = \sum_{\mu \in M_{P_1}(\Q)} \sum_P (-1)^{\apg} \sum_{\xi \in \nnn_{P_1}^P(\Q)}
-		\int_{X_1 \in \nnn_{P_1}(\A)} f(x^{-1}\mu \exp(X_1) x)
-		\psi(\sprod{\xi}{X_1}) d X_1, \]
-since $\sprod{\xi}{X_1} = \sprod{\xi}{\tilde X}$ as $\xi \in \nnn_{P_1}^P(\Q)$ and $\tilde X \in \nnn_{P_1}^P(\A)$. Observe that $\nnn_{P_1}^P(\Q) \se \nnn_{P_1}^{P_2}(\Q)$. Fixing $P_1 \se P_2$ as $P$ varies, certain summands over $\xi \in \nnn_{P_1}^P(\Q)$ will occur repeatedly. We cancel them using the identity in \cref{binom}:
-\[ \sum_{\Gamma \se \Delta} (-1)^{\mod{\Delta} - \mod{\Gamma}} = 
-		\begin{cases} 0 \qquad \Delta \neq \emptyset, \\ 1 \qquad \Delta = \emptyset. \end{cases} 
-\]
-Set 
-\[ \nnn_{P_1}^{P_2}(\Q)' = \{ \xi \in \nnn_{P_1}^{P_2}(\Q) : \xi \not\in \nnn_{P_1}^{P}(\Q) 
-		\text{ for any } P_1 \se P \subsetneq P_2 \}.\]
-Thus,
-\[ k_{P_1, P_2}(x) = (-1)^{a_{P_2} - a_G} \sum_{\mu \in M_{P_1}(\Q)} \sum_{\xi \in \nnn_{P_1}^{P_2}(\Q)}
-		\int_{N_{P_1}(\A)} f(x^{-1} \mu \exp(X_1) x) \psi(\sprod{\xi}{X_1}) \d X_1. \]
-This expression is rapidly decreasing in the coordinate $H_1^2$ of $x$ where $x = p_1 a_1 k$ and $H_{P_1}(a_1) = H_2 + H_1^2$. This is because the function
-\[ h_{x, \mu}(Y_1) := \int_{\nnn_P(\A)} f(x^{-1} \mu \exp(X_1) x) \psi(\sprod{Y_1}{X_1}) \d X_1, \]
-being the Fourier transform of a compactly supported function in $X_1$, is a Schwartz-Bruhat function of $Y_1 \in \nnn_{P_1}(\A)$. Thus 
-\[ J^T(f) = \int_{G(\Q) \bs G(\A)^1} \mod{k^T(x)} \d x \]
-is bounded by a constant multiple of 
-\[ \sum_{P_1 \se P_2} \sum_{\mu \in M_{P_1}(\Q)} \sum_{\xi \in \nnn_{P_1}^{P_2}(\Q)'} \sup_y \int 
-		\mod{h_{y, \mu}(\Ad(a_1) \xi)} \d a_1, \]
-the integration being over the set
-\[ a_1 \in \AAA_{P_1} \cap G(\A)^1 : \sigma_{P_1}^{P_2}(H_{P_1}(a_2) - T) = 1 \]
-and the supremum is over the compact subset 
-\[ \{ y = a_1^{-1} p_1 a_1 k : p_1 \in P_1(\Q)\bs M_{P_1}(\A) N_{P_1}(\A), k \in K , a \in \AAA_{P_1} \cap G(\A)^1,
-		F^{P_1}(a_1, T) \sigma_{P_1}^{P_2}(H_{P_1}(a_1) - T) = 1 \}. \]
-\iffalse 
-\begin{itemize}
-	\item \[ \d X_1 \d x = \d (a_1^{-1} X_1 a_1) \d p_1 \d a_1 \d k. 
-	\item $h_{X, \mu}(Y_1)
-\end{itemize}
-\fi
-Since $\Ad(a_1)$ acts by dilation on $\xi$, this implies the above integral is finite. 
-\qedsymbol
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %     The coarse geometric expansion
@@ -687,16 +617,16 @@ Observe that if $1 \in \o$ then $\o$ consists of all unipotent elements in $G(\Q
 			a, b \in \gl(1)$,
 	\item $p$ has a unique root in $\Q^*$, say $\gamma = \begin{pmatrix} a & \\ & a \end{pmatrix}: a \in \gl(1)$,
 \end{enumerate}
-When we look at $\sl(2)$ if two classes $\o, \o' \in \O^{\sl(2)}$ have different characteristic polynomials then $\o \neq \o'$. On the other hand could it be possible that $\o \neq \o'$ but they have the same characteristic polynomial? Fix a class $\o \in \O^{\sl(2)}$ and let $p$ be the associated characteristic polynomial. We have the three possibilities. 
+When we look at $\sl(2)$ if two classes $\o, \o' \in \O^{\sl(2)}$ have different characteristic polynomials then $\o \neq \o'$. On the other hand we would like to analyze the case when $\o \neq \o'$ but they have the same characteristic polynomial. Fix a class $\o \in \O^{\sl(2)}$ and let $p$ be the associated characteristic polynomial. We have the three possibilities. 
 \begin{enumerate}
-	\item Suppose $p$ is irreducible over $\Q$ and factors in a quadratic extension $L$ of $\Q$. Suppose $\gamma_1$ and $\gamma_2$ are semisimple elements with characteristic polynomial $p$. They are conjugate over $\gl(2, \Q)$ say $\gamma_2 = g \gamma_1 g^{-1}$. Are they conjugate over $\sl(2, \Q)$? The following are equivalent. 
+	\item Suppose $p$ is irreducible over $\Q$ and factors in a quadratic extension $L$ of $\Q$. Suppose $\gamma_1$ and $\gamma_2$ are semisimple elements with characteristic polynomial $p$. They are conjugate over $\gl(2, \Q)$ say $\gamma_2 = g \gamma_1 g^{-1}$. To see whether they are conjugate over $\sl(2, \Q)$, consider the following equivalent statements. 
 	\begin{itemize}
 		\item There is an $h \in \sl(2, \Q)$ such that $\gamma_2 = h \gamma_1 h^{-1}$,
 		\item There is a $c \in \cent_{\gl(2)}(\gamma_1)$ such that $\det c = \det g$. 
 	\end{itemize}
 		The relation $c = gh^{-1}$ proves this equivalence. Since $\det(\gl(2, \Q)) = \Q^*$, we would like to know the image of the map
-    		\[ \det : \cent_{\gl(2)}(\gamma_1)(\Q) \to \Q^*. \]
-		Since $\gamma_1$ represents an anisotropic class, this map coincides with the norm map
+    		\[ \det : \gl(2, \Q)_{\gamma_1} \to \Q^*, \]
+		where $\gl(2)(\Q)_{\gamma_1}$ denotes the centralizer of $\gamma_1$ in $\gl(2, \Q)$. Since $\gamma_1$ represents an anisotropic class, this map coincides with the norm map
 		\[ N_{L/\Q} : L^* \to \Q^*. \]
 		This is not surjective. In fact the index of the image in $\Q^*$ is infinite (see \cite{MR1068677}). Thus every such $\o \in \O^{\gl(2)}$ is a disjoint union of infinitely many classes $\o \in \O^{\sl(2)}$. Take one such class $\o \in \O^{\sl(2)}$ and $\gamma \in \o$, say $\gamma = \begin{pmatrix} 5 & 3 \\ 3 & 2 \end{pmatrix}$. The (connected) centralizer of $\gamma$ is an anisotropic torus so consists only of semisimple elements. In our example, 
 		\[ H_\gamma = \left\{ \begin{pmatrix} a & b \\ b & a - b \end{pmatrix} : a, b \in \Q^*, a^2 - ab - b^2 = 1 \right\}. \]
@@ -721,7 +651,7 @@ according to Arthur-conjugacy classes and write
 \[ K(x, y) = \sum_{\o \in \O} K_{\o}(x, y),\]
 where
 \[ K_{\o}(x, y) = \sum_{\gamma \in \o} f(x^{-1}\gamma y). \]
-More generally we can similarly decompose the kernel $K_P$ of the operator $R_P$ acting on $\Ltwo(N_P(\A) M_P(\Q) \bs G(\A))$. Recall that
+More generally for a standard parabolic subgroup $P_0$, we can similarly decompose the kernel $K_P$ of the operator $R_P$ acting on $\Ltwo(N_P(\A) M_P(\Q) \bs G(\A))$. Recall that
 \[ K_P(x, y) = \sum_{\gamma \in M_P(\Q)} \int_{N_P(\A)} f(x^{-1} \gamma n y) \d n. \]
 We write $K_P(x, y) = \sum_{\o \in \O} K_{P, \o} (x, y)$ where
 \[ K_{P, \o}(x, y) = \sum_{\gamma \in M_P(\Q) \cap \o} \int_{N_P(\A)} f(x^{-1} \gamma n y) \d n. \]
@@ -729,11 +659,16 @@ We write $K_P(x, y) = \sum_{\o \in \O} K_{P, \o} (x, y)$ where
 Thus, $k^T(x) = \sum_{\o \in \O} k^T_{\o}(x)$, where
 \[ k^T_{\o}(x) = \sum_{P \supseteq P_0} (-1)^{\apg} \sum_{\delta\in P(\Q)\bs G(\Q)} K_{P, \o}(\delta x, \delta x) \hat\tau_P(H_P(\delta x) - T). \]
 
-An important consequence of Theorem 6.1 is that the sum 
-\begin{equation} \label{geom} 
+An important consequence of \cite{clay}*{Theorem 6.1} is that the sum 
+\begin{equation}
 	\sum_{\o \in \O} \int_{G(\Q) \bs G(\A)^1} k_{\o}^T(x) \d x 
 \end{equation}
-converges absolutely. Having defined $J_{\o}^T(f)$ as
+converges absolutely. \cb{The proof discussed in \cref{6.1proof} goes through assuming the equality:
+\[ P_0(\Q) \cap \o = (M_0(\Q) \cap \o).N_0(\Q) \]
+which is a straightforward calculation. }
+\qedsymbol
+
+Having defined $J_{\o}^T(f)$ as
 \[ J_{\o}^T(f) = \int_{G(\Q) \bs G(\A)^1} k_{\o}^T(x) \d x, \]
 one sees that its behavior as a function of $T$ is the same as that of $J^T(f)$. As before we choose the unique point $T_0$ which frees us from the choice of the minimal parabolic subgroup $P_0$ (but not $M_0$) and define 
 \[ J_{\o}(f) := J^{T_0}_{\o}(f). \]
@@ -741,23 +676,6 @@ The coarse geometric expansion is given by
 \begin{equation} \label{coarse_geom}
 	J(f) = \sum_{\o \in \O} J_{\o}(f). 
 \end{equation}
-The proof that the sum in \cref{geom} is absolutely convergent is similar to that of Theorem 6.1 except at the point when we applied the Poisson summation to the lattice $\nnn_{P_1}^P(\Q)$. We required to sum over elements $\nu \in N_{P_1}^P(\Q)$ which arose from 
-\[ P_1(\Q) \cap M_P(\Q) = M_{P_1}(\Q) . N_{P_1}^P(\Q). \]
-It suffices to show 
-\begin{equation} \label{cap_o}
-	P_1(\Q) \cap M_P(\Q) \cap \o = (M_{P_1}(\Q) \cap \o) N_{P_1}^P(\Q),
-\end{equation}
-because we have the sum over $\gamma \in M_P(\Q) \cap \o$ wherein only terms intersecting $P_1(\Q)$ contribute. We would write this sum over $\gamma \in M_P(\Q) \cap \o \cap P_1(\Q)$ as $\mu \in M_{P_1}(\Q) \cap \o$ and $\nu \in N_{P_1}^P(\Q)$. The claim in \cref{cap_o} follows by applying the lemma below to the pair $(M_P, P_1 \cap M_P)$ instead of $(G, P)$. 
-
-\begin{lemma}
-	Suppose $P \supseteq P_0, \gamma \in M_P(\Q)$ and $\phi \in \CCC_c(N_P(\A))$. Then,
-	\[ \sum_{\delta \in N_P(\Q)_{\gamma_s} \bs N_P(\Q)} \sum_{\eta \in N_P(\Q)_{\gamma_s}} 
-			\phi(\gamma^{-1} \delta_1^{-1} \gamma n \delta) = \sum_{\nu \in N_P(\Q)} \phi(\nu), \]
-	and
-	\[ \int_{N_P(\A)_{\gamma_s} \bs N_P(\A)} \int_{N_P(\A)_{\gamma_s}} \phi(\gamma^{-1} n_1^{-1} \gamma n_2 n_1) 
-			\d n_2 \d n_1 = \int_{N_P(\A)} \phi(n) \d n. \]
-\end{lemma}
-Assuming this lemma whose proof is ``a typical change of variable argument for unipotent groups" and the resulting partition in \cref{cap_o}, the convergence follows from Fubini's theorem. \qedsymbol
 
 \begin{remark}
 	The invariance formula for $J(f)$ holds for $J_{\o}(f)$ namely,
