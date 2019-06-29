@@ -536,7 +536,7 @@ For a geometric interpretation of this lemma, see \cite{clay}*{p. 39}. \cb{In th
 
 \cb{The first term (corresponding to $P=G$),
 \[ F(x, T) K_G(x, x) = F(x, T) \sum_{\gamma \in G(\Q)} f(x^{-1}\gamma x) \]
-is nonzero when $F(x, T)=1$, i.e., when the image of $x$ is in a compact subset of the Siegel set. Thus the integral over $G(\Q) \bs G(\A)^1$ of this term converges absolutely. It only remains to analyze the second term. Since $\tau_0(H-T) = 1$ if and only if $\hat\tau_0(H-T) = 1$ we may as well assume this to be the case. Thus we only need to consider the integral over $x \in G(\Q)\bs G(\A)$ for which $\tau_0(H_0(x) - T) = \hat\tau_0(H_0(x) - T) = 1$. Thus $x$ lies in the ``upper" unbounded subset of the Siegel domain of \cref{fig:sd}. We would like to show the integral
+is nonzero when $F(x, T)=1$, i.e., when the image of $x$ is in a compact subset of the Siegel set. Thus the integral over $G(\Q) \bs G(\A)^1$ of this term converges absolutely. It only remains to analyze the second term. Since $\tau_0(H-T) = 1$ if and only if $\hat\tau_0(H-T) = 1$ we may as well assume this to be the case. Thus we only need to consider the integral over $x \in G(\Q)\bs G(\A)$ for which $\tau_0(H_0(x) - T) = \hat\tau_0(H_0(x) - T) = 1$. Thus $x$ lies in the ``upper'' unbounded subset of the Siegel domain of \cref{fig:sd}. We would like to show the integral
 \begin{flalign*}
 	\int_{G(\Q)\bs G(\A)^1} \sum_{\delta \in P_0(\Q)\bs G(\Q)} \tau_0(H_0(\delta x) - T) \left(K_G(x, x) - K_0(\delta x, \delta x) \right) \d x \\
 	= \int_{P_0(\Q)\bs G(\A)^1} \tau_0(H_0(x) - T) \Big( K_G(x, x) - K_0(x, x) \Big) \d x
@@ -688,24 +688,34 @@ For `generic' classes $\o \in \O$, Arthur gives an explicit description of $J_{\
 	\item The class $\o$ consists entirely of semisimple elements. 
 	\item It is \underline{unramified}, i.e., the centralizer $G(\Q)_\gamma$ is contained in $M_P(\Q)$ where $(P, \alpha)$ is the anisotropic rational datum attached to $\o$. 
 \end{itemize}
-The first condition is equivalent to having no nontrivial unipotent elements in the centralizer of $\gamma$ for any $\gamma \in \o$. This implies that the connected component $H(\Q)$ of the centralizer $G(\Q)_\gamma$ is contained in $M_P(\Q)$. The second condition is clearly stronger. 
-\cb{
-In the case of $\sl(2)$, the class $\o$ corresponding to the irreducible characteristic polynomial satisfies these conditions. To see an example where the first condition holds but not the second, consider the example of 
+The first condition is equivalent to having no nontrivial unipotent elements in the centralizer of $\gamma$ for any $\gamma \in \o$. This implies that the connected component $H(\Q)$ of the centralizer $G(\Q)_\gamma$ is contained in $M_P(\Q)$. The second condition is clearly stronger. To see an example where the first condition holds but not the second, consider the example of 
 \[ \gamma = \begin{pmatrix} 1 & \\ & -1 \end{pmatrix} \in G = \operatorname{PGL}(2). \]
 In this case, $G(\Q)_\gamma$ is the product of the minimal torus with a group of order two so $H(\Q) \subseteq M_P(\Q)$ but $G(\Q)_\gamma \not\subseteq M_P(\Q)$. 
-}
-The result of these two assumptions is that if $(P, \alpha)$ and $(P', \alpha')$ are two representatives of the unramified class $\o$, then there is a ``unique" element in $W(\aaa_P, \aaa_{P'})$ mapping $\alpha$ to $\alpha'$. Arthur analyzes this case and proves for such classes that
+
+The result of these two assumptions is that if $(P, \alpha)$ and $(P', \alpha')$ are two representatives of the unramified class $\o$, then there is a ``unique'' element in $W(\aaa_P, \aaa_{P'})$ mapping $\alpha$ to $\alpha'$. Arthur analyzes this case and proves for such classes that
 \begin{equation} \label{jo_anis}
 	J_{\o}(f) = \vol(M_P(\Q)_\gamma \bs M_P(\A)^1) \int_{G(\A)_\gamma \bs G(\A)} f(x^{-1} \gamma x) v_P(x) \d x, 
 \end{equation}
 where $\gamma$ is any element in the $M_P(\Q)$-conjugacy class $\alpha$ and $v_P(x)$ is the volume of the projection onto $\aaa_P^G$ of the convex hull of certain points. Let us investigate this invariant orbital integral for $\sl(2)$. 
 
 \cb{
-Since $\o$ is anisotropic, it corresponds to the anisotropic rational datum $[(G, \alpha)]$ where $\alpha$ is an anisotropic conjugacy class and suppose $\gamma \in \alpha$. As we have seen, the centralizer $H_\gamma$ (which is connected) is an anisotropic torus over $\Q$ so by the theorem of Borel and Harish-Chandra, the space
+If $\o \in \O$ is the class corresponding to irreducible characteristic polynomials then it consists entirely of semisimple elements and since it corresponds to the rational datum $[(G, \alpha)], \alpha$ being the related anisotropic conjugacy class, the second condition is redundant. It therefore satisfies both these conditions. For any $\gamma \in \alpha$, the centralizer $H_\gamma$ (which is connected) is an anisotropic torus over $\Q$ so by the theorem of Borel and Harish-Chandra, the space
 \[ M_P(\Q)_\gamma\bs M_P(\A)_\gamma = G(\Q)_\gamma \bs G(\A)_\gamma = H_\gamma(\Q)\bs H_\gamma(\A) \]
-is compact. Its volume is the first term above. The map $v_P(x)$, which Arthur later denotes by $v_M(x)$ is the smooth function corresponding to the $(G, M)$-family which we now discuss. }
+is compact. Its volume is the first term above. The term $v_M(x) = 1$ when $M=G$. Thus the contribution of these classes to the geometric side is
+\[ J_{\o}(f) = \vol(G(\Q)_\gamma \bs G(\A)) \int_{G(\A)_\gamma \bs G(\A)} f(x^{-1} \gamma x) \d x. \]
+This expression agrees exactly with that in the co-compact case. }
 
-Let $\PPP(M)$ denote the set of standard parabolic subgroups of $G$ containing $M$. (This is different from the class $\PPP$ of associated parabolic subgroups of Langlands.) A family 
+\cb{
+Suppose $\o$ corresponds to the case when the characteristic polynomial has distinct roots, say $t$ and $t^{-1}$. Assume $\sigma = \begin{pmatrix} t & \\ & t^{-1} \end{pmatrix} \in \o$. If $\gamma \in \o$ then its Jordan decomposition would be $\gamma = (g\sigma g^{-1}) . u$ where $u$ is unipotent and $g \in G(\Q)$. Then $g u g^{-1}$ would be in $M_0(\Q)$, the centralizer of $\sigma$. Thus $u=1$ so $\o$ consists of semisimple elements only. Moreover $G(\Q)_\sigma = M_0(\Q)$ so both conditions are satisfied and 
+\begin{flalign*}
+	J_{\o}(f) &=  \vol(M_0(\Q) \bs M_0(\A)^1) \int_{G(\A)_\gamma \bs G(\A)} f(x^{-1} \gamma x) v_{M_0}(x) \d x \\
+			&= \vol(\Q^*\bs \I^1) \int_{M_0(\A) \bs G(\A)}  f(x^{-1} \gamma x) v_{M_0}(x) \d x.
+\end{flalign*}
+}
+
+The map $v_{M_0}(x)$ is simple to describe for $G = \sl(2)$. However in general the function $v_M(x)$ is the smooth function corresponding to the $(G, M)$-family, a combinatorial notion that plays an essential role even in the spectral side. We briefly discuss it below. 
+
+Let $\PPP(M)$ denote the set of standard parabolic subgroups of $G$ containing $M$. (This is different from the class $\PPP$ of associated parabolic subgroups of Langlands which we discuss in the next section.) A family 
 \[ \{c_P(\lambda) : \lambda \in i\aaa_M^*, P \in \PPP(M)\} \]
 is called a $(G, M)$-family if the functions $c_P(\lambda)$ and $c_{P'}(\lambda)$ agree for $\lambda$ in the common wall between $P$ and $P'$ whenever they share such a wall. Given such a $(G, M)$-family, we can naturally assign to it a smooth function as
 \[ c_M(\lambda) = \sum_{P \in \PPP(M)} c_P(\lambda) \theta_P(\lambda)^{-1} \]
@@ -718,14 +728,39 @@ Let us see the pole cancellation by evaluating it for $\sl(2)$.
 \cb{
 In the case of $\sl(2)$, we take $M = M_0$ which gives $\PPP(M_0) = \{ P_0, \oP_0 = w_0 P_0 w_0^{-1} \}$. The space $\aaa_0$ is spanned by $\beta_1^\vee$ and by $\varpi_1^\vee = \beta_1 / 2$. Write $\lambda \in \aaa_0^*$ as $\lambda = \lambda_1 \varpi_1$. 
 \[ \theta_0(\lambda) = \vol(\aaa_0/\Z \beta_1^\vee) . \sprod{\lambda}{\beta_1^\vee} = \lambda_1. \]
-Also, $\theta_{\oP_0}(\lambda) = -\lambda_1$ as $\Delta_{\oP_0}^\vee = \{ -\beta_1^\vee\}$. Write $x \in G(\A)$ as $x = nmk$ with $n \in N_0(\A), m \in M_0(\A)$ given by $m = \begin{pmatrix} t & \\ & t^{-1} \end{pmatrix}$ and $k \in K$. 
-\[ v_0(\lambda, x) = \exp(-\sprod{\lambda}{H_0(x)}) = \exp(\sprod{-\lambda_1 \varpi_1}{H_0(m)}) = \exp(-\lambda_1 \log \mod{\varpi_1(m)}) = \mod{t}^{-\lambda_1}. \]
-Similarly we compute $v_{\oP_0}(\lambda, x) = \mod{t}^{\lambda_1}$. The wall in $\aaa_0$ in this case corresponds to $\lambda = 0$ in which case these two functions agree. So this is a $(G, M_0)$-family and 
-\begin{align*}
-	v_M(x) & = \lim_{\lambda \to 0} \frac{v_0(\lambda, x)}{\theta_0(\lambda)} + \frac{v_{\oP_0}(\lambda, x)}{\theta_{\oP_0}(\lambda)} \\
-			& = \lim_{\lambda \to 0} \frac{\mod{t}^{-\lambda_1} - \mod{t}^{\lambda_1}}{\lambda_1} = -2\ln \mod{t}.
-\end{align*}
+Also, $\theta_{\oP_0}(\lambda) = -\lambda_1$ as $\Delta_{\oP_0}^\vee = \{ -\beta_1^\vee\}$. Write $x \in G(\A)$ as $x = n_0 m_0 k$ with $n_0 \in N_0(\A), m_0 \in M_0(\A)$ and $k \in K$. Clearly, 
+\begin{flalign*}
+	H_0 = H_{P_0} : G(\A) \to \aaa_0, \\
+	H_0(n_0 m_0 k) = H_0(m_0).
+\end{flalign*}
+On the other hand, fixing a representative $w_0$ of the nontrivial element in the Weyl group inside $K$, we have
+\begin{flalign*}
+	H_{{\overline P}_0}(x) &= H_{{\overline P}_0}(w_0^{-1} w_0 x) \\
+				&= H_{{\overline P}_0}(w_0^{-1}) + H_{{\overline P}_0}((w_0n_0w_0^{-1})(w_0m_0w_0^{-1})(w_0k)) \\
+				&= 0 + H_{{\overline P}_0}(w_0 m_0 w_0^{-1}) \\
+				&= w_0.H_{{\overline P}_0}(m_0) = w_0.H_{M_0}(m_0)
+				&= -H_0(m_0) = -H_0(x).
+\end{flalign*}
+Equipped with this calculation, we observe,
+\begin{flalign*}
+v_{M_0}(\lambda, x) = \frac{v_{P_0}(\lambda, x)}{\theta_0(\lambda)}
+						+ \frac{v_{{\overline P}_0}(\lambda, x)}{\theta_{{\overline P}_0}(\lambda)} \\
+					&= \frac{\exp(-\sprod{\lambda}{H_{P_0}(x)})}{\sprod{\lambda}{\beta_1^\vee}}
+						+ \frac{\exp(-\sprod{\lambda}{-H_{P_0}(x)})}{\sprod{\lambda}{-\beta_1^\vee}} \\
+					&= \frac{\exp(-\lambda_1 H_0(x))}{\lambda_1} - \frac{\exp(\lambda_1 H_0(x))}{\lambda_1}.
+\end{flalign*}
+Taking the limit as $\lambda \to 0$ gives {\color{red}check this!}
+\[ v_0(x) = -2 \sprod{\varpi_1}{H_0(x)} \]
+and more explicitly, if $t = \begin{pmatrix} t & \\ & t^{-1} \end{pmatrix}$ then $v_0(x) = -2\ln \mod{t}$. 
 }
+
+%\exp(-\sprod{\lambda}{H_0(x)}) = \exp(\sprod{-\lambda_1 \varpi_1}{H_0(m)}) = \exp(-\lambda_1 \log \mod{\varpi_1(m)}) = \mod{t}^{-\lambda_1}. \]
+%Similarly we compute $v_{\oP_0}(\lambda, x) = \mod{t}^{\lambda_1}$. The wall in $\aaa_0$ in this case corresponds to $\lambda = 0$ in which case these two functions agree. So this is a $(G, M_0)$-family and 
+%\begin{align*}
+%	v_M(x) & = \lim_{\lambda \to 0} \frac{v_0(\lambda, x)}{\theta_0(\lambda)} + \frac{v_{\oP_0}(\lambda, x)}{\theta_{\oP_0}(\lambda)} \\
+%			& = \lim_{\lambda \to 0} \frac{\mod{t}^{-\lambda_1} - \mod{t}^{\lambda_1}}{\lambda_1} = -2\ln \mod{t}.
+%\end{align*}
+%}
 
 In order to express all $\o \in \O$, Arthur defines weighted orbital integrals first for umramified coarse conjugacy classes, and then extends that definition to every $\o \in \O$. Given $f \in \CCC_c^\infty(G(\A))$ there is a finite set $S$ of places containing the Archimedean place such that $f$ is a finite sum of functions whose component in $v \not \in S$ is the characteristic function of the maximal compact subgroup $K_v$ of $G(Q_v)$. Thus there is no loss in generality in assuming that $f \in \CCC_c^\infty(G(\Q_S))$. For unramified coarse conjugacy classes (and more generally whenever $G_\gamma = M_\gamma$), Arthur defines the weighted orbital integral as 
 \begin{equation} \label{jm}
@@ -737,7 +772,7 @@ The expression for $J_M(\gamma, f)$ is not well-defined when $\o$ is not anisotr
 \[ J_{M_0}(1, f) = \lim_{a \to 1} J_{M_0}(a, f) + r_{M_0}^G(a) J_G(a, f). \]
 }
 
-In general he shows there exist functions $r_M^L(\gamma, a)$ for Levi subgroups $L$ containing $M$, denoted as $L \in \LLL(M)$ such that the limit
+For general $G$, he shows there exist functions $r_M^L(\gamma, a)$ for Levi subgroups $L$ containing $M$, denoted as $L \in \LLL(M)$ such that the limit
 \[ J_M(\gamma, f) := \lim_{a \to 1} \sum_{L \in \LLL(M)} r_M^L(a) J_L(a\gamma, f) \]
 exists and equals the integral of $f$ with respect to a Borel measure on the set $\gamma^G$ (see \cite{clay}*{p. 103}). Having defined the weighted orbital integrals, Arthur proves the fine geometric expansion as
 \begin{theorem} \cite{clay}*{Theorem 19.2}
