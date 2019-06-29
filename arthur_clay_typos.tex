@@ -1,0 +1,150 @@
+\documentclass[11pt]{amsart}
+
+\usepackage[adobe-utopia]{mathdesign}	
+\let\circledS\undefined
+
+\usepackage{geometry}               
+\usepackage{amsrefs} 				
+\usepackage[T1]{fontenc}
+\geometry{letterpaper}
+\usepackage{amssymb, color}
+\usepackage[toc,page]{appendix}
+
+\usepackage{fancyhdr}
+\setlength{\headheight}{13pt}
+\usepackage{lastpage} 
+
+\usepackage{xypic}
+\usepackage{enumerate} 
+
+\usepackage{fancyvrb}	
+\usepackage[usenames,dvipsnames]{xcolor}
+\fvset{frame=single,framesep=1mm,fontfamily=tt,fontsize=\scriptsize,numbers=left,framerule=.3mm,numbersep=1mm,commandchars=\\\{\}}
+
+\usepackage{graphicx}
+\usepackage{longtable}		% Long table
+\usepackage[colorlinks = true, citecolor = red]{hyperref}
+
+\newcommand*{\myTagFormat}[2]{(\cref{#1})($#2$)}
+\newcommand{\eqname}[1]{\tag*{#1}} 
+\renewcommand\qedsymbol{$\clubsuit$}
+
+\fancyhf{} 
+\rfoot{Page \thepage\ of \pageref{LastPage}}
+\fancyhead[LE]{\leftmark} 
+\fancyhead[RO]{\rightmark} 
+
+\pagestyle{fancy}
+\bibliographystyle{amsalpha}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     Math macros
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def\A{\mathbb A}
+\def\C{\mathbb C}
+\def\Q{\mathbb Q}
+\def\R{\mathbb R}
+\def\Z{\mathbb Z}
+\def\AAA{\mathcal A}	% Automorphic forms
+\def\CCC{\mathcal C}
+\def\DDD{\mathcal D}
+\def\FFF{\mathcal F}
+\def\LLL{\mathcal L}
+\def\MMM{\mathfrak M}	% (G,M) family of intertwining operators 
+\def\PPP{\mathcal P}
+\def\O{\mathcal O}
+\def\o{\scalebox{0.8}{$\scriptstyle\mathcal{O}$}}
+\def\aaa{\mathfrak a}
+\def\cb#1{{\color{blue}#1}}
+\def\d{\text d}
+\def\K{\textbf K}
+\def\Ad{\operatorname{Ad}}
+\def\Aut{\operatorname{Aut}}
+\def\bs{\setminus} 			% had \backslash earlier
+\def\det{\operatorname{det}}
+\def\dim{\operatorname{dim}}
+\def\Gal{\operatorname{Gal}}
+\def\GL{\operatorname{GL}}
+\def\geom{\text{geom}}
+\def\Hom{\operatorname{Hom}}
+\def\Id{\operatorname{Id}}
+\def\Ind{\operatorname{Ind}}
+\def\l{\ell}
+\def\Lone{L^1}
+\def\Ltwo{L^2}
+\def\lmod#1{\left\lvert #1 \right\vert} % Large mod
+\def\Lieg{\mathfrak g}
+\def\mod#1{\vert #1 \vert} % absolute value, mod
+\def\norm#1{\Vert #1 \Vert} % norm
+\def\RRR{\mathcal R}
+\def\Re{\operatorname{Re}}
+\def\Res{\operatorname{Res}}
+\def\se{\subseteq}
+\def\sprod#1#2{\left\langle #1 , #2 \right\rangle}  % pairing
+\def\trace{\operatorname{trace}}
+\def\Vol{\operatorname{Vol}}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\title{List of corrections / typos in Arthur's Clay notes}
+\author{ Abhishek Parab}
+\email{abhishekparab@gmail.com}
+\date{\today}                       % Activate to display a given date or no date
+
+\maketitle
+
+This is a list of corrections and typographical errors in Arthur's Clay notes. If you notice typos not included here, please email me at \href{mailto:abhishekparab@gmail.com}{abhishekparab@gmail.com}. Any errors in these errata is entirely my fault. Notation: ``p.x l.y" refers to line y from the top on page x (not counting headers) whereas ``p.x l.-y" refers to line y counted from the bottom (counting lines in footnotes).
+
+\hfill Abhishek\\[2em]
+
+\begin{longtable} {ll}
+	p. 12 l. 18: & Replace $G(F_S)$ with $G(\cb{\Q_S})$. \\[0.5em]
+	p. 35 l. 4: & The definition of intertwining operator should have the term $\text{e}^{-(s\lambda + \rho_{P'})(H_{P'}(x))}$ \\ &  inside the integral. \\[0.5em]	
+	p. 35 l. -15:  & The line should read ${\color{blue}x \mapsto} \displaystyle \sum_{P \in \PPP} n_P^{-1} \int_{i\aaa_P^*} E(x, F_P(\lambda), \lambda) \d \lambda$. \\[0.5em]
+	p. 38 l. -1: & $\tau_P(H_P(\delta x))$ should be replaced with $\tau_P(H_P(\delta x) \cb{- T})$. \\[0.5em]
+	p. 42 Figure 8.5: & The point labelled $H$ is $\cb{H_1}$. \\[0.5em]
+	p. 44 l. 10: & The matrix $\begin{pmatrix} u_1 & 0 \\ 0 & u_1^{-1} \end{pmatrix}^{-1}$ should be replaced with $\begin{pmatrix} u_1 & \cb{*} \\ 0 & u_1^{-1} \end{pmatrix}^{-1}$. \\[0.5em]
+	p. 46 l. 13: & Replace $Q$ with $\cb{P}$. \\[0.5em]
+	p. 46 l. 16: & Replace $P$ with $\cb{Q}$. \\[0.5em]
+	p. 55 l. 3: & The integral should be replaced with a \cb{sum}. \\[0.5em]
+	p. 59 l. -4: & Replace $G(\Q)_\gamma$ with $G(\Q)_{\cb{\gamma_1}}$ at both places. \\[0.5em]
+	p. 61 l. 3: & Replace $f(x^{-1} \gamma x)$ with $f(x^{-1} \cb{\gamma_1} x)$. \\[0.5em]
+	p. 61 l. 6: & $\chi_T$ should be $\cb{\psi_T}$. \\[0.5em]
+	p. 66 l. -6: & The $\PPP$ should be replaced with \cb{$P$} in the index of the direct sum.\\[0.5em]
+	p. 67 l. 5, 6: & The $\PPP$ in $\mathcal B_{\PPP, \chi}$ should be replaced with \cb{$P$} at both places. \\[0.5em]
+	p. 67 l. -13: & The integral is over $i\aaa_{\cb{P_1}}^*$. \\[0.5em]
+	p. 73 l. -7: & The integral is missing $\cb{\d n}$. \\[0.5em]
+	p. 75 l. 14: & Replace $=$ with $\cb{\leq}$. \\[0.5em]
+	p. 82 l. -6: & The term $H_Q(\delta x)$ should be replaced with $H_Q(\cb{y})$ in Equation (15.5). \\[0.5em]
+	p. 97 l. -3: & The sum is taken over $\cb{Q \in \FFF(M)}$. \\[0.5em]
+	p. 101 l. -4: & Replace $c_M^{Q_2}(\lambda)$ with $\cb{d}_M^{Q_2}(\lambda)$. \\[0.5em]
+	p. 101 l. -2: & Replace $d_M^{Q_1}$ with $d_M^{\cb{Q_2}}$. \\[0.5em]
+	p. 105 l. 1: & The line should read ``is the point \cb{in} $K_S$ such that $\dots$". \\[0.5em]
+	p. 105 l. 13: & The integral is taken over $M_{Q, \gamma}(F_S)\bs M_Q(F_S)$. \\[0.5em]
+	p. 109 l. -20: & The last sum needs to be taken over $Q \in \FFF(L)$. \\[0.5em]
+	p. 115 l. 8: & The reference is [\textbf{\cb{A12}}, Corollary 8.7] and not \textbf{A11}. \\[0.5em]
+	p. 139 l. -6: & $I_M(\gamma, f)$ to be replaced by $\cb{J}_M(\gamma, f)$. \\[0.5em]
+	p. 142 l. -16: & The integrand should read $h(y) (R_{y^{-1}}f)_{\cb{Q, y}} \d y$. \\[0.5em]
+	p. 147 l. 14: & The function $\phi$ is on the space $\cb{\prod_{\text{temp}}}(G(F_S))\times \aaa_{G, S}$. \\[0.5em]
+	p. 149 l. 14: & The equation referred to should be (\cb{22.13}) and not (23.13). \\[0.5em]
+	p. 151 l. -7: & The sum should be taken over $M \in \cb{\LLL}$. \\[0.5em]
+	p. 232 l. -7: & The integral is missing a $\cb{\d \pi}$. \\[1em]
+%	p. l. : & \\[0.5em]
+%	p. l. : & \\[0.5em]
+%	p. l. : & \\[0.5em]
+%	p. l. : & \\[0.5em]
+%	p. l. : & \\[0.5em]
+	
+\end{longtable}
+
+\end{document}
