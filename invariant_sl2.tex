@@ -514,109 +514,62 @@ Now onward fix $T_1$ and $\omega$ satisfying this theorem. Define the \underline
 Write $F^G(x, T)$ to be the characteristic function in $x$ of the projection of $\SSS^G(T_1, T, \omega)$ onto $G(\Q)\bs G(\A)$. More generally for a standard parabolic subgroup $P$ define 
 \[ \SSS^P(T_1) = \SSS^P(T_1, \omega), \; \SSS^P(T_1, T) = \SSS^P(T_1, T, \omega) \text{ and } F^P(x, T) \]
 by replacing $\Delta_0, \hat\Delta_0$ and $G(\Q)\bs G(\A)$ with $\Delta_0^P, \hat \Delta_0^P$ and $P(\Q)\bs G(\A)$ in the respective definitions. We have the partition lemma of Arthur:
-\begin{lemma}
+\begin{lemma} \label{partition_lemma}
 	For any $x \in G(\A)$, 
 	\[ \sum_{P \supseteq P_0} \sum_{\delta \in P_0(\Q) \bs G(\Q)} F^P(\delta x, T) \tau_P(H_P(\delta x) - T) = 1 \]
 \end{lemma}
 For a geometric interpretation of this lemma, see \cite{clay}*{p. 39}. \cb{In the case of $\sl(2)$ the content of this lemma is that the fundamental domain for $\sl(2)$ is partitioned according to standard parabolic subgroups as in \cref{fig:sd}. }
 
-We will apply this lemma in a more general setting. Let $P_1 \se P$. Then
-\[ P_1 \bs P \simeq (P_1 \cap M_P) N_P \bs M_P N_P \simeq P_1 \cap M_P \bs M_P. \]
-Set
-\[\tau_{P_1}^P := \tau_{P_1 \cap M_P}; \quad \hat\tau_{P_1}^P := \hat\tau_{P_1 \cap M_P}. \]
-We can consider these functions as defined on $\aaa_0$ but depending only on the projection of $\aaa_0$ onto $\aaa_{P_1}^P$: 
-\[ \aaa_0 = \aaa_0^{P_1} \oplus \aaa_{P_1}^P \oplus \aaa_P. \]
-The more general version of the above lemma states that 
-\begin{lemma}
-	For fixed $P$, the sum
-	\[ \sum_{\substack{P_1 : \\ P_0 \se P_1 \se P}} \sum_{\delta_1 \in P_1(\Q) \bs P(\Q)} 
-			F^{P_1}(\delta_1 x, T) \tau_{P_1}^P (H_{P_1}(\delta x) - T) \]
-	equals 1. 
-\end{lemma}
-
-\begin{proof}
-	Apply the previous lemma to $M_P$ instead of $G$. If $y = nmk$ where $n \in N_P(\A), m \in M_P(\A)$ and $k \in K$ then
-	\[ H_{P_1}(y) = H_{M_{P_1}}(m). \]
-	The sum $P_0 \se P' \se M_P$ is equivalent (taking $P' := P_1 \cap M_P$) to $P_1 : P_0 \se P_1 \se P$. {\color{red} Make this more clear.} Thus, 
-	\[ F^{P'}(\delta x, T) = F^{M_P \cap P_1} (--) = F^{P_1}(--). \]
-\end{proof}
-
 We now begin the proof of \cite{clay}*{Theorem 6.1} for $G=\sl(2)$. There are many simplifications since $\sl(2)$ has rank one. In particular,
 \[ k^T(x) = K_G(x, x) - \sum_{\delta \in P_0(\Q)\bs G(\Q)} \hat\tau_0(H_0(\delta x) - T) K_0(\delta x, \delta x). \]
 
+We multiply the first term above by the LHS of \cref{partition_lemma} which yields (for $P=G$),
+\[ F(x, T) + \sum_{\delta \in P_0(\Q)\bs G(\Q)} \tau_0(H_0(\delta x) - T) = 1. \]
+\begin{flalign*} 
+	\therefore k^T(x) = F(x, T) K_G(x, x) \ +  
+	\sum_{\delta \in P_0(\Q)\bs G(\Q)} \left( 
+		\tau_0(H_0(\delta x) - T) K_G(\delta x, \delta x)
+		- \hat\tau_0(H_0(\delta x) - T) . K_{P_0}(\delta x, \delta x) \right).
+\end{flalign*}
 
-Substituting the above lemma in the definition of $k^T(x)$ gives
-\begin{multline*}
-	k^T(x) 	 = \sum_{P \supseteq P_0} (-1)^{\apg} \sum_{\delta \in P(\Q)\bs G(\Q)} K_P(\delta x, \delta x) 
-				\hat\tau_P(H_P(\delta x) - T) \\
-			 = \sum_{P \supseteq P_0} (-1)^{\apg} \sum_{\delta \in P(\Q)\bs G(\Q)} \left[
-				\sum_{P_1 \subseteq P} \sum_{\delta_1 \in P_1(\Q) \bs P(\Q)} F^{P_1}(\delta_1 \delta x, T)
-				\tau_{P_1}^P(H_{P_1}(\delta_1 \delta x) - T) \right] \\
-			 	\hat\tau_P(H_P(\delta x) - T) 
-				K_P(\delta x, \delta x),
-\end{multline*}
-where
-\[ K_P(x, y) = \int_{N_P(\A)} \sum_{\gamma \in M_P(\Q)} f(x^{-1} \gamma n y) \d n. \]
+The first term (corresponding to $P=G$),
+\[ F(x, T) K_G(x, x) = F(x, T) \sum_{\gamma \in G(\Q)} f(x^{-1}\gamma x) \]
+is nonzero when $F(x, T)=1$, i.e., when the image of $x$ is in a compact subset of the Siegel set. Thus the integral over $G(\Q) \bs G(\A)^1$ of this term converges absolutely. It only remains to analyze the second term. Since $\tau_0(H-T) = 1$ if and only if $\hat\tau_0(H-T) = 1$ we may as well assume this to be the case. Thus we only need to consider the integral over $x \in G(\Q)\bs G(\A)$ for which $\tau_0(H_0(x) - T) = \hat\tau_0(H_0(x) - T) = 1$. Thus $x$ lies in the ``upper" unbounded subset of the Siegel domain of \cref{fig:sd}. We would like to show the integral
+\begin{flalign*}
+	\int_{G(\Q)\bs G(\A)^1} \sum_{\delta \in P_0(\Q)\bs G(\Q)} \tau_0(H_0(\delta x) - T) \left(K_G(x, x) - K_0(\delta x, \delta x) \right) \d x \\
+	= \int_{P_0(\Q)\bs G(\A)^1} \tau_0(H_0(x) - T) \Big( K_G(x, x) - K_0(x, x) \Big) \d x
+\end{flalign*}
+converges absolutely. Write $x = p_0 a_0 k$ where $p_0 \in P_0(\Q) \bs M_0(\A)^1 N_0(\A), a_0 \in A_0(\R)^\circ$ and $k \in K$. Since $p_0$ and $k$ belong to compact sets, it suffices to consider the integral over $a_0 \in A_0(\R)^\circ$ such that 
+\[ \tau_0(H_0(a_0)-T) = 1. \]
+Let 
+\begin{flalign*}
+	K_{P_0, G}(x) & := K_G(x, x) - K_0(x, x) \\
+			& = \sum_{\mu \in G(\Q)} f(x^{-1}\mu x) - \sum_{\gamma \in M_0(\Q)} \int_{N_0(\A)} 
+				f(x^{-1} \gamma n x) \d n.
+\end{flalign*}
+Arthur uses the compactness of $f$ to show the first sum over $G(\Q)$ can in fact be taken over $P_0(\Q)$. He carries out the example computation for $G = \sl(2)$ on p. 44 in \cite{clay}. Thus, 
+\[ k_{P_0, G}(x) = \sum_{\mu \in M_0(\Q)} \left[\sum_{\nu \in N_0(\Q)} f(x^{-1} \mu \nu x) -
+		\int_{N_0(\A)} f(x^{-1} \mu n x) \d n \right]. \]
+Using the isomorphism $\exp : \nnn_0 \xrightarrow{\sim} N_0$, one replaces the sum (resp. integral) over the group $N_0$ by a sum (resp. integral) over $\nnn_0$ which would allow us to apply Poisson summation formula. Thus,
+\[ k_{P_0, G}(x) = \sum_{\mu \in M_0(\Q)} \left[ \sum_{\zeta \in \nnn_0(\Q)} f(x^{-1} \mu \exp(\zeta) x) -
+		\int_{X \in \nnn_0(\A)} f(x^{-1} \mu \exp(X) x) \d X.		
+ \right] \]
+Fixing a nontrivial additive character $\psi$ on $\A/\Q$ and a bilinear form on $\nnn_0(\A) \simeq \A$ and applying Poisson summation formula to the first term yields
+\[ k_{P_0, G}(x) = \sum_{\mu \in M_0(\Q)} \sum_{\xi \in \nnn_0(\Q) \bs \{0 \}} \int_{\nnn_0(\A)}
+		f(x^{-1} \mu \exp(X_1) x) \psi(\sprod{\xi, X_1}) \d X_1.
+\]
+It is here that the cancellation occurs due to the alternating sum over standard parabolic subgroups. For $\sl(2)$, this cancellation is reflected in the sum over $\xi \in \nnn_0(\Q) \bs \{0\}$. Since $f$ is of compact support so the function
+\[ h_{x, \mu}(Y_0) = \int_{X_1 \in \nnn_0(\A)} f(x^{-1} \mu \exp(X_1) . \psi(\sprod{Y_1, X_1})) \d X_1 \]
+is rapidly decreasing. It is a basic property of Fourier transforms that the $a_0$-component of $x = p_0 a_0 k$ acts on $\xi \in \nnn_0(\Q) \bs \{0\}$ by dilations. The function $h_{x, \mu}$ is finitely supported in $\mu \in M_0(\Q)$ again because of the compact support of $f$. Thus the integral of $k_{P_0, G}(x)$ over $P_0(\Q)\bs G(\A)$ converges absolutely. 
 
-If $\delta_1 \in P(\Q)$ then
-\begin{align*}
-	K_P(\delta_1 x, \delta_1 y) & = \int_{N_P(\A)} \sum_{\gamma \in M_P(\Q)} f(x^{-1}\delta_1^{-1} 
-			\gamma n \delta_1 y) \d n \\
-			& = \int_{N_P(\Q)\bs N_P(\A)} \sum_{\gamma \in P(\Q)} f(x^{-1} \delta_1^{-1} \gamma n \delta_1 y) \d n \\
-			& = K_P(x, y).
-\end{align*}
-Similarly $H_G$ is $G(\Q)$-invariant and $H_P$ is $P(\Q)$-invariant. So $H_P(\delta x) = H_P(x)$ for $\delta_1 \in P(\Q)$. So the sums over $\delta \in P(\Q)\bs G(\Q)$ and $\delta_1 \in P_1(\Q)\bs P(\Q)$ can be combined together giving 
-\[ k^T(x) = \sum_{\substack{P_1, P : \\ P_0 \se P_1 \se P}} (-1)^{\apg} \sum_{\delta \in P_1(\Q)\bs G(\Q)}
-			F^{P_1}(\delta x, T) \tau_{P_1}^P(H_{P_1}(\delta x) - T) \hat\tau_P(H_P(\delta x) - T) 
-			K_P(\delta x, \delta x). \]
-Denote $\tau_{P_1}^P(H_{P_1}(\delta x) - T) \hat\tau_P(H_P(\delta x) - T) = \tau_{P_1}^P(H_1) \hat\tau_P(H_1)$, where $H_1 = H_{P_1}(\delta x) - T \in \aaa_0$. We claim that 
-\[ \tau_{P_1}^P(H_1)\hat\tau_P(H_1) = \sum_{\substack{P_2, Q :\\ P \se P_2 \se Q}} (-1)^{a_{P_2} - a_Q}  
-		\tau_{P_1}^Q(H_1) \hat\tau_Q(H_1). \]
-To see this we use the binomial theorem
-\begin{equation} \label{binom}
-	\sum_{F \se S} (-1)^{\mod{F}} = \begin{cases} 0 \qquad \text{ if } S \neq \emptyset \\
-			1 \qquad \text{ if } S = \emptyset \end{cases}
-\end{equation}
-and write the right hand side as
-\[ \sum_Q \left( \sum_{\substack{ P_2 : \\ P \se P_2 \se Q}} (-1)^{a_{P_2} - a_Q} \right) \tau_{P_1}^Q(H_1) \hat\tau_Q(H_1). \]
-The term in the parentheses is 1 precisely when $P=Q$ which gives the left hand side. Thus we have
-\[ \tau_{P_1}^P(H_1) \hat\tau_P(H_1) = \sum_{P_2 : P \se P_2} \sigma_{P_1}^{P_2}(H_1), \]
-where 
-\[ \sigma_{P_1}^{P_2}(H_1) = \sum_{Q : P_2 \se Q} (-1)^{a_{P_2} - a_Q} \tau_{P_1}^Q(H_1) \hat\tau_Q(H_1). \]
-The lemma below characterizes the function $\sigma_{P_1}^{P_2}$. It is closely related to the combinatorial identities of Langlands and Arthur. Although it doesn't have much content for the group $\sl(2)$, seeing the cancellations even in the case of $\sl(3)$ is quite illuminating and strongly recommended. 
+\qed
 
-\begin{lemma}
-	Suppose $P_1 \se P_2$ and $H_1 = H_1^2 + H_2$ under the isomorphism $\aaa_{P_1}^G = \aaa_{P_1}^{P_2} \oplus \aaa_{P_2}^G$. The function $\sigma_{P_1}^{P_2}$ has the following properties. 
-	\begin{enumerate}
-		\item $\sigma_{P_1}^{P_2}(H_1) \in \{0, 1\}$. 
-		\item If $\sigma_{P_1}^{P_2}(H_1) = 1$ then $\tau_{P_1}^{P_2}(H_1) = 1$ and $\norm{H_2} \leq c.\norm{H_1^2}$ for $c = c(P_1, P_2) > 0$. 
-	\end{enumerate}
-\end{lemma}
 
-The statement follows after proving that $\sigma_{P_1}^{P_2}(H_1)$ is the characteristic function of $H_1 \in \aaa_1$ such that 
-\begin{enumerate}[i]
-	\item $\alpha(H) > 0 \; \forall \alpha \in \Delta_{P_1}^{P_2} \quad (\Rightarrow \ \tau_{P_1}^{P_2}(H_1) = 1),$
-	\item $\alpha(H) \leq 0 \; \forall \alpha \in \Delta_{P_1} \bs \Delta_{P_1}^{P_2},$ and
-	\item $\varpi(H) > 0 \; \forall \varpi \in \hat\Delta_{P_2}.$
-\end{enumerate}
 
-We can substitute this in the expression for $k^T(x)$ to get
-\begin{align*}
-	k^T(x) & = \sum_{P_1 \se P} (-1)^{\apg} \sum_{\delta \in P_1(\Q) \bs G(\Q)} F^{P_1}(\delta x, T) 
-			\left[ \sum_{\substack{P_2 : \\ P \se P_2}} \sigma_{P_1}^{P_2}(H_{P_1}(\delta x) - T) \right]
-			K_P(\delta x, \delta x) \\
-			& = \sum_{P_1 \se P_2} \sum_{\delta \in P_1(\Q) \bs G(\Q)} F^{P_1}(\delta x, T) 
-			 \sigma_{P_1}^{P_2}(H_{P_1}(\delta x) - T) k_{P_1, P_2}(\delta x),
-\end{align*}
-where 
-\[ k_{P_1, P_2}(x) = \sum_{\substack{P :\\ P_1 \se P \se P_2}} (-1)^{\apg} K_P(x, x). \]
-We know that the function 
-\[ \chi^T(x) := F^{P_1}(x, T) \sigma_{P_1}^{P_2}(H_{P_1}(x) - T) \]
-takes values in $\{0, 1\}$. Thus, 
-\[ \mod{k^T(x)} \leq \sum_{P_1 \se P_2} \sum_{\delta \in P_1(\Q) \bs G(\Q)} \chi^T(\delta x) \mod{k_{P_1, P_2}(\delta x)}. \]
-Using the Iwasawa decomposition we write $x \in P_1(\Q) \bs G(\A)^1$ as $x = p_1 a_1 k$ with $p_1 \in P_1(\Q) \bs N_{P_1}(\A)M_{P_1}(\A)^1, a \in \AAA_{P_1} \cap G(\A)^1$ and $k \in K$. Assuming $\chi^T(x) = 1$ means $p_1$ takes values in the compact set $\omega$. The integral of $k^T(x, f)$ over $G(\Q)\bs G(\A)^1$ in the definition of $J^T(f)$ can be split according to this decomposition of $x$. The integrals over $p_1$ and $k$ are thus compactly supported thus can be ignored when we integrate the kernel over $G(\Q)\bs G(\A)^1$. 
 
-Also, $H_{P_1}(p_1 a_1 k) = H_{P_1}(a) =: H_2 + H_1^2 \in \aaa_{P_2} \oplus \aaa_{P_1}^{P_2}$. 
+
+
+
 
 \begin{remark}
 	Arthur says the integrand is compactly supported in $H_2 \in \aaa_{P_2}$ which doesn't seem to be the case. However following the proof of this theorem in \cite{duke}*{p. 947}, we only need the bound $\norm{H_2} \leq c \norm{H_1^2}$. 
