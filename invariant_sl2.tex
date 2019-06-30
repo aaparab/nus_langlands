@@ -736,31 +736,23 @@ Also, $\theta_{\oP_0}(\lambda) = -\lambda_1$ as $\Delta_{\oP_0}^\vee = \{ -\beta
 On the other hand, fixing a representative $w_0$ of the nontrivial element in the Weyl group inside $K$, we have
 \begin{flalign*}
 	H_{{\overline P}_0}(x) &= H_{{\overline P}_0}(w_0^{-1} w_0 x) \\
-				&= H_{{\overline P}_0}(w_0^{-1}) + H_{{\overline P}_0}((w_0n_0w_0^{-1})(w_0m_0w_0^{-1})(w_0k)) \\
+				&= H_{{\overline P}_0}(w_0^{-1}) + H_{{\overline P}_0}\left((w_0n_0w_0^{-1})(w_0m_0w_0^{-1})(w_0k)\right) \\
 				&= 0 + H_{{\overline P}_0}(w_0 m_0 w_0^{-1}) \\
-				&= w_0.H_{{\overline P}_0}(m_0) = w_0.H_{M_0}(m_0)
+				&= w_0.H_{{\overline P}_0}(m_0) = w_0.H_{M_0}(m_0) \\
 				&= -H_0(m_0) = -H_0(x).
 \end{flalign*}
 Equipped with this calculation, we observe,
 \begin{flalign*}
-v_{M_0}(\lambda, x) = \frac{v_{P_0}(\lambda, x)}{\theta_0(\lambda)}
+v_{M_0}(\lambda, x) &= \frac{v_{P_0}(\lambda, x)}{\theta_0(\lambda)}
 						+ \frac{v_{{\overline P}_0}(\lambda, x)}{\theta_{{\overline P}_0}(\lambda)} \\
 					&= \frac{\exp(-\sprod{\lambda}{H_{P_0}(x)})}{\sprod{\lambda}{\beta_1^\vee}}
 						+ \frac{\exp(-\sprod{\lambda}{-H_{P_0}(x)})}{\sprod{\lambda}{-\beta_1^\vee}} \\
 					&= \frac{\exp(-\lambda_1 H_0(x))}{\lambda_1} - \frac{\exp(\lambda_1 H_0(x))}{\lambda_1}.
 \end{flalign*}
-Taking the limit as $\lambda \to 0$ gives {\color{red}check this!}
+Taking the limit as $\lambda \to 0$ gives
 \[ v_0(x) = -2 \sprod{\varpi_1}{H_0(x)} \]
-and more explicitly, if $t = \begin{pmatrix} t & \\ & t^{-1} \end{pmatrix}$ then $v_0(x) = -2\ln \mod{t}$. 
+and more explicitly, if $m_0 = \begin{pmatrix} t & \\ & t^{-1} \end{pmatrix}$ then $v_0(x) = -2\ln \mod{t}$ where $\mod{t}$ is the norm on the ideles of $\Q$. 
 }
-
-%\exp(-\sprod{\lambda}{H_0(x)}) = \exp(\sprod{-\lambda_1 \varpi_1}{H_0(m)}) = \exp(-\lambda_1 \log \mod{\varpi_1(m)}) = \mod{t}^{-\lambda_1}. \]
-%Similarly we compute $v_{\oP_0}(\lambda, x) = \mod{t}^{\lambda_1}$. The wall in $\aaa_0$ in this case corresponds to $\lambda = 0$ in which case these two functions agree. So this is a $(G, M_0)$-family and 
-%\begin{align*}
-%	v_M(x) & = \lim_{\lambda \to 0} \frac{v_0(\lambda, x)}{\theta_0(\lambda)} + \frac{v_{\oP_0}(\lambda, x)}{\theta_{\oP_0}(\lambda)} \\
-%			& = \lim_{\lambda \to 0} \frac{\mod{t}^{-\lambda_1} - \mod{t}^{\lambda_1}}{\lambda_1} = -2\ln \mod{t}.
-%\end{align*}
-%}
 
 In order to express all $\o \in \O$, Arthur defines weighted orbital integrals first for umramified coarse conjugacy classes, and then extends that definition to every $\o \in \O$. Given $f \in \CCC_c^\infty(G(\A))$ there is a finite set $S$ of places containing the Archimedean place such that $f$ is a finite sum of functions whose component in $v \not \in S$ is the characteristic function of the maximal compact subgroup $K_v$ of $G(Q_v)$. Thus there is no loss in generality in assuming that $f \in \CCC_c^\infty(G(\Q_S))$. For unramified coarse conjugacy classes (and more generally whenever $G_\gamma = M_\gamma$), Arthur defines the weighted orbital integral as 
 \begin{equation} \label{jm}
