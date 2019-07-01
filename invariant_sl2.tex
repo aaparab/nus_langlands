@@ -455,12 +455,14 @@ We can write $T \in \aaa_0$ as $T = t \beta_1^\vee$ with $t \in \R$ and $\Delta_
 which implies
 \[ \log \mod{\varpi_1(x)} > \varpi_1(t \beta_1^\vee) = t. \]
 Identifying $x \in \sl(2, \Q)\bs \sl(2, \A) / K$ with the point $x + iy$ in the fundamental domain (note the unfortunate abuse of notation) we have
-\begin{flalign*}
-	H_0(x) & = H_0(\begin{pmatrix} 1 & x \\ 0 & 1 \end{pmatrix} \begin{pmatrix} y^{1/2} & \\ & y^{-1/2} \end{pmatrix} \begin{pmatrix} \cos \theta & \sin \theta \\ -\sin \theta & \cos \theta \end{pmatrix}) \\
-			& = H_0(\begin{pmatrix} y^{1/2} & \\ & y^{-1/2} \end{pmatrix}).
-\end{flalign*} 
-\[ \therefore \log \mod{\varpi_1(\begin{pmatrix} y^{1/2} & \\ & y^{-1/2} \end{pmatrix})} > t \]
-\[ \therefore y > \exp(2t). \]
+\begin{equation} \label{x_decom}
+	\begin{aligned} 
+		H_0(x) & = H_0(\begin{pmatrix} 1 & x \\ 0 & 1 \end{pmatrix} \begin{pmatrix} y^{1/2} & \\ & y^{-1/2} \end{pmatrix} \begin{pmatrix} \cos \theta & \sin \theta \\ -\sin \theta & \cos \theta \end{pmatrix}) \\
+			& = H_0(\begin{pmatrix} y^{1/2} & \\ & y^{-1/2} \end{pmatrix}). \\
+	\therefore \log & \mod{\varpi_1(\begin{pmatrix} y^{1/2} & \\ & y^{-1/2} \end{pmatrix})} > t \\
+	\therefore y & > \exp(2t).
+	\end{aligned}
+\end{equation}
 }
 
 \begin{figure}
@@ -699,69 +701,88 @@ The result of these two assumptions is that if $(P, \alpha)$ and $(P', \alpha')$
 where $\gamma$ is any element in the $M_P(\Q)$-conjugacy class $\alpha$ and $v_P(x)$ is the volume of the projection onto $\aaa_P^G$ of the convex hull of certain points. Let us investigate this invariant orbital integral for $\sl(2)$. 
 
 \cb{
-If $\o \in \O$ is the class corresponding to irreducible characteristic polynomials then it consists entirely of semisimple elements and since it corresponds to the rational datum $[(G, \alpha)], \alpha$ being the related anisotropic conjugacy class, the second condition is redundant. It therefore satisfies both these conditions. For any $\gamma \in \alpha$, the centralizer $H_\gamma$ (which is connected) is an anisotropic torus over $\Q$ so by the theorem of Borel and Harish-Chandra, the space
+If $\o \in \O$ is the class corresponding to irreducible characteristic polynomials then it consists entirely of semisimple elements and since it corresponds to the rational datum $[(G, \alpha)]$, where $\alpha$ is the related anisotropic conjugacy class. The second condition is trivial so satisfies both these conditions. For any $\gamma \in \alpha$, the centralizer $H_\gamma$ (which is connected) is an anisotropic torus over $\Q$ so by the theorem of Borel and Harish-Chandra, the space
 \[ M_P(\Q)_\gamma\bs M_P(\A)_\gamma = G(\Q)_\gamma \bs G(\A)_\gamma = H_\gamma(\Q)\bs H_\gamma(\A) \]
 is compact. Its volume is the first term above. The term $v_M(x) = 1$ when $M=G$. Thus the contribution of these classes to the geometric side is
-\[ J_{\o}(f) = \vol(G(\Q)_\gamma \bs G(\A)) \int_{G(\A)_\gamma \bs G(\A)} f(x^{-1} \gamma x) \d x. \]
+\[ J_{\o}(f) = \vol(G(\Q)_\gamma \bs G(\A)_\gamma) \int_{G(\A)_\gamma \bs G(\A)} f(x^{-1} \gamma x) \d x. \]
 This expression agrees exactly with that in the co-compact case. }
 
 \cb{
-Suppose $\o$ corresponds to the case when the characteristic polynomial has distinct roots, say $t$ and $t^{-1}$. Assume $\sigma = \begin{pmatrix} t & \\ & t^{-1} \end{pmatrix} \in \o$. If $\gamma \in \o$ then its Jordan decomposition would be $\gamma = (g\sigma g^{-1}) . u$ where $u$ is unipotent and $g \in G(\Q)$. Then $g u g^{-1}$ would be in $M_0(\Q)$, the centralizer of $\sigma$. Thus $u=1$ so $\o$ consists of semisimple elements only. Moreover $G(\Q)_\sigma = M_0(\Q)$ so both conditions are satisfied and 
+Suppose $\o$ corresponds to the case when the characteristic polynomial has distinct roots, say $t$ and $t^{-1}$. Assume $\sigma = \begin{pmatrix} t & \\ & t^{-1} \end{pmatrix} \in \o$. If $\gamma \in \o$ then its Jordan decomposition would be $\gamma = (g\sigma g^{-1}) . u$ where $u$ is unipotent and $g \in G(\Q)$. Then $g^{-1} u g$ would be in $M_0(\Q)$, the centralizer of $\sigma$. Thus $u=1$ so $\o$ consists of semisimple elements only. Moreover $G(\Q)_\sigma = M_0(\Q)$ so both conditions are satisfied and 
 \begin{flalign*}
 	J_{\o}(f) &=  \vol(M_0(\Q) \bs M_0(\A)^1) \int_{G(\A)_\gamma \bs G(\A)} f(x^{-1} \gamma x) v_{M_0}(x) \d x \\
 			&= \vol(\Q^*\bs \I^1) \int_{M_0(\A) \bs G(\A)}  f(x^{-1} \gamma x) v_{M_0}(x) \d x.
 \end{flalign*}
 }
 
-The map $v_{M_0}(x)$ is simple to describe for $G = \sl(2)$. However in general the function $v_M(x)$ is the smooth function corresponding to the $(G, M)$-family, a combinatorial notion that plays an essential role even in the spectral side. We briefly discuss it below. 
+The map $v_{M_0}(x)$ and in general, $v_P(\lambda, x), \ \lambda \in i\aaa_P^*$ is easy to describe. It is the volume of the projection onto $\aaa_P^G$ of the convex hull of 
+\[ \{ -w^{-1} H_{P'}(n_w x) : w \in W(\aaa_P, \aaa_{P'}), P' \supseteq P_0 \}. \]
+The points $H_{P'}(n_w x)$ lie in $\aaa_{P'}^G$ and $w^{-1}$ maps them into $\aaa_P^G$. The element $n_w$ represents a representative of $w$ in $G(\Q)$. \cb{When $G=\sl(2)$ then $P' = P_0$ and the two points are $-H_{P_0}(x)$ and $H_{P_0}(n_w x)$ where $n_w = \begin{pmatrix} 0 & 1 \\ -1 & 0 \end{pmatrix}$ is a representative of the long element. Thus,
+\[ v_0(x) = - H_0(x) - H_0(n_w x). \]
+It is an interesting exercise to use the decomposition in \cref{x_decom} to show that $v_0(x) \geq 0$. }
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% General notion of a (G, M)-family:
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Let $\PPP(M)$ denote the set of standard parabolic subgroups of $G$ containing $M$. (This is different from the class $\PPP$ of associated parabolic subgroups of Langlands which we discuss in the next section.) A family 
-\[ \{c_P(\lambda) : \lambda \in i\aaa_M^*, P \in \PPP(M)\} \]
-is called a $(G, M)$-family if the functions $c_P(\lambda)$ and $c_{P'}(\lambda)$ agree for $\lambda$ in the common wall between $P$ and $P'$ whenever they share such a wall. Given such a $(G, M)$-family, we can naturally assign to it a smooth function as
-\[ c_M(\lambda) = \sum_{P \in \PPP(M)} c_P(\lambda) \theta_P(\lambda)^{-1} \]
-where $\theta_P(\lambda) = \vol(\aaa_M^G / \Z \Delta_P^\vee)^{-1} . \displaystyle\prod_{\alpha \in \Delta_P} \lambda(\alpha^\vee)$. The function $v_M(x)$ is the value as $\lambda \to 0$ of the smooth function
-\[ \sum_{P \in \PPP(M)} v_P(\lambda, x) \theta_P(\lambda)^{-1} \]
-corresponding to the $(G, M)$-family 
-\[ \{ v_P(\lambda, x) = \exp(-\sprod{\lambda}{H_P(x)}) \}. \]
-Let us see the pole cancellation by evaluating it for $\sl(2)$. 
+%However in general the function $v_M(x)$ is the smooth function corresponding to the $(G, M)$-family, a combinatorial notion that plays an essential role even in the spectral side. We briefly discuss it below. 
+%
+%Let $\PPP(M)$ denote the set of standard parabolic subgroups of $G$ containing $M$. (This is different from the class $\PPP$ of associated parabolic subgroups of Langlands which we discuss in the next section.) A family 
+%\[ \{c_P(\lambda) : \lambda \in i\aaa_M^*, P \in \PPP(M)\} \]
+%is called a $(G, M)$-family if the functions $c_P(\lambda)$ and $c_{P'}(\lambda)$ agree for $\lambda$ in the common wall between $P$ and $P'$ whenever they share such a wall. Given such a $(G, M)$-family, we can naturally assign to it a smooth function as
+%\[ c_M(\lambda) = \sum_{P \in \PPP(M)} c_P(\lambda) \theta_P(\lambda)^{-1} \]
+%where $\theta_P(\lambda) = \vol(\aaa_M^G / \Z \Delta_P^\vee)^{-1} . \displaystyle\prod_{\alpha \in \Delta_P} \lambda(\alpha^\vee)$. The function $v_M(x)$ is the value as $\lambda \to 0$ of the smooth function
+%\[ \sum_{P \in \PPP(M)} v_P(\lambda, x) \theta_P(\lambda)^{-1} \]
+%corresponding to the $(G, M)$-family 
+%\[ \{ v_P(\lambda, x) = \exp(-\sprod{\lambda}{H_P(x)}) \}. \]
+%Let us see the pole cancellation by evaluating it for $\sl(2)$. 
+%
+%\cb{
+%In the case of $\sl(2)$, we take $M = M_0$ which gives $\PPP(M_0) = \{ P_0, \oP_0 = w_0 P_0 w_0^{-1} \}$. The space $\aaa_0$ is spanned by $\beta_1^\vee$ and by $\varpi_1^\vee = \beta_1 / 2$. Write $\lambda \in \aaa_0^*$ as $\lambda = \lambda_1 \varpi_1$. 
+%\[ \theta_0(\lambda) = \vol(\aaa_0/\Z \beta_1^\vee) . \sprod{\lambda}{\beta_1^\vee} = \lambda_1. \]
+%Also, $\theta_{\oP_0}(\lambda) = -\lambda_1$ as $\Delta_{\oP_0}^\vee = \{ -\beta_1^\vee\}$. Write $x \in G(\A)$ as $x = n_0 m_0 k$ with $n_0 \in N_0(\A), m_0 \in M_0(\A)$ and $k \in K$. Clearly, 
+%\begin{flalign*}
+%	H_0 = H_{P_0} : G(\A) \to \aaa_0, \\
+%	H_0(n_0 m_0 k) = H_0(m_0).
+%\end{flalign*}
+%On the other hand, fixing a representative $w_0$ of the nontrivial element in the Weyl group inside $K$, we have
+%\begin{flalign*}
+%	H_{{\overline P}_0}(x) &= H_{{\overline P}_0}(w_0^{-1} w_0 x) \\
+%				&= H_{{\overline P}_0}(w_0^{-1}) + H_{{\overline P}_0}\left((w_0n_0w_0^{-1})(w_0m_0w_0^{-1})(w_0k)\right) \\
+%				&= 0 + H_{{\overline P}_0}(w_0 m_0 w_0^{-1}) \\
+%				&= w_0.H_{{\overline P}_0}(m_0) = w_0.H_{M_0}(m_0) \\
+%				&= -H_0(m_0) = -H_0(x).
+%\end{flalign*}
+%Equipped with this calculation, we observe,
+%\begin{flalign*}
+%v_{M_0}(\lambda, x) &= \frac{v_{P_0}(\lambda, x)}{\theta_0(\lambda)}
+%						+ \frac{v_{{\overline P}_0}(\lambda, x)}{\theta_{{\overline P}_0}(\lambda)} \\
+%					&= \frac{\exp(-\sprod{\lambda}{H_{P_0}(x)})}{\sprod{\lambda}{\beta_1^\vee}}
+%						+ \frac{\exp(-\sprod{\lambda}{-H_{P_0}(x)})}{\sprod{\lambda}{-\beta_1^\vee}} \\
+%					&= \frac{\exp(-\lambda_1 H_0(x))}{\lambda_1} - \frac{\exp(\lambda_1 H_0(x))}{\lambda_1}.
+%\end{flalign*}
+%Taking the limit as $\lambda \to 0$ gives
+%\[ v_0(x) = -2 \sprod{\varpi_1}{H_0(x)} \]
+%and more explicitly, if $m_0 = \begin{pmatrix} t & \\ & t^{-1} \end{pmatrix}$ then $v_0(x) = -2\ln \mod{t}$ where $\mod{t}$ is the norm on the ideles of $\Q$. 
+%}
 
 \cb{
-In the case of $\sl(2)$, we take $M = M_0$ which gives $\PPP(M_0) = \{ P_0, \oP_0 = w_0 P_0 w_0^{-1} \}$. The space $\aaa_0$ is spanned by $\beta_1^\vee$ and by $\varpi_1^\vee = \beta_1 / 2$. Write $\lambda \in \aaa_0^*$ as $\lambda = \lambda_1 \varpi_1$. 
-\[ \theta_0(\lambda) = \vol(\aaa_0/\Z \beta_1^\vee) . \sprod{\lambda}{\beta_1^\vee} = \lambda_1. \]
-Also, $\theta_{\oP_0}(\lambda) = -\lambda_1$ as $\Delta_{\oP_0}^\vee = \{ -\beta_1^\vee\}$. Write $x \in G(\A)$ as $x = n_0 m_0 k$ with $n_0 \in N_0(\A), m_0 \in M_0(\A)$ and $k \in K$. Clearly, 
-\begin{flalign*}
-	H_0 = H_{P_0} : G(\A) \to \aaa_0, \\
-	H_0(n_0 m_0 k) = H_0(m_0).
-\end{flalign*}
-On the other hand, fixing a representative $w_0$ of the nontrivial element in the Weyl group inside $K$, we have
-\begin{flalign*}
-	H_{{\overline P}_0}(x) &= H_{{\overline P}_0}(w_0^{-1} w_0 x) \\
-				&= H_{{\overline P}_0}(w_0^{-1}) + H_{{\overline P}_0}\left((w_0n_0w_0^{-1})(w_0m_0w_0^{-1})(w_0k)\right) \\
-				&= 0 + H_{{\overline P}_0}(w_0 m_0 w_0^{-1}) \\
-				&= w_0.H_{{\overline P}_0}(m_0) = w_0.H_{M_0}(m_0) \\
-				&= -H_0(m_0) = -H_0(x).
-\end{flalign*}
-Equipped with this calculation, we observe,
-\begin{flalign*}
-v_{M_0}(\lambda, x) &= \frac{v_{P_0}(\lambda, x)}{\theta_0(\lambda)}
-						+ \frac{v_{{\overline P}_0}(\lambda, x)}{\theta_{{\overline P}_0}(\lambda)} \\
-					&= \frac{\exp(-\sprod{\lambda}{H_{P_0}(x)})}{\sprod{\lambda}{\beta_1^\vee}}
-						+ \frac{\exp(-\sprod{\lambda}{-H_{P_0}(x)})}{\sprod{\lambda}{-\beta_1^\vee}} \\
-					&= \frac{\exp(-\lambda_1 H_0(x))}{\lambda_1} - \frac{\exp(\lambda_1 H_0(x))}{\lambda_1}.
-\end{flalign*}
-Taking the limit as $\lambda \to 0$ gives
-\[ v_0(x) = -2 \sprod{\varpi_1}{H_0(x)} \]
-and more explicitly, if $m_0 = \begin{pmatrix} t & \\ & t^{-1} \end{pmatrix}$ then $v_0(x) = -2\ln \mod{t}$ where $\mod{t}$ is the norm on the ideles of $\Q$. 
-}
-
-In order to express all $\o \in \O$, Arthur defines weighted orbital integrals first for umramified coarse conjugacy classes, and then extends that definition to every $\o \in \O$. Given $f \in \CCC_c^\infty(G(\A))$ there is a finite set $S$ of places containing the Archimedean place such that $f$ is a finite sum of functions whose component in $v \not \in S$ is the characteristic function of the maximal compact subgroup $K_v$ of $G(Q_v)$. Thus there is no loss in generality in assuming that $f \in \CCC_c^\infty(G(\Q_S))$. For unramified coarse conjugacy classes (and more generally whenever $G_\gamma = M_\gamma$), Arthur defines the weighted orbital integral as 
+Finally we consider the case when $\o \in \O$ has repeated eigenvalues. Thus $\o = \UUU$ or $-\UUU$ and this is the most difficult case to handle.} In order to express all $\o \in \O$, Arthur carries out the following:
+\begin{enumerate}
+	\item He defines weighted orbital integrals $J_M(\gamma, f)$ attached to unramified classes $\o \leftrightarrow [M, \alpha]$; $\gamma \in \alpha$ \cite{MR625344}. 
+	\item When $\gamma \in M(\Q_S)$ is arbitrary, he replaces $\gamma$ by $a \gamma$ for a point $a$ in general position, and shows that multiplying by a suitable function gives a finite limit as $a \to 1$ \cite{MR932848}.
+	\item Having defined the weighted orbital integrals $J_M(\gamma, f)$ for general $\gamma$, he proves the geometric expansion for the unipotent variety of $G$, namely, $J_{\text{unip}}(f)$ in terms of the aforementioned weighted orbital integrals \cite{MR828844}. 
+	\item Finally he inductively defines the fine expansion for general classes $\o \in \O$ by putting together the above objects \cite{MR835041}.
+\end{enumerate}
+Given $f \in \CCC_c^\infty(G(\A))$ there is a finite set $S$ of places containing the Archimedean place such that $f$ is a finite sum of functions whose component in $v \not \in S$ is the characteristic function of the maximal compact subgroup $K_v$ of $G(Q_v)$. Thus there is no loss in generality in assuming that $f \in \CCC_c^\infty(G(\Q_S))$. For unramified coarse conjugacy classes (and more generally whenever $G_\gamma = M_\gamma$), Arthur defines the weighted orbital integral as 
 \begin{equation} \label{jm}
 	J_M(\gamma, f) = \mod{D(\gamma)}^{\frac{1}{2}} \int_{G_\gamma(\Q_S)\bs G(\Q_S)} f(x^{-1}\gamma x) v_M(x) \d x
 \end{equation}
 where $D(\gamma)$ is the generalized Weyl discriminant. Using combinatorial identities associated with products of $(G, M)$-families, Arthur proves an expression for $J_M(\gamma, f)$ in terms of finite sums of products of local orbital integrals $J_M(\gamma_v, f_v)$. Thus $J_M(\gamma, f)$ is to be regarded as a local object. 
 
 The expression for $J_M(\gamma, f)$ is not well-defined when $\o$ is not anisotropic. The extreme case of this is when $\o$ is the unipotent variety containing $\gamma = 1$ in $\sl(2)$. Here $v_P(x)$ is undefined and the integral in \cref{jm} does not converge. Arthur explains the solution he implements in this situation with an example of the group $\gl(2)$ but the same works for $\sl(2)$. \cb{Take $a = \begin{pmatrix} t & \\ & t^{-1} \end{pmatrix}$ with $t \neq \pm 1$ and calculate $J_{M_0}(a\gamma, f)$ where $\gamma = 1$. Arthur notes that adding a factor $r_{M_0}^G(a) = \log \mod{t^2 - t^{-2}}$ to $J_{M_0}(f)$ gives a locally integrable function around $a=1$. He defines
-\[ J_{M_0}(1, f) = \lim_{a \to 1} J_{M_0}(a, f) + r_{M_0}^G(a) J_G(a, f). \]
+\begin{equation} \label{lim_orbint}
+	J_{M_0}(1, f) = \lim_{a \to 1} J_{M_0}(a, f) + r_{M_0}^G(a) J_G(a, f).
+\end{equation}
 }
 
 For general $G$, he shows there exist functions $r_M^L(\gamma, a)$ for Levi subgroups $L$ containing $M$, denoted as $L \in \LLL(M)$ such that the limit
@@ -773,16 +794,29 @@ exists and equals the integral of $f$ with respect to a Borel measure on the set
 			a^M(S, \gamma) J_M(\gamma, f). \]
 \end{theorem}
 
-\cb{
-We will explain these terms for $\sl(2)$. The sum over $(M, S)$-equivalence classes above is finite. The general definition of $(G, S)$-equivalence is somewhat involved but two elements $\gamma_1$ and $\gamma_2$ in the unipotent variety $\UUU$ are $(G, S)$-equivalent if they are $G(F_S)$-conjugate. Typically there are infinitely many $G(\Q)$-conjugacy classes in $\UUU$ but only finitely many $(G, S)$-equivalent classes. Two elements
+\cb{We use the above theorem to evaluate $J_{\o}(f)$ when $\o$ is the unipotent orbit $\UUU_G$. The case when $\o = (-1)*\UUU$ is similar. The term corresponding to $M=M_0$ is easily seen to be 
+\[ \frac{1}{2} a_{M_0}(S, 1) J_{M_0}(1, f) = \frac{1}{2} \vol(Q^*\bs \I^1) J_{M_0}(1, f), \]
+where $J_{M_0}(1, f)$ is as in \cref{lim_orbint}. When $M=G$, the size of $(\UUU_G(\Q))_{G, S}$ is well-known from basic number theory to be either 1, 2, 4 or 8 depending on $S$. Indeed, two elements
 \[ \gamma_1 = \begin{pmatrix} 1 & c_1 \\ 0 & 1 \end{pmatrix} \text{ and } \gamma_2 = \begin{pmatrix} 1 & c_2 \\ 0 & 1 \end{pmatrix}
 \]
-with $c_1, c_2 \in \Q^*$ are $G(\Q)$-conjugate if and only if $c_1 c_2^{-1} \in \Q^{*2}$. Note that $[\Q^* : \Q^{*2}]$ is infinite but for any place $v$ finite or infinite, $[\Q_v^* : \Q_v^{*2}]$ is finite. }
-
-\cb{
-We will end this section by observing that when $\o$ is unramified, we recover the invariant orbital integral in \cref{jo_anis}. For in this case there is only one element in the $(M, S)$-equivalence class $(M(\Q)\cap \o)_{M, S} = (G(\Q)\cap \o)_{G, S} = \o_{G, S}$ (see \cite{clay}*{p. 113} for the general definition of $(G, S)$-equivalence.) It is easy to see that the expression for the global coefficient $a^G(S, \gamma)$ reduces to $\vol(G(\Q)\bs G(\A)^1)$. 
+with $c_1, c_2 \in \Q^*$ are $G(\Q)$-conjugate if and only if $c_1 c_2^{-1} \in \Q^{*2}$. The contribution from $u=1$ is 
+\[ \vol(G(\Q)\bs G(\A)^1) J_G(1, f). \]
+Combining everything together we have, 
+\[ J_{\text{unip}}(f) = \sum_{u \in (\UUU_G(\Q))_{G, S}} a^G(S, u) J_G(u, f) + \frac{1}{2} \vol(\Q^*\bs \I^1) J_{M_0}(1, f). \]
 }
 
+\cb{ Putting all terms together, the expression for the fine geometric expansion for $\sl(2)$ is
+	\begin{flalign*}
+		J_{\text{geom}}(f) = \sum_{\o \text{anisotropic}} & \vol(G(\Q)_\gamma \bs G(\A)^1_\gamma) 
+					\int_{G(\A)_\gamma \bs G(\A)} f(x^{-1} \gamma x) \d x \\
+			& + \sum_{\substack{\o : \text{char. poly.} \\ \text{distinct roots.}}} \vol(\Q^*\bs \I^1) 
+					\int_{M_0(\A)\bs G(\A)} f(x^{-1}\gamma x) v_0(x) \d x \\
+			& + \sum_{u \in (\UUU_G(\Q))_{G, S}} \left[ a^G(S, u) J_G(u, f) + a^G(S, -u) J_G(-u, f) 
+					\right] \\
+			& + \frac{1}{2} \vol(\Q^*\bs \I^1) \left[ J_{M_0}(1, f) + J_{M_0}(-1, f) 
+					\right]. 
+	\end{flalign*}
+}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %			The coarse spectral expansion     
@@ -1021,19 +1055,58 @@ Although this function $\varphi_{r, s}$ is not compactly supported, the trace fo
        review={\MR{518111}},
     }
 
-%	\bib{MR625344}{article}
-%	{
-%       author={Arthur, James},
-%       title={The trace formula in invariant form},
-%       journal={Ann. of Math. (2)},
-%       volume={114},
-%       date={1981},
-%       number={1},
-%       pages={1--74},
-%       issn={0003-486X},
-%       review={\MR{625344}},
-%       doi={10.2307/1971376},
-%    }
+	\bib{MR625344}{article}
+	{
+       author={Arthur, James},
+       title={The trace formula in invariant form},
+       journal={Ann. of Math. (2)},
+       volume={114},
+       date={1981},
+       number={1},
+       pages={1--74},
+       issn={0003-486X},
+       review={\MR{625344}},
+       doi={10.2307/1971376},
+    }
+    
+	\bib{MR828844}{article}{
+       author={Arthur, James},
+       title={A measure on the unipotent variety},
+       journal={Canad. J. Math.},
+       volume={37},
+       date={1985},
+       number={6},
+       pages={1237--1274},
+       issn={0008-414X},
+       review={\MR{828844}},
+       doi={10.4153/CJM-1985-067-0},
+    }
+
+    \bib{MR835041}{article}{
+       author={Arthur, James},
+       title={On a family of distributions obtained from orbits},
+       journal={Canad. J. Math.},
+       volume={38},
+       date={1986},
+       number={1},
+       pages={179--214},
+       issn={0008-414X},
+       review={\MR{835041}},
+       doi={10.4153/CJM-1986-009-4},
+    }
+    
+	\bib{MR932848}{article}{
+       author={Arthur, James},
+       title={The local behaviour of weighted orbital integrals},
+       journal={Duke Math. J.},
+       volume={56},
+       date={1988},
+       number={2},
+       pages={223--293},
+       issn={0012-7094},
+       review={\MR{932848}},
+       doi={10.1215/S0012-7094-88-05612-8},
+    }
 
     \bib{clay}{article}{		% Clay notes
        author={Arthur, James},
@@ -1050,6 +1123,7 @@ Although this function $\varphi_{r, s}$ is not compactly supported, the trace fo
        pages={1--263},
        review={\MR{2192011}},
     }
+    
 %    
 %    \bib{MR3135650}{book}		% Arthur Endoscopic
 %    {
