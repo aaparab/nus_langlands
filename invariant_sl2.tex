@@ -138,12 +138,6 @@
 \maketitle
 \setcounter{tocdepth}{1}		% Shows chapters in toc (table of contents) but not sections
 
-\begin{itemize}
-	\item \href{https://www.dropbox.com/s/155lg41rwiberbu/invariant_sl2.pdf?dl=0}{Link to latest version}
-	\item \href{https://www.dropbox.com/s/p8942kgaygr8tfv/invariant_sl2_print.pdf?dl=0}{Monochromatic version}
-\end{itemize}
-
-
 \begin{abstract}
 	My objective for the mini-course is to get a working understanding of the terms involved in the Arthur-Selberg trace formula using the example of $\sl(2)$. Starting with the co-compact case I will analyze Arthur's truncated kernel for $\sl(2)$. I will analyze the terms in the coarse and fine geometric and spectral expansions that arise from this truncated kernel. I end with the invariant trace formula and Kaletha will continue with the discussion of the stable trace formula. I will closely follow the excellent notes by Prof. Arthur in the Clay volume. 
 \end{abstract}
@@ -823,7 +817,7 @@ Combining everything together we have,
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{The spectral expansion}
 
-In this section we discuss the spectral equivalent of \cref{coarse_geom}. Unlike the co-compact case of the action of $H$ on $\Ltwo(\Gamma \bs H)$ of \cref{sec_cpt}, the representation $R_G$ of $G(\A)$ on $\Ltwo(G(\Q)\bs G(\A))$ does not decompose discretely. It is a direct sum of the discrete spectrum which consists of the cuspidal spectrum, and the continuous spectrum which is described by Langlands' theory of Eisenstein series. An excellent reference is the book of M{\oe}glin and Waldspurger \cite{MW}, who refer to their book as \textit{Une Paraphrase de l'\'{E}criture}, a Paraphrase of the Scriptures. 
+In this section we discuss the spectral equivalent of \cref{coarse_geom}. Unlike the co-compact case of the action of $H$ on $\Ltwo(\Gamma \bs H)$ of \cref{sec_cpt}, when $G$ is a connected reductive group, the representation $R_G$ of $G(\A)$ on $\Ltwo(G(\Q)\bs G(\A))$ does not decompose discretely. It is a direct sum of the discrete spectrum and the continuous spectrum which is described by Langlands' theory of Eisenstein series. An excellent reference is the book of M{\oe}glin and Waldspurger \cite{MW}, who refer to their book as \textit{Une Paraphrase de l'\'{E}criture}, a Paraphrase of the Scriptures. 
 
 Since $G(\A)$ is the direct product of $G(\A)^1$ and $\AAA_G = A_G(\R)^\circ$, given $\lambda \in \aaa_{G, \C}^*$ we can get a representation of $G(\A)$ on $\Ltwo(G(\Q) \bs G(\A))$ by
 \[ R_{G, \disc, \lambda}(x) = R_{G, \disc}(x) \exp(\sprod{\lambda}{H_G(x)}), \qquad x \in G(\A). \]
@@ -843,18 +837,14 @@ For any $y \in G(\A), \III_P(\lambda, y)$ maps the function $\phi \in \HHH_P$ to
 		\exp(\sprod{-(\lambda + \rho_P)}{H_P(x)}). \]
 Indeed, $\III_P(\lambda, y)$ is the representation induced from the (twisted) right regular representation on $M$ and the exponential factors are to ensure we land up in the right space after twisting. The operator $\III_P(\lambda, f)$ is defined in the usual manner. \cb{Let us investigate the space $\HHH_P$ for $P \in \PPP$ in $\sl(2)$. 
 \begin{itemize}
-	\item If $\varphi \in \HHH_G$ then $\varphi \in \Ltwo_{\disc}(G(\Q)\bs G(\A))$. 
-	\item If $P = P_0$ then
-		\begin{align*}
-			M_0(\Q)\bs M_0(\A)^1 & = \left\{ \begin{pmatrix} t & \\ & t^{-1}	\end{pmatrix} : t \in \Q^* \bs\I , \ \mod{t} = 1 \right\} \\
-					& = \Q^* \bs \I^1.
- 		\end{align*}
+	\item If $P=G$ then $\HHH_G = \Ltwo_{\disc}(G(\Q)\bs G(\A))$. 
+	\item If $P = P_0$ then $M_0(\Q)\bs M_0(\A)^1 \simeq \Q^* \bs \I^1$. 
 		Since this group is compact its spectrum is discrete. Moreover using the Iwasawa decomposition $G(\A) = P_0(\A) K$, we have
 		\[ N_0(\A)M_0(\Q)\AAA_0\bs G(\A) \simeq M_0(\Q)\bs M_0(\A)^1 \times K \simeq \Q^*\bs \I^1 \times \operatorname{SO}(2). \]
-		So if $\varphi \in \HHH_{P_0} = \HHH_0$ then $\varphi$ can be considered as a square-integrable function on the compact set $\Q^*\bs \I^* \times \operatorname{SO}(2)$. 
+		So if $\varphi \in \HHH_{P_0} = \HHH_0$ then $\varphi$ can be considered as a square-integrable function on the compact set $\Q^*\bs \I^1 \times \operatorname{SO}(2)$. 
 \end{itemize}
 }
-Denote by $\HHH_P^\circ$ the subspace of $K$-finite vectors in $\HHH_P$. For two standard parabolic subgroups $P, P'$, define the \underline{Weyl set} $W(\aaa_P, \aaa_{P'})$ of Langlands as the set of $\R$-linear isomorphisms from $\aaa_P$ to $\aaa_{P'}$ obtained by restricting the elements of the Weyl group $W = W^G$ of $G$ to $\aaa_P \se \aaa_0$. We say that $P$ and $P'$ are \underline{associated} if this set is non-empty and denote an equivalence class with respect to this relation as $\PPP$. \cb{In the case of $\sl(2)$ where there are two standard parabolic subgroups, namely $P_0, G$, it is easy to see that $W(\aaa_0, \aaa_G), W(\aaa_G, \aaa_G)$ and $W(\aaa_0, \aaa_0)$ have respectively 0, 1 and 2 elements. Thus there are two associated classes of parabolic subgroups, namely $\PPP = [P_0], [G]$. We strongly recommend working out the explicit associated classes in the case of $\gl(n)$ where standard parabolic subgroups are given by partitions of $n$.}
+Denote by $\HHH_P^\circ$ the subspace of $K$-finite vectors in $\HHH_P$. For two standard parabolic subgroups $P, P'$, define the \underline{Weyl set} $W(\aaa_P, \aaa_{P'})$ of Langlands as {\color{red} This is used in the geometric side. Define there!} the set of $\R$-linear isomorphisms from $\aaa_P$ to $\aaa_{P'}$ obtained by restricting the elements of the Weyl group $W = W^G$ of $G$ to $\aaa_P \se \aaa_0$. We say that $P$ and $P'$ are \underline{associated} if this set is non-empty and denote an equivalence class with respect to this relation as $\PPP$. \cb{In the case of $\sl(2)$ where there are two standard parabolic subgroups, namely $P_0, G$, it is easy to see that $W(\aaa_0, \aaa_G), W(\aaa_G, \aaa_G)$ and $W(\aaa_0, \aaa_0)$ have respectively 0, 1 and 2 elements. Thus there are two associated classes of parabolic subgroups, namely $\PPP = [P_0], [G]$.} We strongly recommend working out the explicit associated classes in the case of $\gl(n)$ where standard parabolic subgroups are given by partitions of $n$.
 
 The spectral decomposition of Langlands gives an orthogonal direct sum decomposition
 \[ \Ltwo(G(\Q)\bs G(\A)) \simeq \bigoplus_{\PPP} \Ltwo_\PPP(G(\Q)\bs G(\A)). \]
@@ -902,7 +892,7 @@ is equivalent to $\sigma$. We write $\XXX = \XXX^G$ for the set of cuspidal auto
 \cb{
 As we have seen earlier, there are two standard parabolic subgroups of $\sl(2)$ namely $P_0$ and $\sl(2)$. When $P = P_0$, the representation $\sigma$ is a cuspidal automorphic representation of 
 \[ M_0(\A)^1 \simeq \{ \begin{pmatrix} t & \\ & t^{-1} \end{pmatrix} : t \in \textbf I_\Q^1 \} \]
-so $\sigma$ corresponds to a character of $M_0(\A)^1 \simeq \I^1$ trivial on $\Q^*$. By the Peter-Weyl theorem, any Hecke character occurs exactly once in $\Ltwo(M_0(\Q)\bs M_0(\A))$. Suppose $(P_0, \sigma) \sim (P_1, \sigma_1)$ where $P_1$ is either $P_0$ or $\oP_0$. Since $M_0$ is commutative so $\sigma = \sigma_1$. On the other hand if $P = G$ then $\sigma$ is a cuspidal automorphic representation of $\sl(2, \A)$.
+so $\sigma$ corresponds to a character of $M_0(\A)^1 \simeq \I^1$ trivial on $\Q^*$. By the Peter-Weyl theorem, any Hecke character occurs exactly once in $\Ltwo(M_0(\Q)\bs M_0(\A)^1)$. Suppose $(P_0, \sigma) \sim (P_1, \sigma_1)$ where $P_1$ is either $P_0$ or $\oP_0$. Since $M_0$ is commutative so $\sigma = \sigma_1$. On the other hand if $P = G$ then $\sigma$ is a cuspidal automorphic representation of $\sl(2, \A)$.
 }
 
 If $s \in W(\aaa_P, \aaa_{P'})$ we define the intertwining operator
@@ -963,7 +953,7 @@ This gives the decomposition
 				\hat\tau_P(H_P(\delta x) - T).
 \end{align*}
 To prove the convergence of 
-\[ \int_{G(\Q)\bs G(\A)^1} \sum_{\chi \in \XXX} \mod{k_\chi^T}(x) \d x \]
+\[ \int_{G(\Q)\bs G(\A)^1} \sum_{\chi \in \XXX} \mod{k_\chi^T (x)} \d x \]
 is quite nontrivial and Arthur uses the truncation operator here. We won't go into the details but refer to Section 13 in the Clay notes. 
 
 Similar to the geometric side, Arthur gives a more explicit formula for `generic' classes. He defines a class $\chi \in \XXX$ to be \underline{unramified} if for any pair $(P, \sigma) \in \chi$, the stabilizer of $\sigma$ in $W(\aaa_P, \aaa_P)$ is $\{1\}$. \cb{In the case of $\sl(2)$, the classes $[(G, \sigma)]$ are always unramified since $W(\aaa_G, \aaa_G) = \{1\}$. As we have remarked earlier, if $(P_0, \sigma) \sim (P_1, \sigma_1)$ where $P_1$ is either $P_0$ or $\oP_0$ then $\sigma = \sigma_1$. Thus the classes $[(P_0, \sigma)]$ are not unramified. 
