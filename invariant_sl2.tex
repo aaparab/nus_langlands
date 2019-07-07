@@ -890,12 +890,15 @@ We define a \underline{cuspidal automorphic datum} to be an equivalence class of
 \[ s^{-1}\sigma' : m \mapsto \sigma'(w_s m w_s^{-1}), \qquad m \in M_P(\A)^1 \]
 is equivalent to $\sigma$. We write $\XXX = \XXX^G$ for the set of cuspidal automorphic data $\chi = [(P, \sigma)]$. 
 \cb{
-As we have seen earlier, there are two standard parabolic subgroups of $\sl(2)$ namely $P_0$ and $\sl(2)$. When $P = P_0$, the representation $\sigma$ is a cuspidal automorphic representation of 
-\[ M_0(\A)^1 \simeq \{ \begin{pmatrix} t & \\ & t^{-1} \end{pmatrix} : t \in \textbf I_\Q^1 \} \]
-so $\sigma$ corresponds to a character of $M_0(\A)^1 \simeq \I^1$ trivial on $\Q^*$. By the Peter-Weyl theorem, any Hecke character occurs exactly once in $\Ltwo(M_0(\Q)\bs M_0(\A)^1)$. Suppose $(P_0, \sigma) \sim (P_1, \sigma_1)$ where $P_1$ is either $P_0$ or $\oP_0$. Since $M_0$ is commutative so $\sigma = \sigma_1$. On the other hand if $P = G$ then $\sigma$ is a cuspidal automorphic representation of $\sl(2, \A)$.
+When $P=G, \sigma$ is a cuspidal automorphic representation of $\sl(2,\A)$ and when $P=P_0, \sigma$ is an irreducible unitary representation of $M_0(\A)^1$ such that the space $\Ltwo_{\text{cusp}, \sigma}(M_0(\Q)\bs M_0(\A)^1) = \Ltwo(M_0(\Q)\bs M_0(\A)^1)$ is nonzero. Thus $\sigma$ corresponds to a Hecke character of $\Q^*\bs \I^1$. Two pairs $(P_0, \sigma_1)$ and $(P_0, \sigma_2)$ are equivalent if $\sigma_2 \simeq s.\sigma_1 = \sigma_1^{-1}$ where $s$ is the nontrivial element in $W = W^G$. Thus the cuspidal automorphic data for $\sl(2)$ are:
+\begin{enumerate}
+\item $[(G, \sigma)]$ where $\sigma$ is a cuspidal automorphic representation of $G$,
+\item $[(P_0, \sigma), (P_0, \sigma^{-1})]$ where $\sigma$ is a character of $M_0(\A)^1$ trivial on $M_0(\Q)$ and $\sigma^2 \neq 1$, and
+\item $[(P_0, \sigma)]$ where $\sigma$ is a character of $M_0(\A)^1$ trivial on $M_0(\Q)$ and $\sigma^2 = 1$.
+\end{enumerate}
 }
 
-If $s \in W(\aaa_P, \aaa_{P'})$ we define the intertwining operator
+{\color{red} LATER: If $s \in W(\aaa_P, \aaa_{P'})$ we define the intertwining operator
 \[ M(s, \lambda) : \HHH_P \to \HHH_{P'} \]
 by
 \[ (M(s, \lambda)\phi)(x) = \int \phi(w_x^{-1}n x) \exp(\sprod{\lambda + \rho_P}{H_P(w_s^{-1}n x)})
@@ -907,7 +910,7 @@ As the name suggests, it intertwines $\III_P(\lambda)$ with $\III_{P'}(s\lambda)
  } \]
 Moreover,
 \[ E(x, \III_P(\lambda, y)\phi, \lambda) = E(xy, \phi, \lambda). \]
-These are the most important properties of Eisenstein series and intertwining operators. Formally they are easy to prove but to prove they converge and define meromorphic functions is very difficult. 
+These are the most important properties of Eisenstein series and intertwining operators. Formally they are easy to prove but to prove they converge and define meromorphic functions is very difficult. }
 
 Now we will define the decomposition
 \[ \Ltwo(G(\Q)\bs G(\A)) \bigoplus_\PPP \Ltwo_{\PPP-\cusp}(G(\Q)\bs G(\A)) \]
@@ -956,11 +959,44 @@ To prove the convergence of
 \[ \int_{G(\Q)\bs G(\A)^1} \sum_{\chi \in \XXX} \mod{k_\chi^T (x)} \d x \]
 is quite nontrivial and Arthur uses the truncation operator here. We won't go into the details but refer to Section 13 in the Clay notes. 
 
-Similar to the geometric side, Arthur gives a more explicit formula for `generic' classes. He defines a class $\chi \in \XXX$ to be \underline{unramified} if for any pair $(P, \sigma) \in \chi$, the stabilizer of $\sigma$ in $W(\aaa_P, \aaa_P)$ is $\{1\}$. \cb{In the case of $\sl(2)$, the classes $[(G, \sigma)]$ are always unramified since $W(\aaa_G, \aaa_G) = \{1\}$. As we have remarked earlier, if $(P_0, \sigma) \sim (P_1, \sigma_1)$ where $P_1$ is either $P_0$ or $\oP_0$ then $\sigma = \sigma_1$. Thus the classes $[(P_0, \sigma)]$ are not unramified. 
+Similar to the geometric side, Arthur gives a more explicit formula for `generic' classes. He defines a class $\chi \in \XXX$ to be \underline{unramified} if for every pair $(P, \sigma) \in \chi$, the stabilizer of $\sigma$ in $W(\aaa_P, \aaa_P)$ is $\{1\}$. \cb{In the case of $\sl(2)$, the classes $[(G, \sigma)]$ are always unramified since $W(\aaa_G, \aaa_G) = \{1\}$. Moreover, when $\sigma$ is a character of $M_0(\Q)\bs M_0(A)^1$ such that $\sigma^2 \neq 1$ then $s.\sigma = \sigma^{-1}$ so the class $\chi$ attached to such $(P_0, \sigma)$ is unramified. 
 }
-For $J_\chi(f)$ where $\chi = [(P, \pi)]$ is an unramified classes, Arthur gives an explicit expression
-\[ J_\chi(f) = m_{\cusp}(\pi) \int_{i\aaa_P^*} \trace\left(\MMM_P(\pi_\lambda) \III_P(\pi_\lambda, f)\right) \d \lambda. \]
-Here $m_{\cusp}(\pi)$ is the multiplicity of $\pi$ in the representation $R_{M_P, \cusp}$. The operator $\MMM_P(\pi_\lambda)$, which is a smooth function in $\lambda \in i\aaa_P^*$ corresponding to a $(G, M)$-family of intertwining operators. It is given as a limit
+For $J_\chi(f)$ where $\chi$ is an unramified classes corresponding to $(P, \sigma)$, Arthur gives an explicit expression
+\[ J_\chi(f) = m_{\cusp}(\sigma) \int_{i\aaa_P^*} \trace\left(\MMM_P(\sigma_\lambda) \III_P(\sigma_\lambda, f)\right) \d \lambda. \]
+We now briefly describe the terms involved and compute them for $G=\sl(2)$. Here $m_{\cusp}(\sigma)$ is the multiplicity of $\sigma$ in the representation $R_{M_P, \cusp}$. The operator $\MMM_P(\sigma_\lambda)$ is a smooth function in $\lambda \in i\aaa_P^*$ corresponding to a $(G, M)$-family of intertwining operators which we describe as follows. 
+
+For $\sigma$ an irreducible representation of $M_0(\A)^1$ and $\lambda \in \aaa_{M, \C}^*, \III_P(\sigma_\lambda)$ denotes the induced representation
+\[ \Ind_{P(\A)}^{G(\A)} \left( nm \mapsto \sigma(m) \exp(\sprod{\lambda}{H_M(m)}) \right). \]
+The operator $\III_P(\sigma_\lambda, f)$ is obtained from this representation by integrating over $f$ in the usual manner. The space of this operator is $\HHH_P$ and in particular is independent of $\lambda \in \aaa_{M, \C}^*$. Given $Q \in \PPP(M)$ there is a unique $s \in W(\aaa_P, \aaa_Q)$ such that $s(P) = Q$. The operator
+\[ M_{Q|P}(s, \lambda) = M(s, \lambda) = M_{Q|P}(\lambda): \HHH_P \to \HHH_Q \]
+defined by
+\[ (M(s, \lambda)\Phi)(x) = \int \Phi(w_s^{-1}nx) \exp(\sprod{\lambda + \rho_P}{H_P(w_x^{-1}nx)}) 
+		\exp(-\sprod{s\lambda + \rho_Q}{H_Q(x)}) \d n \]
+where the integral is taken over $N_Q(\A) \cap w_s N_P(\A) w_s^{-1} \bs N_Q(\A)$ intertwines the $G(\A)$-spaces $\HHH_P$ and $\HHH_Q$. It follows from Langlands' theory of Eisenstein series that this integral converges absolutely for $\lambda$ in a ``positive'' cone in $i\aaa_M^*$ and has meromorphic continuation to $\aaa_{M, \C}^*$. These intertwining operators play a central role in the theory of automorphic forms. As $Q$ varies over $\PPP(M)$ or equivalently as $s$ varies over cosets of $W^G/W^M$, the family
+\[ \{ M_{Q|P}(s, \lambda)^{-1} \circ M_{Q|P}(s, \lambda + \Lambda) : Q \in \PPP(M), \ \Lambda \in i\aaa_M^* \} \]
+can be seen to be a $(G, M)$-family and consequently gives rise to a smooth function of $\lambda \in i\aaa_M^*$, namely
+\[ \MMM_M(\sigma_\lambda) = \lim_{\Lambda \to 0} \ \sum_{Q \in \PPP(M)} \theta_Q(s\lambda)^{-1} M(\tilde w_s, \lambda)^{-1} M(\tilde w_s, \lambda + \Lambda). \]
+Estimates on this operator $\MMM_M(\sigma_\lambda)$ have been used to prove the absolute convergence of the spectral side for $\gl(n)$ by M{\"u}ller-Speh \cite{MS} and general $G$ by Finis-Lapid-M{\"u}ller \cite{FLM}.
+
+\cb{When $G = \sl(2)$ and $\chi \in \XXX$ corresponds to the pair $(G, \sigma)$ the spectral side
+\[ J_\chi(f) = m_{\text{cusp}}(\sigma) \int_{i\aaa_P^*} \trace\left(\MMM_P(\sigma_\lambda) \III_P(\sigma_\lambda, f)\right) \d \lambda \]
+reduces to $\trace \sigma(f)$. Since $P=G$ the integral vanishes and $\MMM_P(\sigma, \lambda) = 1$. Moreover $m_\text{cusp} (\sigma) = 1$ due to a result of Ramakrishna \cite{MR1792292}. Thus when $P=G$ we recover the expression for trace of $f$ as in the co-compact case. The classes 
+\[ \chi = [(P_0, \sigma), (P_0, \sigma^{-1})] \]
+for $\sigma$ a character of $M_0(\Q) \bs M_0(\A)^1$ with $\sigma^2 \neq 1$ are also unramified since the long element takes $\sigma$ to $\sigma^{-1}$ and vice versa. The contribution of such classes to the spectral side is given by an integral namely,
+\[ J_\chi(f) = \int_{i\aaa_0^*} \trace\left(\MMM_{P_0}(\sigma_\lambda) \III_{P_0}(\sigma_\lambda, f\right) \d \lambda. \]
+Note that the multiplicity $m_{\text{cusp}}(\sigma)$ is 1 by an application of the Peter-Weyl theorem since the group $M_0(\Q)\bs M_0(\A)^1$ is compact. 
+}
+
+Since the classes $(P_0, \sigma)$ are not unramified when $\sigma^2 = 1$, we need to analyze them using the fine spectral expansion that Arthur develops in \cite{MR681738}. The analysis of the spectral side is very technical and depends on a previous result on the Paley-Wiener theorem \cite{MR697608} so we will content with describing the final statement and the calculations for $\sl(2)$. 
+\\[5em]
+
+
+
+
+
+
+
+It is given as a limit
 \[ \MMM_P(\pi_\lambda) = \lim_{\zeta \to 0} \sum_{Q \in \PPP(M)} \sum_{s \in W(\aaa_P, \aaa_Q)} \
 		\theta_Q(s\lambda)^{-1} M(\tilde w_s, \pi_\lambda)^{-1} M(\tilde w_s, \pi_{\lambda + \zeta}) \]
 where $\tilde w_s$ is a representative of $s$ in the maximal compact subgroup $K$. 
@@ -1057,6 +1093,33 @@ Although this function $\varphi_{r, s}$ is not compactly supported, the trace fo
        issn={0003-486X},
        review={\MR{625344}},
        doi={10.2307/1971376},
+    }
+    
+    \bib{MR681738}{article}{
+       author={Arthur, James},
+       title={On a family of distributions obtained from Eisenstein series. II.
+       Explicit formulas},
+       journal={Amer. J. Math.},
+       volume={104},
+       date={1982},
+       number={6},
+       pages={1289--1336},
+       issn={0002-9327},
+       review={\MR{681738}},
+       doi={10.2307/2374062},
+    }
+    
+    \bib{MR697608}{article}{
+       author={Arthur, James},
+       title={A Paley-Wiener theorem for real reductive groups},
+       journal={Acta Math.},
+       volume={150},
+       date={1983},
+       number={1-2},
+       pages={1--89},
+       issn={0001-5962},
+       review={\MR{697608}},
+       doi={10.1007/BF02392967},
     }
     
 	\bib{MR828844}{article}{
@@ -1420,22 +1483,22 @@ Although this function $\varphi_{r, s}$ is not compactly supported, the trace fo
 %       doi={10.1090/memo/1108},
 %    } 
 %    
-%    \bib{MS}{article}		% Muller Speh
-%    {
-%       author={M\"uller, W.},
-%       author={Speh, B.},
-%       title={Absolute convergence of the spectral side of the Arthur trace
-%       formula for ${\rm GL}_n$},
-%       note={With an appendix by E. M.\ Lapid},
-%       journal={Geom. Funct. Anal.},
-%       volume={14},
-%       date={2004},
-%       number={1},
-%       pages={58--93},
-%       issn={1016-443X},
-%       review={\MR{2053600}},
-%       doi={10.1007/s00039-004-0452-0},
-%    }
+    \bib{MS}{article}		% Muller Speh
+    {
+       author={M\"uller, W.},
+       author={Speh, B.},
+       title={Absolute convergence of the spectral side of the Arthur trace
+       formula for ${\rm GL}_n$},
+       note={With an appendix by E. M.\ Lapid},
+       journal={Geom. Funct. Anal.},
+       volume={14},
+       date={2004},
+       number={1},
+       pages={58--93},
+       issn={1016-443X},
+       review={\MR{2053600}},
+       doi={10.1007/s00039-004-0452-0},
+    }
 %       
 %    \bib{MR2653248}{article}	% Ngo, Fundamental Lemma
 %    {
