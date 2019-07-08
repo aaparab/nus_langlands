@@ -979,53 +979,74 @@ can be seen to be a $(G, M)$-family and consequently gives rise to a smooth func
 Estimates on this operator $\MMM_M(\sigma_\lambda)$ have been used to prove the absolute convergence of the spectral side for $\gl(n)$ by M{\"u}ller-Speh \cite{MS} and general $G$ by Finis-Lapid-M{\"u}ller \cite{FLM}.
 
 \cb{When $G = \sl(2)$ and $\chi \in \XXX$ corresponds to the pair $(G, \sigma)$ the spectral side
-\[ J_\chi(f) = m_{\text{cusp}}(\sigma) \int_{i\aaa_P^*} \trace\left(\MMM_P(\sigma_\lambda) \III_P(\sigma_\lambda, f)\right) \d \lambda \]
-reduces to $\trace \sigma(f)$. Since $P=G$ the integral vanishes and $\MMM_P(\sigma, \lambda) = 1$. Moreover $m_\text{cusp} (\sigma) = 1$ due to a result of Ramakrishna \cite{MR1792292}. Thus when $P=G$ we recover the expression for trace of $f$ as in the co-compact case. The classes 
+\[ J_\chi(f) = m_{\text{cusp}}(\sigma) \int_{i\aaa_P^*} \trace\left(\MMM_M(\sigma_\lambda) \III_P(\sigma_\lambda, f)\right) \d \lambda \]
+reduces to $\trace \sigma(f)$. Since $P=G$ the integral vanishes and $\MMM_M(\sigma, \lambda) = 1$. Moreover $m_\text{cusp} (\sigma) = 1$ due to a result of Ramakrishna \cite{MR1792292}. Thus when $P=G$ we recover the expression for trace of $f$ as in the co-compact case. The classes 
 \[ \chi = [(P_0, \sigma), (P_0, \sigma^{-1})] \]
 for $\sigma$ a character of $M_0(\Q) \bs M_0(\A)^1$ with $\sigma^2 \neq 1$ are also unramified since the long element takes $\sigma$ to $\sigma^{-1}$ and vice versa. The contribution of such classes to the spectral side is given by an integral namely,
-\[ J_\chi(f) = \int_{i\aaa_0^*} \trace\left(\MMM_{P_0}(\sigma_\lambda) \III_{P_0}(\sigma_\lambda, f\right) \d \lambda. \]
+\[ J_\chi(f) = \int_{i\aaa_0^*} \trace\left( \MMM_{M_0}(\sigma_\lambda) \III_{P_0}(\sigma_\lambda, f) \right) \d \lambda. \]
 Note that the multiplicity $m_{\text{cusp}}(\sigma)$ is 1 by an application of the Peter-Weyl theorem since the group $M_0(\Q)\bs M_0(\A)^1$ is compact. 
 }
 
-Since the classes $(P_0, \sigma)$ are not unramified when $\sigma^2 = 1$, we need to analyze them using the fine spectral expansion that Arthur develops in \cite{MR681738}. The analysis of the spectral side is very technical and depends on a previous result on the Paley-Wiener theorem \cite{MR697608} so we will content with describing the final statement and the calculations for $\sl(2)$. 
-\\[5em]
+Since the classes $(P_0, \sigma)$ are not unramified when $\sigma^2 = 1$, we need to analyze them using the fine spectral expansion that Arthur develops in \cite{MR681738}. The analysis of the spectral side is very technical and depends on a previous result on the Paley-Wiener theorem \cite{MR697608} so we will content ourselves with describing the final statement and the terms therein. 
+% It makes use, among other things, of truncated Eisenstein series, a combinatorial analysis of various $(G, M)$-families and the existence of normalizing factors which normalize the intertwining operators. 
+For $\chi \in \XXX$, the expression for $J_\chi(f)$ is given as a sum over standard Levi subgroups $M \subseteq L, \pi \in \Pi_{\text{unit}}(M(\A)^1), s \in W^L(M)_{\reg}$ of 
+\begin{equation} \label{fine_spec} 
+	\frac{\mod{W_0^M}}{\mod{W_0^G}} \left| \det \left(s - 1|_{\aaa_M^G} \right) \right|^{-1} 
+		\int_{i\aaa_L^* / i\aaa_G^*} \trace \left( \MMM_L(P, \lambda) M_P(s, 0) \III_{P, \chi, \pi}(\lambda, f) \right) \d \lambda. 
+\end{equation}
 
-
-
-
-
-
-
-It is given as a limit
-\[ \MMM_P(\pi_\lambda) = \lim_{\zeta \to 0} \sum_{Q \in \PPP(M)} \sum_{s \in W(\aaa_P, \aaa_Q)} \
-		\theta_Q(s\lambda)^{-1} M(\tilde w_s, \pi_\lambda)^{-1} M(\tilde w_s, \pi_{\lambda + \zeta}) \]
-where $\tilde w_s$ is a representative of $s$ in the maximal compact subgroup $K$. 
-
-The fine spectral expansion is quite technical. It makes use, among other things, of truncated Eisenstein series, a combinatorial analysis of various $(G, M)$-families and the existence of normalizing factors which normalize the intertwining operators. The expression for the fine spectral expansion is given as a sum over Levi subgroups $M \subseteq L, t \geq 0, s \in W^L(M)_{\reg}$ of 
-\[ 
-	\frac{\mod{W_0^M}}{\mod{W_0^G}} \mod{\det(s - 1|_{\aaa_M^G})}^{-1} 
-		\int_{i\aaa_L^* / i\aaa_G^*} \trace \left( \MMM_L(P, \lambda) M_P(s, 0) \III_{P, t}(\lambda, f) \right) \d \lambda. 
-\]
-Let us understand the terms involved. The set $W^L(M)_{\reg}$ consists of elements $s \in W^L(M) = W^L(\aaa_M, \aaa_M)$ which satisfy $\det(s-1|_{\aaa_M^G}) \neq 0$. The operator $\MMM_L(P, \lambda)$ is the smooth function in $\lambda \in i\aaa_L^*$ corresponding to the $(G, L)$-family 
-\[ \{ \MMM_Q(\Lambda, \lambda, P) := M_{Q|P}(\lambda)^{-1} M_{Q|P}(\lambda + \Lambda) : Q \in \PPP(L), \Lambda \in i\aaa_L^* \} \]
-of intertwining operators. If $\lambda \in i\aaa_L^*$ and $s \in W^L(M)$ then $M_P(s, \lambda) = M_{P|P}(s, \lambda)$ is independent of $\lambda$, since $i\aaa_L^*$ is fixed by $s$. Arthur denotes this by $M_P(s, 0)$. Finally $\III_{P, t}(\lambda, f)$ is the restriction of the operator $\III_P(\lambda, f)$ on $\HHH_P$ to the invariant subspace 
-\[ \HHH_{P, t} = \bigoplus_{\norm{\Im \nu_\pi} = t} \HHH_{P, \chi, \pi}. \]
-We have a decomposition of $\HHH_{P, \chi}$ as
+Let us understand the terms involved. The set $W^L(M)_{\reg}$ consists of elements $s \in W^L(M) = W^L(\aaa_M, \aaa_M)$ which satisfy $\det(s-1|_{\aaa_M^G}) \neq 0$. The operator $\MMM_L(P, \lambda)$ is the smooth function in $\lambda \in i\aaa_L^*$ corresponding to the $(G, L)$-family obtained by restricting the $(G, M)$-family 
+\[ \{ \MMM_Q(\Lambda, \lambda, P) := M_{Q|P}(\lambda)^{-1} M_{Q|P}(\lambda + \Lambda) : Q \in \PPP(M), \Lambda \in i\aaa_M^* \} \]
+of intertwining operators. If $\lambda \in i\aaa_L^*$ and $s \in W^L(M)$ then $M_P(s, \lambda) = M_{P|P}(s, \lambda)$ is independent of $\lambda$, since $i\aaa_L^*$ is fixed by $s$. Arthur denotes this by $M_P(s, 0)$. Finally $\III_{P, \chi, \pi}(\lambda, f)$ is the restriction of the operator $\III_{P, \chi}(\lambda, f)$ on $\HHH_P$ to the subspace 
+\[ \HHH_{P, \chi, \pi} = \HHH_{P, \chi} \cap \HHH_{P, \pi} \]
+of $\HHH_{P, \chi}$. We have a decomposition of $\HHH_{P, \chi}$ as
 \[ H_{P, \chi} = \bigoplus_\pi \HHH_{P, \chi, \pi} \]
-where $\pi$ ranges over the set $\Pi_{\unit}(M_P(\A)^1)$ and $\HHH_{P, \chi, \pi} = \HHH_{P, \chi} \cap \HHH_{P, \pi}$. When Arthur developed the fine geometric expansion, it was not known whether the spectral side is absolutely convergent so Arthur had to consider the sum over those $\pi$ such that the norm of the imaginary part of its infinitesimal character $\nu_\pi$ equals a fixed $t > 0$. However due to the work of \cite{FLM}, we now know the expression for $J(f)$ converges absolutely but to be consistent with Arthur's notation we still include the sum over $t \geq 0$. 
+where $\pi$ ranges over the set $\Pi_{\unit}(M_P(\A)^1)$ of irreducible unitary representations of $M_P(\A)^1$ and $\HHH_{P, \chi, \pi} = \HHH_{P, \chi} \cap \HHH_{P, \pi}$. Recall that $\HHH_{P, \chi}$ (resp. $\HHH_{P, \pi}$) consists of vectors $\Phi \in \HHH_P$ such that for almost every $x \in G(\A), \Phi_x \in \Ltwo_{\text{disc}}(M_P(\Q)\bs M_P(\A)^1)$ (resp. $\Phi_x \in \Ltwo(M_P(\Q)\bs M_P(\A)^1)$ is a matrix coefficient of $\pi$). 
 
-\cb{Consider the above double sum $M\subseteq L$ of Levi subgroups for $G = \sl(2)$. When $L = M_0$ we have that $M=M_0$ and $W^L(M) = \{1\}$ as the identity map on $\aaa_0$. However this element is not regular so there is no sum over $L=M_0$. When $L=G$ the integral vanishes and Arthur defines this to be the \underline{discrete part} of the trace formula. For $\sl(2)$ this is given by
-\[ I_{t, \disc}(f) = \sum_{M \in \LLL} \frac{\mod{W_0^M}}{\mod{W_0^G}} \sum_{s \in W(M)_{\reg}} \mod{\det(s-1|_{\aaa_M^G})}^{-1} \trace\left(M_P(s, 0) \III_{P, t}(0, f) \right). \]
-When $M=G$ this is a sum over $\trace \pi(f)$ as $\pi$ varies over cuspidal automorphic representations with $\norm{\Im \nu_\pi} = t$. 
+Arthur's proof of the fine spectral expansion involves deep results that allow him to interchange two limits ($T \to \infty$ and $\varepsilon \to 0$). One ingredient in the proof is the existence of normalizing factors which when multiplied with intertwining operators, bestow nice properties to them (make symmetric in $P$ and $Q$, for instance). More precisely, the local normalized intertwining operators
+\[ R_{Q|P}(\pi_{v, \lambda}) := r_{Q|P}(\pi_{v, \lambda})^{-1} J_{Q|P}(\pi_{v, \lambda}) \]
+satisfy
+\[ R_{Q'|P}(\pi_{v, \lambda}) = R_{Q'|Q}(\pi_{v, \lambda}) R_{Q|P}(\pi_{v, \lambda}) \]
+for any $P, Q, Q' \in \PPP(M)$. These normalizing factors $r_{Q|P}(\pi_{v, \lambda})$ are known to contain important arithmetic information and play an important role in the analysis of the spectral side. The above expression is a product $(G, M)$-family whose corresponding smooth function has an explicit expression (see \cite{clay}*{\S 17}). For $\pi \in \Pi_{\text{unit}}(M(\A)^1)$, Arthur defines 
+\[ J_M(\pi, f) = \int_{i\aaa_M^*} \trace \left( \RRR_M(\pi_\lambda, P) \III_P(\pi_\lambda, \tilde f) \right) \d \lambda, \]
+where $\tilde f$ is any $K$-finite function in $\CCC_c^\infty(G(\A))$ whose restriction to $G(\A)^1$ is $f$ and $\RRR_M(\pi_\lambda, P)$ is the smooth function corresponding to the $(G, M)$-family
+\[ \{ R_{Q|P}(\pi_\lambda)^{-1} R_{Q|P}(\pi_{\lambda + \Lambda}), \qquad Q \in \PPP(M), \ \Lambda \in i\aaa_M^* \}. \]
+Arthur introduces a measurable set of induced representations \cite{clay}*{Equation (22.6)}, namely
+\[ \Pi_t(G) = \{ \pi_\lambda^G : M \in \LLL, \pi \in \Pi_{t, \text{disc}}(M), \lambda \in i\aaa_M^*/i\aaa_G^*  \} \]
+equipped with a measure $\d \pi_\lambda^G$ such that 
+\[ \int_{\Pi_t(G)} \phi(\pi_\lambda^G) \d \pi_\lambda^G = \sum_{M \in \LLL} \frac{\mod{W_0^M}}{\mod{W_0^G}} 
+	\sum_{\pi \in \Pi_{t, \text{disc}}(M)} \int_{i\aaa_M^* / i\aaa_G^*} \phi(\pi_\lambda^G) \d \lambda \]
+for functions $\phi$ on $\Pi_t(G)$. Here the suffix $t$ indicates those representations whose infinitesimal character has norm $t>0$. Notice the resemblance with \cref{fine_spec}. Setting
+\[ a^G(\pi_\lambda^G) = a_{\text{disc}}^M(\pi) r_M^G(\pi_\lambda), \qquad M \in \LLL, \pi \in \Pi_{t, \text{disc}}(M), \lambda \in i\aaa_M^* / i\aaa_G^*, \]
+and 
+\[ \Pi(M)^T = \bigcup_{t > 0} \Pi_t(M), \qquad T > 0 \]
+this formalism allows for a more elegant expression for the spectral side, namely
+\[ J_{\text{spec}}(f) = \lim_{T \to \infty} \sum_{M \in \LLL} \frac{\mod{W_0^M}}{\mod{W_0^G}} \int_{\Pi(M)^T} a^M(\pi) J_M(\pi, f) \d \pi. \]
+
+When Arthur developed this expression for the spectral side, it was not known whether the limit over $T \to \infty$ is finite. Nevertheless for the purpose of functoriality wherein information about the spectrum of two groups is obtained by comparing their geometric sides, one does not require this absolute convergence. However the trace formula can also be used in isolation (for instance, in Selberg's original work) for which one would need to know the spectral side converges absolutely. As we mentioned above, it is now known \cite{FLM} so the limit over $T$ in the above equation is redundant. 
+
+\cb{In the case of $\sl(2)$ when $M$ is the minimal standard Levi subgroup $M_0$, the set $\Pi(M_0)$ is easily seen to be that of irreducible unitary representations of $M_0(\Q)\bs M_0(\A)^1$. Thus for $G = \sl(2)$, the spectral side is given by
+\begin{equation} \label{spec}
+	J_{\text{spec}}(f) = \sum_{\pi \in \Pi_{\text{cusp}}(G)} \trace \pi(f) + \frac{1}{2}
+		\sum_{\pi \in \Pi(M_0(\Q)\bs M_0(\A)^1)} J_{M_0}(\pi, f). 
+\end{equation}
 }
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %     The invariant trace formula
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{The invariant trace formula}
 
-{\color{red} To be updated shortly.}
+In sections 22 and 23 Arthur explains the need to have an invariant trace formula and the mechanics of modifying the fine geometric and spectral expansions to get terms which are invariant distributions. He does a minor modification of the coefficient $a^M(\gamma)$, see \cite{clay}*{Equation (22.2)} due to which the geometric side can be written as a limit over increasing set $S$ of places of
+\[ \sum_{M \in \LLL} \frac{\mod{W_0^M}}{\mod{W_0^G}} \sum_{\gamma \in (M(\Q))_{M, S}} a^M(\gamma) J_M(\gamma, f). \]
 
-
+\cb{When $G=\sl(2)$ and $M=M_0$, the representatives of $(M_0(\Q))_{M, S}$ can be chosen in the set 
+\[ \left \{ \begin{pmatrix} t & 0 \\ 0 & t^{-1} \end{pmatrix} : t_p \in \Z_p \ \forall \ p \in S \right \}. \]
+Thus the geometric expansion for $\sl(2)$ is 
+\[ J_{\text{geom}}(f) = \sum_{\gamma \in (G(\Q))_{G, S}} a^G(\gamma) J_G(\gamma, f) + 
+		\sum_{\gamma \in M_0(\Z_S)} a^{M_0}(\gamma) J_{M_0}(\gamma, f). \]
+Note that the term $a^G(\gamma) = \vol(G(\Q)_\gamma \bs G(\A)^1_\gamma)$ is independent of $S$ (always the case) whereas $a^{M_0}(\gamma) = \vol (M_0(\Z_S)\bs M_0(\Q_S)^1)$ is not. 
+}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1041,7 +1062,7 @@ for $\Re(s) \gg 0$ and for every irreducible admissible representation $\pi_p$ o
 \[ \varphi_{r, s}(g) = \varphi_\infty(g_\infty) \displaystyle\prod_p \varphi_{p, r, s}(g_p) \]
 for the Arthur-Selberg trace formula. This function is not of compact support. The contribution of any discrete automorphic representation of any $\pi = \otimes_v \pi_v$ to the spectral side of the trace formula would be nonzero if and only if $\pi$ is unramified outside $\infty$ and in this case equal to $L^\infty(s, \pi^\infty, r)$. 
 
-Although this function $\varphi_{r, s}$ is not compactly supported, the trace formula has been extended to this wider class of test functions in the work of \cite{FL16, FLM}. A corresponding extension to the twisted trace formula is the work of the author \cite{Par17}. 
+Although this function $\varphi_{r, s}$ is not compactly supported, the trace formula has been extended to this wider class of test functions in the work of \cite{FL16, FLM}. A corresponding extension to the twisted trace formula is the work of the author \cite{Par19}. 
 
 
 
@@ -1270,20 +1291,20 @@ Although this function $\varphi_{r, s}$ is not compactly supported, the trace fo
 %       doi={10.1112/S0010437X11004891},
 %    }
 %    
-%    \bib{FL11b}{article} %FL11 Combinatorial setup
-%    {
-%       author={Finis, Tobias},
-%       author={Lapid, Erez},
-%       title={On the spectral side of Arthur's trace formula---combinatorial setup},
-%       journal={Ann. of Math. (2)},
-%       volume={174},
-%       date={2011},
-%       number={1},
-%       pages={197--223},
-%       issn={0003-486X},
-%       review={\MR{2811598}},
-%       doi={10.4007/annals.2011.174.1.6},
-%    }
+    \bib{FL11b}{article} %FL11 Combinatorial setup
+    {
+       author={Finis, Tobias},
+       author={Lapid, Erez},
+       title={On the spectral side of Arthur's trace formula---combinatorial setup},
+       journal={Ann. of Math. (2)},
+       volume={174},
+       date={2011},
+       number={1},
+       pages={197--223},
+       issn={0003-486X},
+       review={\MR{2811598}},
+       doi={10.4007/annals.2011.174.1.6},
+    }
 
    \bib{FL16}{article} %Geometric side FINAL
    {
@@ -1533,12 +1554,17 @@ Although this function $\varphi_{r, s}$ is not compactly supported, the trace fo
        doi={10.1090/conm/614/12270},
     }
 
-    \bib{Par17}{article}{
-    	author={Parab, Abhishek},
-		title={Absolute convergence of the twisted Arthur-Selberg trace formula},
-		eprint={1710.08885},
-		date={2017}
-%		\renewcommand{\eprint}[1]{\href{https://arxiv.org/abs/#1}{arXiv:#1}}
+    \bib{Par19}{article}{
+       author={Parab, Abhishek},
+       title={Absolute convergence of the twisted trace formula},
+       journal={Math. Z.},
+       volume={292},
+       date={2019},
+       number={1-2},
+       pages={529--567},
+       issn={0025-5874},
+       review={\MR{3968914}},
+       doi={10.1007/s00209-019-02290-0},
     }
     
     \bib{MR1792292}{article}{
