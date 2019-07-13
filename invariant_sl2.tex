@@ -24,12 +24,15 @@
 
 \usepackage[normalem]{ulem}		% For strikethrough \sout{Hello World}
 
+\usepackage{empheq}
+\newcommand*\widefbox[1]{\fbox{\hspace{2em}#1\hspace{2em}}}
+
 \usepackage{graphicx}
 \usepackage[colorlinks = true, citecolor = red]{hyperref}
 %\usepackage[colorlinks = false, citecolor = black]{hyperref}
 \usepackage[capitalise, noabbrev]{cleveref}
 
-\newenvironment{rcases}		% \begin{cases} \end{cases} but to right. 
+\renewenvironment{rcases}		% \begin{cases} \end{cases} but to right. 
   {\left.\begin{aligned}}
   {\end{aligned}\right\rbrace}
 
@@ -576,7 +579,7 @@ is rapidly decreasing. It is a basic property of Fourier transforms that the $a_
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %     The coarse geometric expansion
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{The geometric expansion}
+\section{The geometric expansion} \label{sec:geom}
 
 Before delving into the geometric expansion, we will review two important properties of the distribution $J^T(f)$. 
 \begin{enumerate}
@@ -819,6 +822,8 @@ Combining everything together we have,
 
 In this section we discuss the spectral equivalent of \cref{coarse_geom}. Unlike the co-compact case of the action of $H$ on $\Ltwo(\Gamma \bs H)$ of \cref{sec_cpt}, when $G$ is a connected reductive group, the representation $R_G$ of $G(\A)$ on $\Ltwo(G(\Q)\bs G(\A))$ does not decompose discretely. It is a direct sum of the discrete spectrum and the continuous spectrum which is described by Langlands' theory of Eisenstein series. An excellent reference is the book of M{\oe}glin and Waldspurger \cite{MW}, who refer to their book as \textit{Une Paraphrase de l'\'{E}criture}, a Paraphrase of the Scriptures. 
 
+Henceforth we will assume that $f \in \CCC^\infty_c(G(\A))$ is left- and right-invariant under the `good` maximal compact subgroup $K$. The space of such functions will be called the Hecke algebra and denoted by $\HHH(G)$. {\color{red} see if I assume $f \in \CCC_c^\infty(G(\A))$ henceforth. }
+
 Since $G(\A)$ is the direct product of $G(\A)^1$ and $\AAA_G = A_G(\R)^\circ$, given $\lambda \in \aaa_{G, \C}^*$ we can get a representation of $G(\A)$ on $\Ltwo(G(\Q) \bs G(\A))$ by
 \[ R_{G, \disc, \lambda}(x) = R_{G, \disc}(x) \exp(\sprod{\lambda}{H_G(x)}), \qquad x \in G(\A). \]
 Here, $R_{G, \disc}$ is the representation of $G(\A)^1$ to the subspace of $\Ltwo_\disc(G(\Q)\bs G(\A)^1)$ which decomposes discretely. It is unitary if and only if $\lambda \in i\aaa_G^*$. Suppose $P$ is a standard parabolic subgroup of $G$ and $\lambda \in \aaa_{P, \C}^*$. We write 
@@ -1023,7 +1028,7 @@ and
 this formalism allows for a more elegant expression for the spectral side, namely
 \[ J_{\text{spec}}(f) = \lim_{T \to \infty} \sum_{M \in \LLL} \frac{\mod{W_0^M}}{\mod{W_0^G}} \int_{\Pi(M)^T} a^M(\pi) J_M(\pi, f) \d \pi. \]
 
-When Arthur developed this expression for the spectral side, it was not known whether the limit over $T \to \infty$ is finite. Nevertheless for the purpose of functoriality wherein information about the spectrum of two groups is obtained by comparing their geometric sides, one does not require this absolute convergence. However the trace formula can also be used in isolation (for instance, in Selberg's original work) for which one would need to know the spectral side converges absolutely. As we mentioned above, it is now known \cite{FLM} so the limit over $T$ in the above equation is redundant. 
+When Arthur developed this expression for the spectral side, it was not known whether the limit over $T \to \infty$ is finite. For the purpose of functoriality wherein information about the spectrum of two groups is obtained by comparing their geometric sides, one does not require this absolute convergence. However the trace formula can also be used in isolation (for instance, in Selberg's original work) for which one would need to know the spectral side converges absolutely. As we mentioned above, this is now known \cite{FLM} so the limit over $T$ above is redundant. 
 
 \cb{In the case of $\sl(2)$ when $M$ is the minimal standard Levi subgroup $M_0$, the set $\Pi(M_0)$ is easily seen to be that of irreducible unitary representations of $M_0(\Q)\bs M_0(\A)^1$. Thus for $G = \sl(2)$, the spectral side is given by
 \begin{equation} \label{spec}
@@ -1044,9 +1049,107 @@ In sections 22 and 23 Arthur explains the need to have an invariant trace formul
 \[ \left \{ \begin{pmatrix} t & 0 \\ 0 & t^{-1} \end{pmatrix} : t_p \in \Z_p \ \forall \ p \in S \right \}. \]
 Thus the geometric expansion for $\sl(2)$ is 
 \[ J_{\text{geom}}(f) = \sum_{\gamma \in (G(\Q))_{G, S}} a^G(\gamma) J_G(\gamma, f) + 
-		\sum_{\gamma \in M_0(\Z_S)} a^{M_0}(\gamma) J_{M_0}(\gamma, f). \]
+		\frac{1}{2} \sum_{\gamma \in M_0(\Z_S)} a^{M_0}(\gamma) J_{M_0}(\gamma, f). \]
 Note that the term $a^G(\gamma) = \vol(G(\Q)_\gamma \bs G(\A)^1_\gamma)$ is independent of $S$ (always the case) whereas $a^{M_0}(\gamma) = \vol (M_0(\Z_S)\bs M_0(\Q_S)^1)$ is not. 
 }
+
+In \cref{sec:geom}, we defined a distribution $J$ on $G(\A)$ to be invariant if for every $y \in G(\A)$ and every $f \in \CCC_c^\infty(G(\A)), J(f) = J(f^y)$, where $f^y$ is conjugation with respect to $y$. However when we restrict $f$ to be in the Hecke algebra, that is, $f$ is bi-$K$-invariant then $f^y$ need not be so. We modify the definition of invariance as follows. A linear form $J$ on $\HHH(G)$ is said to be \textit{invariant} if for every $f, h \in \HHH(G)$, we have $J(f) = J(f*h) = J(h*f)$.
+
+\cb{
+So far we have the spectral and geometric expansions for $\sl(2)$ as
+\begin{equation} \label{j_spec}
+	J_{\text{spec}}(f) = \sum_{\substack{\pi \text{cuspidal} \\ \text{rep. of } \gl(2)}} \trace \pi(f) + \frac{1}{2} \sum_{\pi \in \Pi(M_0(\Q) \bs M_0(\A)^1)} J_{M_0}(\pi, f), 
+\end{equation}
+\begin{equation} \label{j_geom}
+	J_{\text{geom}}(f) = \sum_{\gamma \in (G(\Q)_{G, S})} a^G(\gamma) J_G(\gamma, f) + \frac{1}{2} \sum_{\gamma \in M_0(\Z_S)} a^{M_0}(\gamma) J_{M_0}(\gamma, f). 
+\end{equation}
+The first sum on both sides corresponding to $G$, is invariant whereas the second, corresponding to the Levi subgroup $M_0$ is not. {\color{red} Explain the $J$s briefly.} The invariant trace formula for $\sl(2)$ is simpler than the general case because $M_0$ is abelian (so all unitary representations are tempered) and since $M_0$ is minimal and maximal (nontrivial) Levi subgroup. To make the above distributions invariant, we would like to do one of the following, namely for a fixed $\gamma \in M_0(\Z_S)$, subtract the spectral contribution, 
+\begin{equation} \label{sub_spec}
+J_{M_0}(\gamma, f) - \int_{\pi \in \Pi_{\text{unit}}(M_0(\Q_S)^1)} \pi(\gamma^{-1}) J_M(\pi, f) \d \pi, \qquad \gamma \in M_0(\Q_S)^1,
+\end{equation}
+or vice versa, that is, 
+\[ J_{M_0}(\pi, f) - \int_{\gamma \in M_0(\Q_S)} \pi(\gamma) J_{M_0}(\gamma, f) \d \gamma, \qquad \pi \in \Pi_{\text{unit}}(M_0(\Q_S)). \]
+}
+In Section 22, Arthur provides justification that it is more reasonable to subtract the spectral contribution from $J_{M_0}(\gamma, f)$ \cref{sub_spec}. Indeed he is able to show that an appropriate Poisson summation formula applied to the sum in \cref{j_spec} corresponding to $M_0$ would yield the expression in \cref{sub_spec}. For this he needs to define a Fourier transform on the space of continuous invariant forms on $\HHH(G)$ which are ``supported on characters''. 
+
+For a general group $G$, the characters of tempered representations provide a map
+\[ f \mapsto f_G(\pi) = \trace \pi(f) \]
+from the Hecke algebra $\HHH(G)$ to the set $\III(G(\Q_S))$ of complex-valued functions on $\Pi_{\text{temp}}(G(\Q_S))$. {\color{red}Am I mentioning that I will only work with $\Q$?} Given a continuous invariant form $I$ on $\HHH(G(\Q_S))$, we say $I$ is supported on characters if $I(f) = 0$ for all $f \in \HHH(G(\Q_S))$ such that $f_G = 0$. This being the case, it is clear that there is a continuous linear form $\widehat I$ on $\III(G(\Q_S))$ such that 
+\[ I(f) = \widehat I(f_G), \qquad \forall f \in \HHH(G(\Q_S)). \]
+\[ \xymatrix{ \HHH(G(\Q_S)) \ar[rr]^{f \mapsto f_G} \ar[dr]_I && \III(G(\Q_S)) \ar@{-->}[dl]^{\widehat I} \\ & \C & }
+\]
+The form $\widehat I$ is known as the \textit{invariant Fourier transform} of $I$. It turns out that the image of the map
+\[ f \mapsto f_M : \HHH(G(\Q_S)) \to \III(M(\Q_S)) \]
+when $f_M(\pi) = J_M(\pi, f)$ does not lie in $\III(M(\Q_S))$. To deal with this, Arthur enlarges the space $\III(M(\Q_S))$ appropriately. Without going into the technical aspects of this, we remark that Arthur is able to show (under a mild hypothesis on the set $S$ of places) that the map $I \mapsto \widehat I$ extends to an isomorphism from the space $\HHH_{\text{ac}}(G(\Q_S))$ (which contains $\HHH(G(\Q_S))$), to the space of continuous linear forms on $\III_{\text{ac}}(G(\Q_S))$ (which contains $\III(G(\Q_S))$).
+
+{\color{red} SHOULD I INCLUDE THIS? Here, the map $f \mapsto f_G$ is given by
+\[ f_G(\pi, Z) = \trace \pi(f^Z), \qquad \pi \in \Pi_{\text{temp}}(G(\Q_S)), \ Z \in \aaa_{G, S} \]
+where $\aaa_{G, S}$ is a closed subgroup of $\aaa_G$ which equals $\aaa_G$ if $S$ contains the archimedean valuation, and $f^Z$ is the closed subset of $G(\Q_S)$ given by
+\[ G(\Q_S)^Z = \{ x \in G(\Q_S) : H_G(x) = Z \}. \]
+When $G = \sl(2)$, clearly $\aaa_{G, S} = 0$ and $G(\Q_S)^Z$ is nonempty if and only if $Z = 0$. 
+}
+
+The idea is to be able to define continuous linear maps from $\HHH_{\text{ac}}(G(\Q_S))$ to $\III_{\text{ac}}(M(\Q_S))$ where $M$ is a Levi subgroup of $G$. To such a subgroup $M, \pi \in \Pi(M(\Q_S)), \lambda \in \aaa_{M, \C}^*$ and $Z \in \aaa_{G, S}$, Arthur defines a meromorphic function
+\[ J_M(\pi_\lambda, f^Z) := \trace \left( \RRR_M(\pi_\lambda, P) \III_P(\pi_\lambda, f^Z) \right) \]
+and its natural extension for $X \in \aaa_{M, S}$ namely
+\[ J_M(\pi, X, f) := \int_{i\aaa_M^* / i\aaa_G^*} J_M(\pi_\lambda, f^Z) \exp(-\sprod{\lambda}{X}) \d \lambda. \]
+{\color{red} Explain $\RRR_M$ from before.} 
+Using this Arthur defines the map
+\[ \phi_M : \HHH_{\text{ac}}(G(\Q_S)) \to \III_{\text{ac}}(M(\Q_S)) \]
+where $\phi_M(f)(\pi, X) = \phi_M(f, \pi, X) = J_M(\pi, X, f)$ with $\pi \in \Pi_{\text{temp}}(M(\Q_S))$ and $X \in \aaa_{M, S}$. In {\color{red} A 1 5}, Arthur shows that $\phi_M$ is a continuous linear transform. We now state a theorem about the existence of the aforementioned Fourier transform $I \mapsto \widehat I$ and the invariant trace formula defined in terms of the invariant distributions $I_M(\gamma, f)$ and $I_M(\pi, f)$. 
+
+\begin{theorem} \label{inv_geom}
+For $\gamma \in M(\Q_S)$ and $f \in \HHH_{\text{ac}}(G(\Q_S))$ there are invariant linear forms $I_M(\gamma, f)$ that are supported on characters (meaning $\widehat I_M(\circ, f)$ exists), and which satisfy 
+\[ I_M(\gamma, f) = J_M(\gamma, f) - \sum_{\substack{L \in \LLL(M) \\ L \neq G}} \widehat I_M^L(\gamma, \phi_L(f)). \]
+\end{theorem}
+
+\begin{theorem} \label{inv_spec}
+For $\pi \in \Pi(M(\Q_S)), X \in \aaa_{M, S}$ and $f \in \HHH_{\text{ac}}(G(\Q_S))$, there are invariant linear forms $I_M(\pi, X, f)$ supported on characters which satisfy
+\[ I_M(\pi, X, f) = J_M(\gamma, f) - \sum_{\substack{L \in \LLL(M) \\ L \neq G}} \widehat I_M^L(\gamma, \phi_L(f)). \]
+\end{theorem}
+
+\begin{theorem} \label{invtf}
+For any $f \in \HHH(G)$, the invariant trace formula is given by the equality of the geometric expansion
+\[ I_{\text{geom}}(f) = \lim_S \sum_{M \in \LLL} \frac{\mod{W_0^M}}{\mod{W_0^G}} \sum_{\gamma \in \Gamma(M)_S} a^M(\gamma) I_M(\gamma, f) \]
+with the spectral expansion
+\[ I_{\text{spec}}(f) = \lim_T \sum_{M \in \LLL} \frac{\mod{W_0^M}}{\mod{W_0^G}} \int_{\Pi(M)^T} a^M(\pi) I_M(\pi, f) \d \pi. \]
+\end{theorem}
+
+The three theorems above are proven simultaneously by induction on the rank of $G$, a theme which we repeatedly see in Arthur's work. It is clear from \cref{inv_geom,inv_spec} that when $M=G$, then
+\[ I_G(\gamma, f) = J_G(\gamma, f) = \int_{G_\gamma(\Q_S)\bs G(\Q_S)} f(x^{-1}\gamma x) \d x \]
+and 
+\[ I_G(\pi, f) = J_G(\pi, f) = \trace \pi(f). \]
+\cb{Moreover when $G = \sl(2)$ and $M = M_0$ and $\gamma \in M_0(\Q_S)$ {\color{red} or is it $M_0(\Q_S)^1$?} then 
+\[ I_{M_0}(\gamma, f) = J_{M_0}(\gamma, f) - \widehat I_{M_0}^{M_0} (\gamma, \phi_{M_0}(f)). \]
+Consider the map
+\[ \xymatrix{\HHH_{\text{ac}}(M_0(\Q_S)) \ar[rr]^{\phi_{M_0}}  \ar[dr]_{I_{M_0}^{M_0}(\gamma, \circ)} && \III_{\text{ac}}(M_0(\Q_S)) \ar@{-->}[dl]^{\widehat I_{M_0}^{M_0} (\gamma, \circ)} \\ & \C & } \]
+Since $I_{M_0}^{M_0}(\gamma, \circ)$ is supported on characters, 
+\[ \widehat I_{M_0}^{M_0}(\gamma, \phi_{M_0}(f)) = I_{M_0}^{M_0}(\gamma, f) = f(\gamma). \]
+Thus, $I_{M_0}(\gamma, f) = J_{M_0}(\gamma, f) - f(\gamma)$. Indeed as Arthur explains in Remark 1 following Theorem 23.2, an application of the Fourier inversion theorem to the abelian group $M_0(\Q_S)^1$ gives
+\begin{equation} \label{f_gamma}
+f(\gamma) = \int_{\widehat{M_0(\Q_S)^1}} \pi(\gamma) \widehat f(\pi) \d \pi, 
+\end{equation}
+which equals the second term in \cite{clay}*{Equation (22.13)}. 
+}
+
+\cb{On the other hand, 
+\[ I_G(\pi, X, f) = J_G(\pi, X, f) = J_G(\pi, 0, f) = \trace \pi(f). \]
+When $M = M_0$, 
+\[ I_{M_0}(\pi, X, f) = J_{M_0}(\pi, X, f) - \widehat I_{M_0}^{M_0}(\pi, X, \phi_{M_0}(f)) \]
+and
+\[ \widehat I_{M_0}^{M_0}(\pi, X, \phi_{M_0}(f)) = I_{M_0}^{M_0}(\pi, X, f) = J_{M_0}^{M_0}(\pi, 0, f) \]
+so $I_{M_0}(\pi, X, f) = 0$. 
+}
+
+\cb{Thus the trace formula for $\sl(2)$ is given by
+\begin{subequations}
+\begin{empheq} [box=\widefbox]{align}
+ I_{\text{geom}}(f) = \lim_S \sum_{\gamma \in \Gamma(G)_S} a^G(\gamma) & J_G(\gamma, f) + \frac{1}{2} \sum_{\gamma \in \Gamma(M_0)_S} \left[ a^{M_0}(\gamma) J_{M_0}(\gamma, f) - f(\gamma) \right], \\
+ I_{\text{spec}}(f) & = \sum_{\substack{\pi \text{ cusp} \\ \text{ form of } G}} \trace \pi(f). 
+\end{empheq}
+\end{subequations}
+Although it might seem counterintuitive at first glance that the `extra' term to be subtracted from $J_{M_0}(\gamma, f)$ is just $f(\gamma)$, this indeed is the spectral contribution of the Levi subgroup $M_0$ through \cref{f_gamma}. }
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
