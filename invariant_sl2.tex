@@ -1,7 +1,7 @@
 \documentclass[11pt]{amsart}
 
-\usepackage[adobe-utopia]{mathdesign}	
-\let\circledS\undefined
+%\usepackage[adobe-utopia]{mathdesign}	
+%\let\circledS\undefined
 
 \usepackage{geometry}               
 \usepackage{amsrefs} 				
@@ -11,7 +11,7 @@
 \usepackage[toc,page]{appendix}
 
 \usepackage{fancyhdr}
-\setlength{\headheight}{13pt}
+%\setlength{\headheight}{13pt}
 \usepackage{lastpage} 
 
 \usepackage{xypic}
@@ -204,7 +204,7 @@ To continue further, we make the very special assumption: $\Gamma\bs H$ is compa
 			\[ f(x) = (g*g^*)(x) = \int_H g(y) \overline{g(x^{-1}y)} \d y\]
 			for a function $g$ on $H$ of compact support then $R$ is self-adjoint. 
 		\end{itemize}
-\item If $H$ is a Lie group and $f$ is smooth of compact support then $R(f)$ is of trace class so
+\item If $H$ is a Lie group and $f$ is smooth of compact support then $R(f)$ is of trace class and
 	\[ \trace R(f) = \int_{\Gamma\bs H} K(x, x) \d x. \]
 \end{enumerate}
 
@@ -221,7 +221,7 @@ Suppose $\{\Gamma\}$ is a set of representatives of conjugacy classes in $\Gamma
 						f(x^{-1}\gamma x) \d x \qquad \text{since } u \in H_\gamma \text{ so } 
 						u^{-1}\gamma u = \gamma. 
 \end{flalign*}
-This is the geometric expansion. On the other hand, the decomposition
+The calculations above are a formal consequence of the fact that a right-invariant Haar measure on $\Gamma_\gamma\bs H$ can be written as the product of right-invariant Haar measures on $\Gamma_\gamma \bs H_\gamma$ and $H_\gamma \bs H$. Since $\Gamma\bs H$ has finite volume, the convergence of all equalities above follows from Fubini's theorem. This expansion of $\trace R(f)$ in terms of conjugacy classes in $\Gamma$ is referred to as the geometric expansion. On the other hand, the decomposition
 \[ R = \bigoplus m(\pi, R) \pi \]
 gives
 \[ \trace R(f) = \sum_\pi m(\pi, R) \trace \pi(f). \]
@@ -236,13 +236,12 @@ where $\gamma \in \{\Gamma \}$,
 	
 \[	\text{Spectral side} \quad 
 	\begin{cases}
-		\quad f_H(\pi) = \trace \pi(f) = \trace \left( \int f(y) \pi(y) \d y \right) \\
+		\quad f_H(\pi) = \trace \pi(f) \\
 		\quad a_\Gamma^H(\pi) = m(\pi, R).
 	\end{cases}
 \]
 This is the Selberg trace formula for compact quotient. As a quick exercise the reader should use this formula to prove Frobenius reciprocity when $H$ is a finite group. Also, when $H = \R$ and $\Gamma = \Z$ it is easy to see the trace formula reduces to the familiar Poisson summation formula, 
 \[ \sum_{n \in \Z} f(n) = \sum_{n \in \Z} \hat f(n). \]
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %     Notations
@@ -251,7 +250,7 @@ This is the Selberg trace formula for compact quotient. As a quick exercise the 
 
 Before investigating the problems we run into when generalizing the compact case, we introduce some notations. 
 
-Let $G$ be a connected reductive group over $\Q$ and denote by $\A$ the adeles of $\Q$. For concreteness it is good to have an explicit group in mind, like $\gl(3)$ or $\text{Sp}(4)$. Throughout the notes, we will explicitly carry out calculations for $G = \sl(2)$. Let $A_G$ be the largest central subgroup of $G$ over $\Q$ that is a $\Q$-split torus. (So $A_G \cong \gl(1)^k$). In the case of $\sl(2), A_G = \{1\}$. Denote by $X(G)_\Q = X(G)$ the free abelian group of rank $k$ given by
+Let $G$ be a quasisplit connected reductive group over $\Q$ and denote by $\A$ the adeles of $\Q$. For concreteness it is good to have an explicit group in mind, like $\gl(3)$ or $\text{Sp}(4)$. Throughout the notes, we will explicitly carry out calculations for $G = \sl(2)$. Let $A_G$ be the largest central subgroup of $G$ over $\Q$ that is a $\Q$-split torus. (So $A_G \cong \gl(1)^k$). In the case of $\sl(2), A_G = \{1\}$. Denote by $X(G)_\Q = X(G)$ the free abelian group of rank $k$ given by
 \[ X(G) = \hom_\Q(G, \gl(1)). \]
 Define the real vector spaces
 \begin{align*}
@@ -266,17 +265,21 @@ Define the Harish-Chandra map by
 \end{align*}
 and denote its kernel by $G(\A)^1$. If we denote $A_G(\R)^\circ$ by $\AAA_G$ then $G(\A)$ is the direct product of $G(\A)^1$ and $\AAA_G$. When $G = \sl(2)$, the vector spaces $\aaa_G, \aaa_G^*$ and the map $H_G$ are all trivial and $G(\A) = G(\A)^1$.
 
-If the reader is not familiar with the notion of a parabolic subgroup they may consider the example of $\sl(2)$ wherein the group of upper triangular matrices is the unique (up to conjugation) parabolic subgroup. In general, fix a minimal parabolic subgroup $P_0$ with Levi decomposition $P_0 = M_0 N_0$. Call a parabolic subgroup $P$ as \underline{standard} if $P \supseteq P_0$.  Such a parabolic subgroup has a unique Levi decomposition ($M_P \supseteq M_0$) given by the exact sequence
-\[ 1 \to N_P \to P \to M_P \to 1. \]
-The Weyl group is the finite quotient $N_G(M_0)/Z_G(M_0)$ denoted by $W = W^G$. In the case of $\sl(2)$, it is customary to choose the set of upper triangular matrices with determinant 1 as the minimal parabolic subgroup $P_0$. The only standard parabolic subgroups are $\{P_0, G\}$.
-Let $A_P, \AAA_P, \aaa_P, \aaa_P^*$ denote $A_{M_P}, A_{M_P}(\R)^\circ, \aaa_{M_P}$ and $\aaa_{M_P}^*$ respectively. If $P = P_0$ we will further abbreviate to $A_0, \AAA_0, \aaa_0, \aaa_0^*$ etc. Given standard parabolic subgroups $P, Q$ the \underline{Weyl set} denoted by $W(\aaa_P, \aaa_Q)$ is the set of $\R$-linear isomorphisms from $\aaa_P$ to $\aaa_Q$ obtained b restricting the elements of $W^G$ to $\aaa_P \subseteq \aaa_0$. 
+If the reader is not familiar with the notion of a parabolic subgroup they may consider the example of $\sl(2)$ wherein the group of upper triangular matrices is the unique (up to conjugation) parabolic subgroup. In general, fix a minimal parabolic subgroup $P_0$ with Levi decomposition $P_0 = M_0 N_0$. Call a parabolic subgroup $P$ as \underline{standard} if $P \supseteq P_0$. For any Levi subgroup $M_P$ of $P$, we have a decomposition
+\[ 1 \to N_P \to P \to M_P \to 1, \]
+where $N_P$ is the unipotent radical of $P$. We can choose $M_P$ uniquely by asking that \mbox{$M_P \supseteq M_0$} and henceforth we assume this to be the case. The Weyl group is the finite quotient $N_G(M_0)/Z_G(M_0)$ denoted by $W = W^G$. In the case of $\sl(2)$, it is customary to choose the set of upper triangular matrices with determinant 1 as the minimal parabolic subgroup $P_0$. The only standard parabolic subgroups are $\{P_0, G\}$.
+Let $A_P, \AAA_P, \aaa_P, \aaa_P^*$ denote $A_{M_P}, A_{M_P}(\R)^\circ, \aaa_{M_P}$ and $\aaa_{M_P}^*$ respectively. If $P = P_0$ we will further abbreviate to $A_0, \AAA_0, \aaa_0, \aaa_0^*$ etc. Given standard parabolic subgroups $P, Q$ the \underline{Weyl set} denoted by $W(\aaa_P, \aaa_Q)$ is the set of $\R$-linear isomorphisms from $\aaa_P$ to $\aaa_Q$ obtained by restricting the elements of $W^G$ to $\aaa_P \subseteq \aaa_0$. 
 
-The trace formula we develop essentially depends on the choice of a maximal compact subgroup of $G(\A)$ which we now choose. For $G = \sl(2)$ and $p$ a rational prime, denote $K_p = \sl(2, \Z_p)$. At the Archimedean place, let $K_\infty = \so(2, \R)$. Then $K = K_\infty \times \prod_p K_p$ is a maximal compact subgroup of $\sl(2, \A)$. In general for every rational prime $p$, we fix $K_p$ to be a maximal compact subgroup of $G(\Q_p)$ satisfying certain conditions (i.e., corresponds to a special point in the Bruhat-Tits building; Arthur calls them as `good'). Having defined the maximal compact subgroup $K$ of $G(\A)$, we extend the map $H_P = H_{M_P}$ initially defined on $M_P(\A)$ to $G(\A)$ by setting
-\begin{align*}
-	H_P & : G(\A) \to \aaa_P \\
-	H_P(g) & = H_P(m) = H_{M_P}(m)
-\end{align*} 
-where we use the Iwasawa decomposition to write $g = nmk$ with $n \in N_P(\A), m \in M_P(\A)$ and $k \in K$. 
+The trace formula we develop essentially depends on the choice of a maximal compact subgroup of $G(\A)$ which we now choose. For $G = \sl(2)$ and $p$ a rational prime, denote $K_p = \sl(2, \Z_p)$. At the Archimedean place, let $K_\infty = \so(2, \R)$. Then $K = K_\infty \times \prod_p K_p$ is a maximal compact subgroup of $\sl(2, \A)$. In general for every rational prime $p$, we fix $K_p$ to be a maximal compact subgroup of $G(\Q_p)$ satisfying certain conditions (i.e., corresponds to a special point in the Bruhat-Tits building; Arthur calls them as `good'). Having defined the maximal compact subgroup $K$ of $G(\A)$, we extend the map $H_P = H_{M_P}$ initially defined on $M_P(\A)$ to $G(\A)$ as follows. We use the Iwasawa decomposition to write $g = nmk$ with $n \in N_P(\A), m \in M_P(\A)$ and $k \in K$ and define
+\[ H_P : G(\A) \to \aaa_P \]
+by 
+\[ H_P(g) = H_P(m) = H_{M_P}(m). \]
+It is not difficult to see that if $P_1 \subseteq P_2$ then the diagram 
+\[ \xymatrix{ 
+	G(\A) \ar[rr]^{H_{P_1}} \ar[dr]_{H_{P_2}} & & \aaa_{P_1} \ar@{->>}[dl] \\ & \aaa_{P_2} & 
+	}
+\]
+commutes.
 
 Arthur discusses two problems when we mimic the case of $(H, \Gamma)$ of the previous section when the quotient $\Gamma\bs H$ is not compact. The geometric side would look like 
 \[ \sum_{\gamma \in \{G(\Q)\}} \vol(G(\Q)_\gamma\bs G(\A)_\gamma^1) \int_{G(\A)^1_\gamma \bs G(\A)^1} f(x^{-1}\gamma x) \d x.\]
@@ -288,11 +291,11 @@ Arthur discusses two problems when we mimic the case of $(H, \Gamma)$ of the pre
 
 Arthur explains these divergence issues for $G = GL(2)$ and attributes them to the existence of nontrivial parabolic subgroups. Indeed we have
 
-\begin{theorem} [Borel-Harish--Chandra]
+\begin{theorem} \cite{MR147566}*{Theorem 9.4}, \cite{MR141672}
 The quotient $G(\Q)\bs G(\A)^1$ is non-compact if and only if $G$ has proper parabolic subgroups defined over $\Q$. 
 \end{theorem}
 
-One of Arthur's first contribution is to truncate the kernel by writing it as an alternating sum over standard parabolic subgroups of $G$ and prove it converges absolutely. We discuss this in the next section. 
+One of Arthur's first contribution is to truncate the kernel function by writing it as an alternating sum over standard parabolic subgroups of $G$ and prove it converges absolutely. We discuss this in the next section. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %     Truncation of the kernel
@@ -317,9 +320,9 @@ and
 \[ 0 \to \aaa_{P_2}^* \rightleftarrows \aaa_{P_1}^* \to \aaa_{P_1}^* / \aaa_{P_2}^* \to 0. \]
 Set $(\aaa_{P_1}^{P_2})^* := \aaa_{P_1}^* / \aaa_{P_2}^*$. 
 
-For any parabolic subgroup $P$, let $\Phi_P$ denote the set of roots of $(P, A_P)$. Identify $\Phi_P$ as a subset of $\aaa_P^*$ by 
+For any parabolic subgroup $P$, let $\Phi_P$ denote the set of roots of the reductive group $M_P$ with respect to the split maximal torus $A_P$, which Arthur denotes by the roots of the pair $(P, A_P)$. Identify $\Phi_P$ as a subset of $\aaa_P^*$ by 
 \[ \Phi_P \se X(A_P)_\Q \se X(A_P)_\Q \otimes \R = \aaa_P^*. \]
-Set $\Phi_0 := \Phi_{P_0}$. This is a valid root system. Let $\Delta_0 \se \Phi_0$ denote the set of simple roots. Then $\Delta_0$ is a basis of $(\aaa_0^G)^*$ as a real vector space. Analogously the set $\Delta_0^\vee = \{ \alpha^\vee : \alpha \in \Delta_0\}$ of coroots is a basis of $\aaa_0^G:= \aaa_{P_0}^G$. Denote the dual bases of $\Delta_0$ (resp. $\Delta_0^\vee$) by $\hat\Delta_0^\vee$ (resp. $\hat\Delta_0$). 
+Set $\Phi_0 := \Phi_{P_0}$. This is a valid root system. Let $\Delta_0 \se \Phi_0$ denote the set of \underline{simple roots}. Then $\Delta_0$ is a basis of $(\aaa_0^G)^*$ as a real vector space. Analogously the set $\Delta_0^\vee = \{ \alpha^\vee : \alpha \in \Delta_0\}$ of \underline{simple coroots} is a basis of $\aaa_0^G:= \aaa_{P_0}^G$. The dual basis $\hat\Delta_0$ (resp. $\hat \Delta_0^\vee$) of $\Delta_0^\vee$ (resp. $\Delta_0$) is known as the set of \underline{fundamental weights} (resp. \underline{co-weights}). 
 
 By the theory of algebraic groups there is a bijection between subsets $\Delta_0^P$ of $\Delta_0$ and standard parabolic subgroups $P$ of $G$ over $\Q$ such that 
 \[ \aaa_P = \{ H \in \aaa_0 : \alpha(H) = 0 \ \forall \alpha \in \Delta_0^P \}. \]
@@ -338,10 +341,10 @@ analogously, with `everything happening inside $M_{P_2}$'. Note that the notion 
 We now calculate these objects for $\sl (2)$. As remarked earlier, the set $\PPP^G(M_0)$ of standard parabolic subgroups of $G$ with Levi contained in $M_0$ is $\{G, P_0\}$. Since $\sl(2)$ does not have nontrivial characters so $X(\sl(2))$ is trivial. The real vector spaces $\aaa_G$ and $\aaa_G^*$ are also trivial. However $X(M_0)$ is spanned by the root $\beta_1 = e_1 - e_2$ where $e_i\begin{pmatrix} t_1 & \\ & t_2 \end{pmatrix} = t_i$ and $t_1 t_2 = 1$. 
 Thus, we have
 \begin{align*}
-	 \text{Roots: } & \Delta_0 = \{\beta_1 = e_1 - e_2 \}, \\
-	 \text{Co-roots: } & \Delta_0^\vee = \{ \beta_1^\vee = e_1^\vee - e_2^\vee \}, \\
-	 \text{Weights: } & \hat\Delta_0 = \{ \varpi_1 = \frac{1}{2}(e_1 - e_2) \}, \text{ and } \\
-	 \text{Co-weights: } & \hat\Delta_0^\vee = \{ \varpi_1^\vee = \frac{1}{2}(e_1^\vee - e_2^\vee) \},
+	 \text{Simple root: } & \Delta_0 = \{\beta_1 = e_1 - e_2 \}, \\
+	 \text{Simple co-root: } & \Delta_0^\vee = \{ \beta_1^\vee = e_1^\vee - e_2^\vee \}, \\
+	 \text{Fundamental weight: } & \hat\Delta_0 = \{ \varpi_1 = \frac{1}{2}(e_1 - e_2) \}, \text{ and } \\
+	 \text{Fundamental co-weight: } & \hat\Delta_0^\vee = \{ \varpi_1^\vee = \frac{1}{2}(e_1^\vee - e_2^\vee) \};
 \end{align*}
 where the usual relations $(e_i, e_j) = \delta_{i, j}$ and $(\beta_i, \beta_i^\vee) = 2$ hold. 
 
@@ -415,9 +418,9 @@ Identifying $x \in \sl(2, \Q)\bs \sl(2, \A) / K$ with the point $x + iy$ in the 
 \begin{equation} \label{x_decom}
 	\begin{aligned} 
 		H_0(x) & = H_0(\begin{pmatrix} 1 & x \\ 0 & 1 \end{pmatrix} \begin{pmatrix} y^{1/2} & 0 \\ 0 & y^{-1/2} \end{pmatrix} \begin{pmatrix} \cos \theta & \sin \theta \\ -\sin \theta & \cos \theta \end{pmatrix}) \\
-			& = H_0(\begin{pmatrix} y^{1/2} 0 & \\ 0 & y^{-1/2} \end{pmatrix}). \\
-	\therefore \log & \mod{\varpi_1(\begin{pmatrix} y^{1/2} & 0 \\ 0 & y^{-1/2} \end{pmatrix})} > t \\
-	\therefore y & > \exp(2t).
+			& = H_0(\begin{pmatrix} y^{1/2} & 0 \\ 0 & y^{-1/2} \end{pmatrix}). \\
+	\Rightarrow \log & \mod{\varpi_1(\begin{pmatrix} y^{1/2} & 0 \\ 0 & y^{-1/2} \end{pmatrix})} > t \\
+	\Rightarrow y & > \exp(2t).
 	\end{aligned}
 \end{equation}
 
@@ -458,7 +461,7 @@ is called the \underline{Siegel set} associated to $T_1$ and $\omega$.
 We would like to know what the condition $\tau_0(H_0(a) - T_1) = 1$ means for $G = \sl(2)$. The decomposition $M_0(\A) = M_0(\A)^1 \times \AAA_0$ is given by the norm map on the ideles and is equivalent to $\I_\Q = \I^1 \times (\R^*)^0$. As before, we can write $a = \begin{pmatrix} y^{1/2} & \\ & y^{-1/2} \end{pmatrix}$ and $\Delta_0 = \{\beta_1 = e_1 - e_2\}$. Write $T_1 = t_1 \varpi_1^\vee$. Then
 \[	\tau_0(H_0(a) - T_1) = 1 \Leftrightarrow \beta_1(H_0(a)) > \beta_1(T_1) \Leftrightarrow \log \mod{y} > t_1, \]
 that is, $y > \exp(t_1)$.
-\begin{theorem} [Borel--Harish-Chandra]
+\begin{theorem} \cite{MR147566}*{Theorem 6.5}
 One can choose $T_1$ and $\omega$ so that 
 \[ G(\A) = G(\Q) \SSS^G(T_1, \omega). \]
 \end{theorem}
@@ -468,9 +471,9 @@ For this to hold in the case of $\sl(2)$, we ought to cover the fundamental doma
 Write $F^G(x, T)$ to be the characteristic function in $x$ of the projection of $\SSS^G(T_1, T, \omega)$ onto $G(\Q)\bs G(\A)$. More generally for a standard parabolic subgroup $P$ define 
 \[ \SSS^P(T_1) = \SSS^P(T_1, \omega), \; \SSS^P(T_1, T) = \SSS^P(T_1, T, \omega) \text{ and } F^P(x, T) \]
 by replacing $\Delta_0, \hat\Delta_0$ and $G(\Q)\bs G(\A)$ with $\Delta_0^P, \hat \Delta_0^P$ and $P(\Q)\bs G(\A)$ in the respective definitions. We have the partition lemma of Arthur:
-\begin{lemma} \label{partition_lemma}
+\begin{lemma} \label{partition_lemma} \cite{duke}*{Lemma 6.4}, \cite{MR0579181}*{Lemma 2.12}
 	For any $x \in G(\A)$, 
-	\[ \sum_{P \supseteq P_0} \sum_{\delta \in P_0(\Q) \bs G(\Q)} F^P(\delta x, T) \tau_P(H_P(\delta x) - T) = 1 \]
+	\[ \sum_{P \supseteq P_0} \sum_{\delta \in P_0(\Q) \bs G(\Q)} F^P(\delta x, T) \tau_P(H_P(\delta x) - T) = 1. \]
 \end{lemma}
 For a geometric interpretation of this lemma, see \cite{clay}*{p. 39}. In the case of $\sl(2)$ the content of this lemma is that the fundamental domain for $\sl(2)$ is partitioned according to standard parabolic subgroups as in \cref{fig:sd}.
 
@@ -478,11 +481,12 @@ We now begin the proof of \cite{clay}*{Theorem 6.1} for $G=\sl(2)$. There are ma
 \[ k^T(x) = K_G(x, x) - \sum_{\delta \in P_0(\Q)\bs G(\Q)} \hat\tau_0(H_0(\delta x) - T) K_0(\delta x, \delta x). \]
 We multiply the first term above by the LHS of \cref{partition_lemma} which yields (for $P=G$),
 \[ F(x, T) + \sum_{\delta \in P_0(\Q)\bs G(\Q)} \tau_0(H_0(\delta x) - T) = 1. \]
+{\color{red} Align: }
 \begin{flalign*} 
-	\therefore k^T(x) = F(x, T) K_G(x, x) \ +  
+	\Rightarrow k^T(x) = F(x, T) K_G(x, x) \ +  
 	\sum_{\delta \in P_0(\Q)\bs G(\Q)} \left( 
-		\tau_0(H_0(\delta x) - T) K_G(\delta x, \delta x)
-		- \hat\tau_0(H_0(\delta x) - T) . K_{P_0}(\delta x, \delta x) \right).
+		\tau_0(H_0(\delta x) - T) K_G(\delta x, \delta x) 
+		- \hat\tau_0(H_0(\delta x) - T) K_{P_0}(\delta x, \delta x) \right).
 \end{flalign*}
 The first term (corresponding to $P=G$),
 \[ F(x, T) K_G(x, x) = F(x, T) \sum_{\gamma \in G(\Q)} f(x^{-1}\gamma x) \]
@@ -511,11 +515,11 @@ Using the isomorphism $\exp : \nnn_0 \xrightarrow{\sim} N_0$, one replaces the s
 
 Fixing a nontrivial additive character $\psi$ on $\A/\Q$ and a bilinear form on $\nnn_0(\A) \simeq \A$ and applying Poisson summation formula to the first term yields
 \[ k_{P_0, G}(x) = \sum_{\mu \in M_0(\Q)} \sum_{\xi \in \nnn_0(\Q) \bs \{0 \}} \int_{\nnn_0(\A)}
-		f(x^{-1} \mu \exp(X_1) x) \psi(\sprod{\xi, X_1}) \d X_1.
+		f(x^{-1} \mu \exp(X_0) x) \psi(\sprod{\xi}{X_0}) \d X_0.
 \]
 
 It is here that the cancellation occurs due to the alternating sum over standard parabolic subgroups. For $\sl(2)$, this cancellation is reflected in the sum over $\xi \in \nnn_0(\Q) \bs \{0\}$. Since $f$ is of compact support so the function
-\[ h_{x, \mu}(Y_0) = \int_{X_1 \in \nnn_0(\A)} f(x^{-1} \mu \exp(X_1) . \psi(\sprod{Y_1, X_1})) \d X_1 \]
+\[ h_{x, \mu}(Y_0) = \int_{X_0 \in \nnn_0(\A)} f(x^{-1} \mu \exp(X_0) . \psi(\sprod{Y_0, X_0})) \d X_0 \]
 is rapidly decreasing. It is a basic property of Fourier transforms that the $a_0$-component of $x = p_0 a_0 k$ acts on $\xi \in \nnn_0(\Q) \bs \{0\}$ by dilations. The function $h_{x, \mu}$ is finitely supported in $\mu \in M_0(\Q)$ again because of the compact support of $f$. Thus the integral of $k_{P_0, G}(x)$ over $P_0(\Q)\bs G(\A)$ converges absolutely. \qed
 
 \begin{remark}
@@ -635,7 +639,7 @@ The first condition is equivalent to having no nontrivial unipotent elements in 
 \[ \gamma = \begin{pmatrix} 1 & \\ & -1 \end{pmatrix} \in G = \operatorname{PGL}(2). \]
 In this case, $G(\Q)_\gamma$ is the product of the minimal torus with a group of order two so $H(\Q) \subseteq M_P(\Q)$ but $G(\Q)_\gamma \not\subseteq M_P(\Q)$. 
 
-The result of these two assumptions is that if $(P, \alpha)$ and $(P', \alpha')$ are two representatives of the unramified class $\o$, then there is a ``unique'' element in $W(\aaa_P, \aaa_{P'})$ mapping $\alpha$ to $\alpha'$. Arthur analyzes this case and proves for such classes that
+The result of these two assumptions is that if $(P, \alpha)$ and $(P', \alpha')$ are two representatives of the unramified class $\o$, then there is a ``unique'' element in $W(\aaa_P, \aaa_{P'})$ mapping $\alpha$ to $\alpha'$. Arthur analyzes this case and proves \cite{duke}*{\S 8} for such classes that
 \begin{equation} \label{jo_anis}
 	J_{\o}(f) = \vol(M_P(\Q)_\gamma \bs M_P(\A)^1) \int_{G(\A)_\gamma \bs G(\A)} f(x^{-1} \gamma x) v_P(x) \d x, 
 \end{equation}
@@ -741,7 +745,7 @@ Putting all terms together, the expression for the fine geometric expansion for 
 
 In this section we discuss the spectral equivalent of \cref{coarse_geom,eq:fine_geom}. Unlike the co-compact case of the action of $H$ on $\Ltwo(\Gamma \bs H)$ of \cref{sec_cpt}, when $G$ is a connected reductive group, the representation $R_G$ of $G(\A)$ on $\Ltwo(G(\Q)\bs G(\A))$ does not decompose discretely. It is a direct sum of the discrete spectrum and the continuous spectrum which is described by Langlands' theory of Eisenstein series. An excellent reference is the book of M{\oe}glin and Waldspurger \cite{MW}, who refer to their book as \textit{Une Paraphrase de l'\'{E}criture}, a Paraphrase of the Scriptures. 
 
-Henceforth we will assume that $f \in \CCC^\infty_c(G(\A))$ is left- and right-invariant under the `good` maximal compact subgroup $K$. The space of such functions will be called the \underline{Hecke algebra} and denoted by $\HHH(G)$.
+Henceforth we will assume that $f \in \CCC^\infty_c(G(\A))$ is left- and right-invariant under the `good' maximal compact subgroup $K$. The space of such functions will be called the \underline{Hecke algebra} and denoted by $\HHH(G)$.
 
 Since $G(\A)$ is the direct product of $G(\A)^1$ and $\AAA_G = A_G(\R)^\circ$, given $\lambda \in \aaa_{G, \C}^*$ we can get a representation of $G(\A)$ on $\Ltwo(G(\Q) \bs G(\A))$ by
 \[ R_{G, \disc, \lambda}(x) = R_{G, \disc}(x) \exp(\sprod{\lambda}{H_G(x)}), \qquad x \in G(\A). \]
@@ -793,7 +797,7 @@ and $\BBB_P$ is a basis of $\HHH_P$ which is assumed to lie inside the dense sub
 
 In addition, for every standard parabolic subgroup $Q$ we have an analogous expansion for the kernel 
 \[ K_Q(x, y) = \int_{N_Q(\A)} \sum_{\gamma \in M_Q(\Q)} f(x^{-1}\gamma n y) \d n \]
-of the operator $R_Q(f)$. Namely, we replace $n_P$ with $n_P^Q = n_{M_Q \cap P}$ and $E(x, \phi, \lambda)$ with \[ E_P^G(x, \phi, \lambda) = \sum_{\delta \in P(\Q) \bs Q(\Q)} \phi(\delta x) \exp(\sprod{\lambda + \rho_P}{H_P(\delta x)}). \]
+of the operator $R_Q(f)$. Namely, we replace $n_P$ with $n_P^Q = n_{M_Q \cap P}$ and $E(x, \phi, \lambda)$ with \[ E_P^Q(x, \phi, \lambda) = \sum_{\delta \in P(\Q) \bs Q(\Q)} \phi(\delta x) \exp(\sprod{\lambda + \rho_P}{H_P(\delta x)}). \]
 We have, 
 \[ K_Q(x, y) = \sum_{P \subseteq Q} (n_P^Q)^{-1} \int_{i\aaa_P^*} \sum_{\phi \in \BBB_P}
 		E_P^Q(x, \III_P(\lambda, f)\phi, \lambda) \overline{E_P^Q(y, \phi, \lambda)} \d y. \]
@@ -802,11 +806,11 @@ The expression we obtain by substituting $K_Q(x, y)$ above in the truncated kern
 A function $\phi \in \Ltwo(G(\Q) \bs G(\A)^1)$ is called \underline{cuspidal} if 
 \[ \int_{N_P(\A)} \phi(nx) \d n = 0 \]
 for every proper parabolic subgroup in $G$ and almost every $x \in G(\A)^1$. The space of cuspidal functions is a closed $R_G$-invariant subspace of $\Ltwo(G(\Q)\bs G(\A)^1)$. Moreover we have
-\begin{theorem} [Gelfand--Piatetski-Shapiro]
+\begin{theorem} \cite{MR1071179}
 	\[ \Ltwo_\cusp(G(\Q)\bs G(\A)^1) \subseteq \Ltwo_\disc(G(\Q)\bs G(\A)^1), \]
 	and the multiplicity of each irreducible representation is finite. 
 \end{theorem}
-Thus we get an orthogonal decomposition
+(For a proof for $\gl(2)$, see Proposition 3.2.3 in \cite{MR1431508}). This theorem gives an orthogonal decomposition
 \[ \Ltwo_\cusp(G(\Q)\bs G(\A)^1) = \bigoplus_\sigma \Ltwo_{\cusp, \sigma} (G(\Q)\bs G(\A)^1) \]
 where $\sigma$ ranges over irreducible unitary representations of $G(\Q)\bs G(\A)^1$ and $\Ltwo_{\cusp, \sigma} (G(\Q)\bs G(\A)^1)$ is the $\sigma$-isotypic component, i.e., a direct sum of finitely many isomorphic copies of $\sigma$. 
 
@@ -814,19 +818,19 @@ We define a \underline{cuspidal automorphic datum} to be an equivalence class of
 \[ s^{-1}\sigma' : m \mapsto \sigma'(w_s m w_s^{-1}), \qquad m \in M_P(\A)^1 \]
 is equivalent to $\sigma$. We write $\XXX = \XXX^G$ for the set of cuspidal automorphic data $\chi = [(P, \sigma)]$. 
 
-When $P=G$ then $\sigma$ is a cuspidal automorphic representation of $\sl(2,\A)$ and when $P=P_0$ then $\sigma$ is an irreducible unitary representation of $M_0(\A)^1$ such that the space $\Ltwo_{\text{cusp}, \sigma}(M_0(\Q)\bs M_0(\A)^1) = \Ltwo(M_0(\Q)\bs M_0(\A)^1)$ is nonzero. In this case $\sigma$ corresponds to a Hecke character of $\Q^*\bs \I^1$. Two pairs $(P_0, \sigma_1)$ and $(P_0, \sigma_2)$ are equivalent if $\sigma_2 \simeq s.\sigma_1 = \sigma_1^{-1}$ where $s$ is the nontrivial element in $W = W^G$. Thus the cuspidal automorphic data for $\sl(2)$ are:
+Let us consider the case of $G = \sl(2)$. When $P=G$ then $\sigma$ is a cuspidal automorphic representation of $\sl(2,\A)$ and when $P=P_0$ then $\sigma$ is an irreducible unitary representation of $M_0(\A)^1$ such that the space $\Ltwo_{\text{cusp}, \sigma}(M_0(\Q)\bs M_0(\A)^1) = \Ltwo(M_0(\Q)\bs M_0(\A)^1)$ is nonzero. In this case $\sigma$ corresponds to a Hecke character of $\Q^*\bs \I^1$. Two pairs $(P_0, \sigma_1)$ and $(P_0, \sigma_2)$ are equivalent if $\sigma_2 \simeq s.\sigma_1 = \sigma_1^{-1}$ where $s$ is the nontrivial element in $W = W^G$. Thus the cuspidal automorphic data for $\sl(2)$ are:
 \begin{enumerate}
 \item $[(G, \sigma)]$ where $\sigma$ is a cuspidal automorphic representation of $G$,
 \item $[(P_0, \sigma), (P_0, \sigma^{-1})]$ where $\sigma$ is a character of $M_0(\A)^1$ trivial on $M_0(\Q)$ and $\sigma^2 \neq 1$, and
 \item $[(P_0, \sigma)]$ where $\sigma$ is a character of $M_0(\A)^1$ trivial on $M_0(\Q)$ and $\sigma^2 = 1$.
 \end{enumerate}
 
-If $s \in W(\aaa_P, \aaa_{P'})$ we define the \underline{intertwining operator}
+If $s \in W(\aaa_P, \aaa_{P'})$ we define the \underline{intertwining operator} (see \cite{MR2683009}*{\S 6}, \cite{MW}*{II.1.6})
 \[ M(s, \lambda) : \HHH_P \to \HHH_{P'} \]
 by
 \[ (M(s, \lambda)\phi)(x) = \int \phi(w_x^{-1}n x) \exp(\sprod{\lambda + \rho_P}{H_P(w_s^{-1}n x)})
-				 \exp(\sprod{- s\lambda + \rho_{P'}}{H_{P'}(x)}) \d n. \]
-As the name suggests, it intertwines $\III_P(\lambda)$ with $\III_{P'}(s\lambda)$ which is an equivalent way of saying the diagram below commutes. 
+				 \exp(\sprod{- s\lambda + \rho_{P'}}{H_{P'}(x)}) \d n, \]
+where the integral is taken over $n \in N'(\A) \cap w_s N(\A)w_s^{-1} \bs N'(\A)$. As the name suggests, it intertwines $\III_P(\lambda)$ with $\III_{P'}(s\lambda)$ which is an equivalent way of saying the diagram below commutes. 
 \[ \xymatrix{
 	\HHH_P \ar[r]^{\III_P(\lambda)} \ar[d]_{M(s, \lambda)} & \HHH_P \ar[d]^{M(s, \lambda)} \\
 	\HHH_{P'} \ar[r]^{\III_{P'}(s\lambda)} & \HHH_{P'}.
@@ -836,7 +840,7 @@ Moreover,
 These are the most important properties of Eisenstein series and intertwining operators. Formally they are easy to prove but to prove they converge and define meromorphic functions is very difficult.
 
 Now we will define the decomposition
-\[ \Ltwo(G(\Q)\bs G(\A)) \bigoplus_\PPP \Ltwo_{\PPP-\cusp}(G(\Q)\bs G(\A)) \]
+\[ \Ltwo(G(\Q)\bs G(\A)) = \bigoplus_\PPP \Ltwo_{\PPP-\cusp}(G(\Q)\bs G(\A)) \]
 which will lead us to the coarse spectral decomposition. Let $\HHH_{P, \cusp}$ be the subspace of vectors $\phi \in \HHH_P$ such that for almost every $x \in G(\A)$, the function
 \[ \phi_x : m \mapsto \phi(mx) , \qquad m \in M(\A) \]
 is in $\Ltwo_{\cusp}(M(\Q)\bs M(\A)^1)$. Then clearly,
@@ -846,7 +850,7 @@ where $\HHH_{P, \cusp, \sigma}$ consists of functions in $\HHH_{P, \cusp}$ which
 (Here, $\HHH_{P, \cusp, \sigma}^\circ$ is the intersection of $\HHH_{P, \cusp, \sigma}$ with $\HHH_P^\circ$.) Then, $\Psi(\lambda, x)$ is the Fourier transform in $\lambda$ of a smooth compactly supported function on $\aaa_P$, i.e., the function
 \[ \psi(x) = \int_{\Lambda + i\aaa_P^*} \Psi(\lambda, x) \exp(\sprod{\lambda + \rho_P}{H_P(x)}) \d \lambda \]
 of $x$ is compactly supported in $H_P(x) \in \aaa_P$. 
-\begin{lemma} [Langlands]
+\begin{lemma} \cite{MR0249539}*{\S 10}
 	The function 
 	\[ (E\psi)(x) := \sum_{\delta \in P(\Q)\bs G(\Q)} \psi(\delta x) \]
 	is in $\Ltwo(G(\Q)\bs G(\A))$. Moreover if $\Psi'(\lambda', x)$ is another such function attached to a pair $(P', \sigma')$ then the inner product formula
@@ -861,10 +865,11 @@ Langlands also proves an explicit formula for the inner product of Eisenstein se
 \end{equation}
 from which Arthur develops the coarse spectral expansion. Here $\Ltwo_\chi(G(\Q)\bs G(\A))$ is the closed $G(\A)$-invariant subspace of $\Ltwo(G(\Q)\bs G(\A))$ generated by the functions $E\psi$ attached to $(P, \sigma)$. To develop the fine expansion, he extends this inner product to truncated Eisenstein series. This is quite technical and is discussed in Sections 20, 21 of the Clay notes. 
 
-For a standard parabolic subgroup $P$, the correspondence
-\[ (P_1\cap M_P, \sigma_1) \mapsto (P_1, \sigma_1) \qquad P_1 \subseteq P, \; [(P_1 \cap M_P, \sigma_1)] \in \XXX^{M_P} \]
-yields a mapping from $\XXX^{M_P}$ to $\XXX = \XXX^G$ which gives an orthogonal decomposition
-\[ \HHH_P = \bigoplus_{\chi \in \XXX} \HHH_{P, \chi}. \]
+Consider standard parabolic subgroups $P_1 \subseteq P$ and a cuspidal automorphic datum $\chi = [(P_1, \sigma_1)]$ of $\XXX = \XXX^G$. Since $P_1 \cap M_P$ is a standard parabolic subgroup of $M_P$, the equivalence class 
+\[ \chi_P := [(P_1 \cap M_P, \sigma_1)] \]
+is an element of $\XXX^P$. We thus have a map $\chi_P \mapsto \chi$ from $\XXX^{M_P}$ to $\XXX$ which gives an orthogonal decomposition
+\[ \HHH_P = \bigoplus_{\chi \in \XXX} \HHH_{P, \chi} \]
+(see \cite{clay}*{\S 12} for details). 
 Arthur claims the basis $\BBB_P$ of $\HHH_P$ assumed to lie in the dense subspace $\HHH_P^0$ respects the above decomposition in \cref{hpchi}, i.e., $\BBB_P = \coprod_{\chi \in \XXX} \BBB_{P, \chi}$. For any $\chi \in \XXX$ we set
 \[ K_\chi(x, y) = \sum_P n_P^{-1} \int_{i\aaa_P^*} \sum_{\phi \in \BBB_{P, \chi}}
 		E(x, \III_{P, \chi}(\lambda, f)\phi, \lambda) \overline{E(y, \phi, \lambda)} \d \lambda. \]
@@ -974,7 +979,7 @@ Thus the geometric expansion for $\sl(2)$ can be written more succinctly as
 		\frac{1}{2} \sum_{\gamma \in M_0(\Z_S)} a^{M_0}(\gamma) J_{M_0}(\gamma, f). \]
 Note that the term $a^G(\gamma) = \vol(G(\Q)_\gamma \bs G(\A)^1_\gamma)$ is independent of $S$ (always the case) whereas $a^{M_0}(\gamma) = \vol (M_0(\Z_S)\bs M_0(\Q_S)^1)$ is not. 
 
-In \cref{sec:geom}, we defined a distribution $J$ on $G(\A)$ to be invariant if for every $y \in G(\A)$ and every $f \in \CCC_c^\infty(G(\A)), J(f) = J(f^y)$, where $f^y$ is conjugation with respect to $y$. However when we restrict $f$ to be in the Hecke algebra, that is, $f$ is bi-$K$-invariant then $f^y$ need not be so. We modify the definition of invariance as follows. A linear form $J$ on $\HHH(G)$ is said to be \textit{invariant} if for every $f, h \in \HHH(G)$, we have $J(f) = J(f*h) = J(h*f)$.
+In \cref{sec:geom}, we defined a distribution $J$ on $G(\A)$ to be invariant if for every $y \in G(\A)$ and every $f \in \CCC_c^\infty(G(\A)), J(f) = J(f^y)$, where $f^y$ is conjugation with respect to $y$. However when we restrict $f$ to be in the Hecke algebra, that is, $f$ is bi-$K$-invariant then $f^y$ need not be so. We modify the definition of invariance as follows. A linear form $J$ on $\HHH(G)$ is said to be \underline{invariant} if for every $f, h \in \HHH(G)$, we have $J(f) = J(f*h) = J(h*f)$.
 
 So far we have the spectral and geometric expansions for $\sl(2)$ as
 \begin{equation} \label{j_spec}
@@ -983,9 +988,9 @@ So far we have the spectral and geometric expansions for $\sl(2)$ as
 \begin{equation} \label{j_geom}
 	J_{\text{geom}}(f) = \sum_{\gamma \in (G(\Q)_{G, S})} a^G(\gamma) J_G(\gamma, f) + \frac{1}{2} \sum_{\gamma \in M_0(\Z_S)} a^{M_0}(\gamma) J_{M_0}(\gamma, f). 
 \end{equation}
-The first sum on both sides corresponding to $G$, is invariant whereas the second, corresponding to the Levi subgroup $M_0$ is not. The invariant trace formula for $\sl(2)$ is simpler than that for general $G$ because $M_0$ is abelian (so all unitary representations are tempered) and since $M_0$ is minimal and maximal (nontrivial) Levi subgroup. To make the above distributions invariant, we would like to do one of the following, namely for a fixed $\gamma \in M_0(\Z_S)$, subtract the spectral contribution, 
+The first sum on both sides corresponding to $G$, is invariant whereas the second, corresponding to the Levi subgroup $M_0$ is not. The invariant trace formula for $\sl(2)$ is simpler than that for general $G$ because $M_0$ is abelian (so all unitary representations are tempered) and since $M_0$ is minimal and maximal (nontrivial) Levi subgroup. To make the above distributions invariant, we would like to do one of the following, namely for a fixed $\gamma \in M_0(\Z_S)$ subtract the spectral contribution, 
 \begin{equation} \label{sub_spec}
-J_{M_0}(\gamma, f) - \int_{\pi \in \Pi_{\text{unit}}(M_0(\Q_S)^1)} \pi(\gamma^{-1}) J_M(\pi, f) \d \pi, \qquad \gamma \in M_0(\Q_S)^1,
+J_{M_0}(\gamma, f) - \int_{\pi \in \Pi_{\text{unit}}(M_0(\Q_S)^1)} \pi(\gamma^{-1}) J_{M_0}(\pi, f) \d \pi, \qquad \gamma \in M_0(\Q_S)^1,
 \end{equation}
 or vice versa, that is, for fixed $\pi$ subtract the geometric contribution,
 \[ J_{M_0}(\pi, f) - \int_{\gamma \in M_0(\Q_S)} \pi(\gamma) J_{M_0}(\gamma, f) \d \gamma, \qquad \pi \in \Pi_{\text{unit}}(M_0(\Q_S)). \]
@@ -1006,7 +1011,7 @@ Here the map $f \mapsto f_G$ is given by
 \[ f_G(\pi, Z) = \trace \pi(f^Z), \qquad \pi \in \Pi_{\text{temp}}(G(\Q_S)), \ Z \in \aaa_{G, S} \]
 where $\aaa_{G, S}$ is a closed subgroup of $\aaa_G$ which equals $\aaa_G$ if $S$ contains the archimedean valuation, and $f^Z$ is the closed subset of $G(\Q_S)$ given by
 \[ G(\Q_S)^Z = \{ x \in G(\Q_S) : H_G(x) = Z \}. \]
-When $G = \sl(2)$, clearly $\aaa_{G, S} = 0$ and $G(\Q_S)^Z$ is nonempty if and only if $Z = 0$. 
+When $G = \sl(2), \aaa_{G, S} = 0$ and $G(\Q_S)^Z$ is nonempty if and only if $Z = 0$. 
 
 The idea is to be able to define continuous linear maps from $\HHH_{\text{ac}}(G(\Q_S))$ to $\III_{\text{ac}}(M(\Q_S))$ where $M$ is a Levi subgroup of $G$. To such a subgroup $M, \pi \in \Pi(M(\Q_S)), \lambda \in \aaa_{M, \C}^*$ and $Z \in \aaa_{G, S}$, Arthur defines a meromorphic function
 \[ J_M(\pi_\lambda, f^Z) := \trace \left( \RRR_M(\pi_\lambda, P) \III_P(\pi_\lambda, f^Z) \right) \]
@@ -1014,7 +1019,7 @@ and its natural extension for $X \in \aaa_{M, S}$ namely
 \[ J_M(\pi, X, f) := \int_{i\aaa_M^* / i\aaa_G^*} J_M(\pi_\lambda, f^Z) \exp(-\sprod{\lambda}{X}) \d \lambda. \]
 Note the formal resemblance with \cref{jmpi}. Using this Arthur defines the map
 \[ \phi_M : \HHH_{\text{ac}}(G(\Q_S)) \to \III_{\text{ac}}(M(\Q_S)) \]
-where $\phi_M(f)(\pi, X) = \phi_M(f, \pi, X) = J_M(\pi, X, f)$ with $\pi \in \Pi_{\text{temp}}(M(\Q_S))$ and $X \in \aaa_{M, S}$. In \cite{MR999488}, Arthur shows that $\phi_M$ is a continuous linear transform. We now state a theorem about the existence of the aforementioned Fourier transform $I \mapsto \widehat I$ and the invariant trace formula defined in terms of the invariant distributions $I_M(\gamma, f)$ and $I_M(\pi, f)$. 
+where $\phi_M(f)(\pi, X) = \phi_M(f, \pi, X) = J_M(\pi, X, f)$ with $\pi \in \Pi_{\text{temp}}(M(\Q_S))$ and $X \in \aaa_{M, S}$. He shows \cite{MR999488} that $\phi_M$ is a continuous linear transform. We now state a theorem about the existence of the aforementioned Fourier transform $I \mapsto \widehat I$ and the invariant trace formula defined in terms of the invariant distributions $I_M(\gamma, f)$ and $I_M(\pi, f)$. 
 
 \begin{theorem} \label{inv_geom}
 For $\gamma \in M(\Q_S)$ and $f \in \HHH_{\text{ac}}(G(\Q_S))$ there are invariant linear forms $I_M(\gamma, f)$ that are supported on characters (meaning $\widehat I_M(\circ, f)$ exists), and which satisfy 
@@ -1023,7 +1028,7 @@ For $\gamma \in M(\Q_S)$ and $f \in \HHH_{\text{ac}}(G(\Q_S))$ there are invaria
 
 \begin{theorem} \label{inv_spec}
 For $\pi \in \Pi(M(\Q_S)), X \in \aaa_{M, S}$ and $f \in \HHH_{\text{ac}}(G(\Q_S))$, there are invariant linear forms $I_M(\pi, X, f)$ supported on characters which satisfy
-\[ I_M(\pi, X, f) = J_M(\gamma, f) - \sum_{\substack{L \in \LLL(M) \\ L \neq G}} \widehat I_M^L(\gamma, \phi_L(f)). \]
+\[ I_M(\pi, X, f) = J_M(\pi, X, f) - \sum_{\substack{L \in \LLL(M) \\ L \neq G}} \widehat I_M^L(\pi, X, \phi_L(f)). \]
 \end{theorem}
 
 \begin{theorem} \label{invtf}
@@ -1059,11 +1064,19 @@ so $I_{M_0}(\pi, X, f) = 0$.
 
 Thus the invariant trace formula for $\sl(2)$ is given by
 \begin{subequations}
-\begin{empheq} [box=\widefbox]{align}
+\begin{align}
  I_{\text{geom}}(f) = \lim_S \sum_{\gamma \in \Gamma(G)_S} a^G(\gamma) & J_G(\gamma, f) + \frac{1}{2} \sum_{\gamma \in \Gamma(M_0)_S} \left[ a^{M_0}(\gamma) J_{M_0}(\gamma, f) - f(\gamma) \right], \\
  I_{\text{spec}}(f) & = \sum_{\substack{\pi \text{ cusp} \\ \text{ form of } G}} \trace \pi(f). 
-\end{empheq}
+\end{align}
 \end{subequations}
+
+%\begin{empheq} [box=\widefbox]{equation}
+%\begin{split}
+% I_{\text{geom}}(f) = \lim_S \sum_{\gamma \in \Gamma(G)_S} a^G(\gamma) & J_G(\gamma, f) + \frac{1}{2} \sum_{\gamma \in \Gamma(M_0)_S} \left[ a^{M_0}(\gamma) J_{M_0}(\gamma, f) - f(\gamma) \right], \\
+% I_{\text{spec}}(f) & = \sum_{\substack{\pi \text{ cusp} \\ \text{ form of } G}} \trace \pi(f). 
+% \end{split}
+%\end{empheq}
+
 Although it might seem counterintuitive at first glance that the `extra' term to be subtracted from $J_{M_0}(\gamma, f)$ is just $f(\gamma)$, this indeed is the spectral contribution of the Levi subgroup $M_0$ through \cref{f_gamma}.
 
 
@@ -1073,13 +1086,13 @@ Although it might seem counterintuitive at first glance that the `extra' term to
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Absolute convergence and relation with `Beyond Endoscopy'}
 
-Suppose $G$ is a connected reductive group and assume for simplicity it is defined over $\Z$. Let
+Suppose $G$ is a quasisplit connected reductive group over $\Q$ and assume for simplicity it is defined over $\Z$. Let
 \[ r : {}^LG \to \gl(V) \]
 be a representation of its dual group. For every finite prime $p$ there exists a unique function $\varphi_{p, r, s}$ defined on $G(\Q_p)$ which is invariant on the left and right under $G(\Z_p)$ and which satisfies
 \[ \trace \pi_p(\varphi_{p, r, s}) = L_p(s, \pi_p, r) \]
-for $\Re(s) \gg 0$ and for every irreducible admissible representation $\pi_p$ of $G(\Q_p)$. This is an application of the Satake isomorphism (see \cite{MR3220933}). At the archimedean place let $\varphi_\infty$ be a smooth function on $G(\R)$ which belongs, along with its derivatives in $\Lone(G(\R))$. We form the test function
+for $\Re(s) \gg 0$ and for every unramified irreducible admissible representation $\pi_p$ of $G(\Q_p)$. This is an application of the Satake isomorphism (see \cite{MR3220933}). At the archimedean place let $\varphi_\infty$ be a smooth function on $G(\R)$ which belongs, along with its derivatives in $\Lone(G(\R))$. We form the test function
 \[ \varphi_{r, s}(g) = \varphi_\infty(g_\infty) \displaystyle\prod_p \varphi_{p, r, s}(g_p). \]
-This function is not of compact support so cannot be directly applied to the trace formula. However the absolute convergence of the trace formula for such functions has been proven, for the spectral side in \cite{FLM} and the geometric side in \cite{FL16}. A corresponding extension to the twisted trace formula is the work of the author \cite{Par19}. If this function is considered as a test function to the trace formula, the contribution of any discrete automorphic representation of any $\pi = \otimes_v \pi_v$ to the spectral side of the trace formula would be nonzero if and only if $\pi$ is unramified outside $\infty$ and in this case equal to $m(\pi) \trace \pi_\infty(\varphi_\infty) L^\infty(s, \pi^\infty, r)$. The broad picture of `Beyond Endoscopy' is to define $L$-functions imitating the method of Godement-Jacquet and weigh the trace formula by $L$-functions and then compare $r$-trace formulas on different groups. 
+This function is not of compact support so cannot be directly applied to the trace formula. However the absolute convergence of the trace formula for such functions has been proven, for the spectral side in \cite{FLM} and the geometric side in \cite{FL16}. A corresponding extension to the twisted trace formula is the work of the author \cite{Par19}. If this function is considered as a test function to the trace formula, the contribution of any discrete automorphic representation of any $\pi = \otimes_v \pi_v$ to the spectral side of the trace formula would be nonzero if and only if $\pi$ is unramified outside $\infty$ and in this case equal to $m(\pi) \trace \pi_\infty(\varphi_\infty) L^\infty(s, \pi^\infty, r)$. The broad picture of `Beyond Endoscopy' is to define $L$-functions imitating the method of Godement-Jacquet and weigh the trace formula by $L$-functions and then compare $r$-trace formulas on different groups. \\
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %     	Arthur notes errata
@@ -1216,6 +1229,19 @@ This function is not of compact support so cannot be directly applied to the tra
        review={\MR{2192011}},
     }
 
+    \bib{MR147566}{article}{
+       author={Borel, Armand},
+       author={Harish-Chandra},
+       title={Arithmetic subgroups of algebraic groups},
+       journal={Ann. of Math. (2)},
+       volume={75},
+       date={1962},
+       pages={485--535},
+       issn={0003-486X},
+       review={\MR{147566}},
+       doi={10.2307/1970210},
+    }
+
 	\bib{MR546598}{article} % Corvallis -- Borel & Jacquet 
     {
        author={Borel, A.},
@@ -1236,6 +1262,19 @@ This function is not of compact support so cannot be directly applied to the tra
        date={1979},
        pages={189--207},
        review={\MR{546598}},
+    }
+
+    \bib{MR1431508}{book}{
+       author={Bump, Daniel},
+       title={Automorphic forms and representations},
+       series={Cambridge Studies in Advanced Mathematics},
+       volume={55},
+       publisher={Cambridge University Press, Cambridge},
+       date={1997},
+       pages={xiv+574},
+       isbn={0-521-55098-X},
+       review={\MR{1431508}},
+       doi={10.1017/CBO9780511609572},
     }
     
     \bib{FL11b}{article} %FL11 Combinatorial setup
@@ -1284,6 +1323,22 @@ This function is not of compact support so cannot be directly applied to the tra
        review={\MR{2811597}},
        doi={10.4007/annals.2011.174.1.5},
     }
+
+    \bib{MR1071179}{book}{
+       author={Gel\cprime fand, I. M.},
+       author={Graev, M. I.},
+       author={Pyatetskii-Shapiro, I. I.},
+       title={Representation theory and automorphic functions},
+       series={Generalized Functions},
+       volume={6},
+       note={Translated from the Russian by K. A. Hirsch;
+       Reprint of the 1969 edition},
+       publisher={Academic Press, Inc., Boston, MA},
+       date={1990},
+       pages={xviii+426},
+       isbn={0-12-279506-7},
+       review={\MR{1071179}},
+    }
     
     \bib{MR0401654}{book}{
        author={Jacquet, H.},
@@ -1294,6 +1349,32 @@ This function is not of compact support so cannot be directly applied to the tra
        date={1970},
        pages={vii+548},
        review={\MR{0401654}},
+    }
+
+    \bib{MR0249539}{article}{
+       author={Langlands, R. P.},
+       title={Eisenstein series},
+       conference={
+          title={Algebraic Groups and Discontinuous Subgroups},
+          address={Proc. Sympos. Pure Math., Boulder, Colo.},
+          date={1965},
+       },
+       book={
+          publisher={Amer. Math. Soc., Providence, R.I.},
+       },
+       date={1966},
+       pages={235--252},
+       review={\MR{0249539}},
+    }
+
+    \bib{MR0579181}{book}{
+       author={Langlands, Robert P.},
+       title={On the functional equations satisfied by Eisenstein series},
+       series={Lecture Notes in Mathematics, Vol. 544},
+       publisher={Springer-Verlag, Berlin-New York},
+       date={1976},
+       pages={v+337},
+       review={\MR{0579181}},
     }
 
     \bib{MR2058622}{article}{
@@ -1325,6 +1406,19 @@ This function is not of compact support so cannot be directly applied to the tra
        isbn={0-521-41893-3},
        review={\MR{1361168}},
        doi={10.1017/CBO9780511470905}
+    }
+    
+    \bib{MR141672}{article}{
+       author={Mostow, G. D.},
+       author={Tamagawa, T.},
+       title={On the compactness of arithmetically defined homogeneous spaces},
+       journal={Ann. of Math. (2)},
+       volume={76},
+       date={1962},
+       pages={446--463},
+       issn={0003-486X},
+       review={\MR{141672}},
+       doi={10.2307/1970368},
     }
     
     \bib{MS}{article}		% Muller Speh
@@ -1401,6 +1495,19 @@ This function is not of compact support so cannot be directly applied to the tra
        issn={0022-314X},
        review={\MR{1068677}},
        doi={10.1016/0022-314X(90)90009-G},
+    }
+    
+    \bib{MR2683009}{book}{
+       author={Shahidi, Freydoon},
+       title={Eisenstein series and automorphic $L$-functions},
+       series={American Mathematical Society Colloquium Publications},
+       volume={58},
+       publisher={American Mathematical Society, Providence, RI},
+       date={2010},
+       pages={vi+210},
+       isbn={978-0-8218-4989-7},
+       review={\MR{2683009}},
+       doi={10.1090/coll/058},
     }
     
 \end{biblist}

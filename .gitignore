@@ -3,6 +3,11 @@
 .log
 .out
 .DS_Store
+Referee*
+*.sty
+*.cls
+
+
 
 # General
 .DS_Store
