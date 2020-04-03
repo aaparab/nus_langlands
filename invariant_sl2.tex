@@ -3,12 +3,14 @@
 %\usepackage[adobe-utopia]{mathdesign}	
 %\let\circledS\undefined
 
-\usepackage{geometry}               
-\usepackage{amsrefs} 				
+\usepackage{geometry}
+% \usepackage{amsrefs}
 \usepackage[T1]{fontenc}
 \geometry{letterpaper}
 \usepackage{amssymb, color}
 \usepackage[toc,page]{appendix}
+
+\usepackage{bbold} % For boldface 1 
 
 \usepackage{fancyhdr}
 %\setlength{\headheight}{13pt}
@@ -38,7 +40,7 @@
 \fancyhead[RO]{\rightmark} 
 
 \pagestyle{fancy}
-\bibliographystyle{amsalpha}
+% \bibliographystyle{amsalpha}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %     Math macros
@@ -76,6 +78,7 @@
 \def\bs{\setminus}
 \def\cent{\operatorname{Cent}}
 \def\cusp{\text{cusp}}
+\def\deg{\operatorname{deg}}
 \def\det{\operatorname{det}}
 \def\disc{\text{disc}}
 \def\dim{\operatorname{dim}}
@@ -130,7 +133,7 @@
 \setcounter{tocdepth}{1}		% Shows chapters in toc (table of contents) but not sections
 
 \begin{abstract}
-	These notes are aimed to get a working understanding of the terms involved in the Arthur-Selberg trace formula for the group $\sl(2)$ in the adelic setting closely following the excellent notes \cite{clay} by Prof. Arthur in the Clay volume. We analyze the truncated kernel and develop the coarse and fine geometric and spectral expansions for $\sl(2)$. The invariant trace formula is also computed explicitly for $\sl(2)$. We end with a brief note on recent convergence results. 
+	These notes are aimed to give the reader a working understanding of the terms involved in the Arthur-Selberg trace formula for the group $\sl(2)$ in the adelic setting closely following the excellent notes \cite{clay} by Prof. Arthur in the Clay proceedings. We analyze the truncated kernel and develop the coarse and fine geometric and spectral expansions for $\sl(2)$. The invariant trace formula is also computed explicitly for $\sl(2)$. We end with a brief note on recent convergence results. 
 \end{abstract}
 
 \tableofcontents
@@ -142,9 +145,9 @@
 	
 	An important purpose of these notes is to motivate the reader to understand Arthur's Clay notes \cite{clay} which are an excellent introduction to the trace formula. We will abbreviate and say trace formula when we refer to one of the versions of the Arthur-Selberg trace formula, the non-invariant, invariant or stable depending on the context. 
 	
-	In its easiest form the trace formula is the expression of the trace of the right regular representation of a group $H$ on the space $\Ltwo(\Gamma\bs H)$ where $\Gamma$ is a co-compact subgroup of $H$, when expressed in two different ways. It is obtained by integrating the kernel over the diagonal subgroup. Selberg developed a trace formula for $\sl(2)$ and used it to prove the existence of Maass forms. Thereafter it has been vastly generalized by Arthur in the adelic setting for a connected reductive group. Understanding it for $\sl(2)$ is a primary objective of these notes. In the general case, the kernel is not integrable so Arthur modifies it to obtain the truncated kernel, an alternating sum indexed by standard parabolic subgroups of the group. This truncated kernel has two important properties, namely that its integral over the diagonal converges absolutely and that it agrees with the (usual) kernel of the right regular representation on a compact set. Arthur develops the coarse geometric and spectral expansions by refining the expression for this truncated kernel. For certain special classes on the two sides he gives more explicit forms. He then goes on to make the remaining terms in these expansions more explicit and refers to it as the fine expansion. 
+	In its easiest form the trace formula is the expression of the trace of the right regular representation of a group $H$ on the space $\Ltwo(\Gamma\bs H)$ where $\Gamma$ is a co-compact subgroup of $H$, when expressed in two different ways. It is obtained by integrating the kernel over the diagonal subgroup. Selberg developed a trace formula for $\sl(2)$ and used it to prove the existence of Maass forms. Thereafter it has been vastly generalized by Arthur in the adelic setting for a connected reductive group and more generally, a connected component of a reductive algebraic group. Understanding the trace formula for $\sl(2)$ is a primary objective of these notes. In the general case, the kernel is not integrable so Arthur modifies it to obtain the truncated kernel, an alternating sum indexed by standard parabolic subgroups of the group. This truncated kernel has two important properties, namely that its integral over the diagonal converges absolutely and that it agrees with the (usual) kernel of the right regular representation on a compact set. Arthur develops the coarse geometric and spectral expansions by refining the expression for this truncated kernel. For certain special classes on the two sides he gives more explicit forms. He then goes on to make the remaining terms in these expansions more explicit and refers to it as the fine expansion. 
 	
-	Soon after Jacquet and Langlands \cite{MR0401654} used the trace formula to compare representations of $\gl(2)$ and its twisted forms, it became clear that one of the crucial uses of the trace formula would be to prove functoriality by comparing trace formulas on different groups. This could well be the motivation for Arthur to develop and refine the trace formula as well as the seminar of Clozel-Labesse-Langlands in developing the twisted trace formula (for connected components of reductive algebraic groups). Having developed the fine expansions, Arthur develops the invariant version by transferring the non-invariant terms on the spectral side to the geometric side. For most groups (including $\sl(2)$), the transfer of orbital integrals involves a matching of not just invariant orbital integrals but stable ones. He refines the invariant trace formula to get the stable version. Assuming the fundamental lemma (now proven), he then goes ahead to prove functoriality for classical groups which can be considered as one of the monumental achievements of this theory. 
+	Soon after Jacquet and Langlands \cite{MR0401654} used the trace formula to compare representations of $\gl(2)$ and its twisted forms, it became clear that one of the crucial uses of the trace formula would be to prove functoriality by comparing trace formulas on different groups. This could well be the motivation for Arthur to develop and refine the trace formula as well as the seminar of Clozel-Labesse-Langlands in developing the twisted trace formula (for connected components of reductive algebraic groups). Having developed the fine expansions, Arthur develops the invariant version by transferring the non-invariant terms on the spectral side to the geometric side. For most groups (including $\sl(2)$), the transfer of orbital integrals involves a matching of not just invariant orbital integrals but stable ones. Arthur refines the invariant trace formula to get the stable version. Assuming the fundamental lemma (now proven), he then goes ahead to prove functoriality for classical groups which can be considered as one of the monumental achievements of this theory. 
 
 	Although many endoscopic cases of functoriality are proven and we deduce more information about the parameters involved, important non-endoscopic cases like symmetric powers still remains open. It was Langlands' paper in `Beyond Endoscopy' \cite{MR2058622} that galvanized work in this direction. Very naively the hope now is to be able to define (completed) automorphic $L$-functions by imitating the method of Godement-Jacquet (theory of monoids developed by Braverman-Kazhdan, Ngo and Vinberg) and develop a trace formula with spectral side weighted by the residues of these $L$-functions. To prove the `Beyond Endoscopy' cases of functoriality one hopes to be able to compare the geometric sides of two such trace formulas. 
 	
@@ -171,9 +174,9 @@ into irreducible unitary representations.
 	can be realized via the Plancherel theorem for Fourier series namely,
 	\begin{align*}
 		\Ltwo(\Z \bs \R) & \overset{\sim}{\longrightarrow} \Ltwo(\Z) \\
-		\phi & \mapsto \hat\phi, \qquad \text{where }\hat\phi(n) = \int_{\Z\bs \R} \phi(x) \exp(2\pi i n x) \d x
+		\phi & \mapsto \hat\phi,
 	\end{align*}
-	Plancherel's theorem : $\norm{\phi} = \norm{\hat\phi}$. 
+	where $\hat\phi(n) = \int_{\Z\bs \R} \phi(x) \exp(2\pi i n x) \d x$. Recall that Plancherel's theorem is: $\norm{\phi} = \norm{\hat\phi}$. 
 \end{example}
 
 \begin{example}
@@ -194,14 +197,13 @@ where $K(x, y) = \sum_{\gamma \in \Gamma} f(x^{-1}\gamma y)$. The sum over $\gam
 To continue further, we make the very special assumption: $\Gamma\bs H$ is compact. As a consequence, the following hold.
 \begin{enumerate}
 \item 	\begin{itemize}
-		\item[] $K(x, y)$ is compactly supported 
-		\item[] Hence square-integrable
+		\item[] $K(x, y)$ is compactly supported hence square-integrable
 		\item[] $\Rightarrow R(f)$ is Hilbert-Schmidt class
 		\item[] $\Rightarrow R(f)$ is compact (self-adjoint) operator. 
 		\item[] Therefore by the spectral theory of self-adjoint compact operators,
 			\[ R = \bigoplus_\pi m(\pi, R) \pi \]
 			where $0 \leq m(\pi, R) < \infty$. Additionally if we assume 
-			\[ f(x) = (g*g^*)(x) = \int_H g(y) \overline{g(x^{-1}y)} \d y\]
+			\[ f(x) = (g*g^*)(x) = \int_H g(y) \overline{g(x^{-1}y)} \d y \]
 			for a function $g$ on $H$ of compact support then $R$ is self-adjoint. 
 		\end{itemize}
 \item If $H$ is a Lie group and $f$ is smooth of compact support then $R(f)$ is of trace class and
@@ -234,11 +236,11 @@ where $\gamma \in \{\Gamma \}$,
 	\end{rcases} \quad
 	\text{Geometric side}\\[0.5em] \]
 	
-\[	\text{Spectral side} \quad 
-	\begin{cases}
-		\quad f_H(\pi) = \trace \pi(f) \\
-		\quad a_\Gamma^H(\pi) = m(\pi, R).
-	\end{cases}
+\[	\begin{rcases}
+		\quad f_H(\pi) = \trace \pi(f) \quad \\
+		\quad a_\Gamma^H(\pi) = m(\pi, R). \quad
+	\end{rcases} \quad
+	\text{Spectral side}
 \]
 This is the Selberg trace formula for compact quotient. As a quick exercise the reader should use this formula to prove Frobenius reciprocity when $H$ is a finite group. Also, when $H = \R$ and $\Gamma = \Z$ it is easy to see the trace formula reduces to the familiar Poisson summation formula, 
 \[ \sum_{n \in \Z} f(n) = \sum_{n \in \Z} \hat f(n). \]
@@ -265,12 +267,12 @@ Define the Harish-Chandra map by
 \end{align*}
 and denote its kernel by $G(\A)^1$. If we denote $A_G(\R)^\circ$ by $\AAA_G$ then $G(\A)$ is the direct product of $G(\A)^1$ and $\AAA_G$. When $G = \sl(2)$, the vector spaces $\aaa_G, \aaa_G^*$ and the map $H_G$ are all trivial and $G(\A) = G(\A)^1$.
 
-If the reader is not familiar with the notion of a parabolic subgroup they may consider the example of $\sl(2)$ wherein the group of upper triangular matrices is the unique (up to conjugation) parabolic subgroup. In general, fix a minimal parabolic subgroup $P_0$ with Levi decomposition $P_0 = M_0 N_0$. Call a parabolic subgroup $P$ as \underline{standard} if $P \supseteq P_0$. For any Levi subgroup $M_P$ of $P$, we have a decomposition
+If the reader is not familiar with the notion of a parabolic subgroup they may consider the example of $\sl(2)$ wherein the group of upper triangular matrices is the unique parabolic subgroup (up to conjugation). In general, fix a minimal parabolic subgroup $P_0$ with Levi decomposition $P_0 = M_0 N_0$. Call a parabolic subgroup $P$ as \underline{standard} if $P \supseteq P_0$. For any Levi subgroup $M_P$ of $P$, we have a decomposition
 \[ 1 \to N_P \to P \to M_P \to 1, \]
 where $N_P$ is the unipotent radical of $P$. We can choose $M_P$ uniquely by asking that \mbox{$M_P \supseteq M_0$} and henceforth we assume this to be the case. The Weyl group is the finite quotient $N_G(M_0)/Z_G(M_0)$ denoted by $W = W^G$. In the case of $\sl(2)$, it is customary to choose the set of upper triangular matrices with determinant 1 as the minimal parabolic subgroup $P_0$. The only standard parabolic subgroups are $\{P_0, G\}$.
 Let $A_P, \AAA_P, \aaa_P, \aaa_P^*$ denote $A_{M_P}, A_{M_P}(\R)^\circ, \aaa_{M_P}$ and $\aaa_{M_P}^*$ respectively. If $P = P_0$ we will further abbreviate to $A_0, \AAA_0, \aaa_0, \aaa_0^*$ etc. Given standard parabolic subgroups $P, Q$ the \underline{Weyl set} denoted by $W(\aaa_P, \aaa_Q)$ is the set of $\R$-linear isomorphisms from $\aaa_P$ to $\aaa_Q$ obtained by restricting the elements of $W^G$ to $\aaa_P \subseteq \aaa_0$. 
 
-The trace formula we develop essentially depends on the choice of a maximal compact subgroup of $G(\A)$ which we now choose. For $G = \sl(2)$ and $p$ a rational prime, denote $K_p = \sl(2, \Z_p)$. At the Archimedean place, let $K_\infty = \so(2, \R)$. Then $K = K_\infty \times \prod_p K_p$ is a maximal compact subgroup of $\sl(2, \A)$. In general for every rational prime $p$, we fix $K_p$ to be a maximal compact subgroup of $G(\Q_p)$ satisfying certain conditions (i.e., corresponds to a special point in the Bruhat-Tits building; Arthur calls them as `good'). Having defined the maximal compact subgroup $K$ of $G(\A)$, we extend the map $H_P = H_{M_P}$ initially defined on $M_P(\A)$ to $G(\A)$ as follows. We use the Iwasawa decomposition to write $g = nmk$ with $n \in N_P(\A), m \in M_P(\A)$ and $k \in K$ and define
+The non-invariant trace formula we develop essentially depends on the choice of a maximal compact subgroup of $G(\A)$ which we now choose. For $G = \sl(2)$ and $p$ a rational prime, denote $K_p = \sl(2, \Z_p)$. At the Archimedean place, let $K_\infty = \so(2, \R)$. Then $K = K_\infty \times \prod_p K_p$ is a maximal compact subgroup of $\sl(2, \A)$. In general for every rational prime $p$, we fix $K_p$ to be a maximal compact subgroup of $G(\Q_p)$ satisfying certain conditions (i.e., corresponds to a special point in the Bruhat-Tits building; Arthur calls them as `good'). Having defined the maximal compact subgroup $K$ of $G(\A)$, we extend the map $H_P = H_{M_P}$ initially defined on $M_P(\A)$ to $G(\A)$ as follows. We use the Iwasawa decomposition to write $g = nmk$ with $n \in N_P(\A), m \in M_P(\A)$ and $k \in K$ and define
 \[ H_P : G(\A) \to \aaa_P \]
 by 
 \[ H_P(g) = H_P(m) = H_{M_P}(m). \]
@@ -302,7 +304,7 @@ One of Arthur's first contribution is to truncate the kernel function by writing
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{The kernel and its truncation}
 
-To explain the terms in the truncated kernel we need to define some notations. Suppose we have two standard parabolic subgroups $P_1 \se P_2$. Thus there is a $\Q$-rational embedding
+To explain the terms in the truncated kernel we need to define some additional notations. An inclusion $P_1 \se P_2$ of two standard parabolic subgroups gives a $\Q$-rational embedding
 \[ A_{P_2} \se A_{P_1} \se M_{P_1} \se M_{P_2}. \]
 The restriction homomorphism 
 \[ X(M_{P_2})_{\Q} \to X(M_{P_1})_{\Q} \]
@@ -337,8 +339,7 @@ and
 \[ (\Delta_{P_1}^{P_2})^\vee, (\hat\Delta_{P_1}^{P_2})^\vee \subset (\aaa_{P_1}^{P_2})^* \]
 analogously, with `everything happening inside $M_{P_2}$'. Note that the notion of roots and co-roots of a root system is true when $P_1 = P_0$ but not in general. 
 
-
-We now calculate these objects for $\sl (2)$. As remarked earlier, the set $\PPP^G(M_0)$ of standard parabolic subgroups of $G$ with Levi contained in $M_0$ is $\{G, P_0\}$. Since $\sl(2)$ does not have nontrivial characters so $X(\sl(2))$ is trivial. The real vector spaces $\aaa_G$ and $\aaa_G^*$ are also trivial. However $X(M_0)$ is spanned by the root $\beta_1 = e_1 - e_2$ where $e_i\begin{pmatrix} t_1 & \\ & t_2 \end{pmatrix} = t_i$ and $t_1 t_2 = 1$. 
+We now calculate these objects for $\sl (2)$. As remarked earlier, the set $\PPP^G(M_0)$ of standard parabolic subgroups of $G$ with Levi contained in $M_0$ is $\{G, P_0\}$. Since $\sl(2)$ does not have nontrivial characters so $X(\sl(2))$ is trivial. The real vector spaces $\aaa_G$ and $\aaa_G^*$ are also trivial. However $X(M_0)$ is spanned by the root $\beta_1 = e_1 - e_2$ where $e_i\begin{pmatrix} t_1 & 0 \\ 0 & t_2 \end{pmatrix} = t_i$ and $t_1 t_2 = 1$. 
 Thus, we have
 \begin{align*}
 	 \text{Simple root: } & \Delta_0 = \{\beta_1 = e_1 - e_2 \}, \\
@@ -356,12 +357,12 @@ as points in the fundamental domain for $\sl(2, \Z)$ via
 		\simeq \ \sl(2, \Z) \bs \mathbf H,
 \end{equation}
 where $\mathbf H$ is the upper half complex plane $\{ x + i y : x, y \in \R, \ y > 0\}$. We have the Iwasawa decomposition $g = nmk$ as 
-\[ x + i y = \begin{pmatrix} 1 & x \\ 0 & 1 \end{pmatrix} \begin{pmatrix} y^{1/2} & \\ & y^{-1/2} \end{pmatrix}
+\[ x + i y = \begin{pmatrix} 1 & x \\ 0 & 1 \end{pmatrix} \begin{pmatrix} y^{1/2} & 0 \\ 0 & y^{-1/2} \end{pmatrix}
 		\begin{pmatrix} \cos \theta & \sin \theta \\ -\sin \theta & \cos \theta \end{pmatrix} . i \]
 The map $H_0 : G(\A) \to \aaa_0$ satisfies
 
 \[ \sprod{H_0(g)}{\beta_1} = \log \ \mod{\beta_1(g)\ } = \log \ \mod{\beta_1 
-			\begin{pmatrix} y^{1/2} & \\ & y^{-1/2} \end{pmatrix} \ } = \log \mod{y}. \]
+			\begin{pmatrix} y^{1/2} & 0 \\ 0 & y^{-1/2} \end{pmatrix} \ } = \log \mod{y}. \]
 
 For a standard parabolic subgroup $P$, let $\tau_P$ be the characteristic function of the cone 
 \[ \aaa_P^+ = \{ T \in \aaa_P : \alpha(T) > 0 \ \forall \alpha \in \Delta_P. \} \]
@@ -408,7 +409,7 @@ Because it covers many important aspects of the trace formula, we will go into d
 In the case of $G = \sl(2)$, consider the characteristic function $\hat\tau_0(H_0(\delta x) - T)$ appearing in \cref{k_sl2}. For what values of $\delta x$ does it equal 1?
 
 Fix $x \in \sl(2, \A)$ and recall the identification of $\sl(2, \Q)\bs \sl(2, \A) / K$ in \cref{fund_dom} with the fundamental domain of $\sl(2, \Z)$. Clearly the image of $x$ and $\delta x$ in this fundamental domain agree when $\delta \in P_0(\Q) \bs G(\Q)$. 
-Also recall that $\hat\Delta_0 = \{\varpi_1 = \frac{1}{2}(e_1 - e_2) \}$ and $\hat \tau_0$ is the characteristic function of the subset 
+Also recall that $\hat\Delta_0 = \{\varpi_1\}$ where $\varpi_1 = \frac{1}{2}(e_1 - e_2)$ and $\hat \tau_0$ is the characteristic function of the subset 
 \[ \{ T \in \aaa_0 : \varpi_1(T) > 0 \}. \]
 We can write $T \in \aaa_0$ as $T = t \beta_1^\vee$ with $t \in \R$ and $\Delta_0 = \{\beta_1\}$. The condition that $T$ is sufficiently regular just means that $t \gg 0$. Now the condition that $\hat\tau_0 (H_0(\delta x) - T) = 1$ is equivalent to 
 \[ \varpi_1(H_0(\delta x)) = \varpi_1(H_0(x)) > \varpi_1(T), \]
@@ -417,10 +418,10 @@ which implies
 Identifying $x \in \sl(2, \Q)\bs \sl(2, \A) / K$ with the point $x + iy$ in the fundamental domain (note the unfortunate abuse of notation) we have
 \begin{equation} \label{x_decom}
 	\begin{aligned} 
-		H_0(x) & = H_0(\begin{pmatrix} 1 & x \\ 0 & 1 \end{pmatrix} \begin{pmatrix} y^{1/2} & 0 \\ 0 & y^{-1/2} \end{pmatrix} \begin{pmatrix} \cos \theta & \sin \theta \\ -\sin \theta & \cos \theta \end{pmatrix}) \\
-			& = H_0(\begin{pmatrix} y^{1/2} & 0 \\ 0 & y^{-1/2} \end{pmatrix}). \\
-	\Rightarrow \log & \mod{\varpi_1(\begin{pmatrix} y^{1/2} & 0 \\ 0 & y^{-1/2} \end{pmatrix})} > t \\
-	\Rightarrow y & > \exp(2t).
+		H_0(x) & = H_0 \left(\begin{pmatrix} 1 & x \\ 0 & 1 \end{pmatrix} \begin{pmatrix} y^{1/2} & 0 \\ 0 & y^{-1/2} \end{pmatrix} \begin{pmatrix} \cos \theta & \sin \theta \\ -\sin \theta & \cos \theta \end{pmatrix} \right) 
+		 = H_0 \left( \begin{pmatrix} y^{1/2} & 0 \\ 0 & y^{-1/2} \end{pmatrix} \right). \\
+	& \Rightarrow \log \mod{\varpi_1(\begin{pmatrix} y^{1/2} & 0 \\ 0 & y^{-1/2} \end{pmatrix})} > t \\
+	& \Rightarrow y > \exp(2t).
 	\end{aligned}
 \end{equation}
 
@@ -458,7 +459,7 @@ Suppose $T_1 \in \aaa_0$ and $\omega$ is a compact subset of $N_{P_0}(\A)M_{P_0}
 \end{flalign*}
 is called the \underline{Siegel set} associated to $T_1$ and $\omega$. 
 
-We would like to know what the condition $\tau_0(H_0(a) - T_1) = 1$ means for $G = \sl(2)$. The decomposition $M_0(\A) = M_0(\A)^1 \times \AAA_0$ is given by the norm map on the ideles and is equivalent to $\I_\Q = \I^1 \times (\R^*)^0$. As before, we can write $a = \begin{pmatrix} y^{1/2} & \\ & y^{-1/2} \end{pmatrix}$ and $\Delta_0 = \{\beta_1 = e_1 - e_2\}$. Write $T_1 = t_1 \varpi_1^\vee$. Then
+We would like to know what the condition $\tau_0(H_0(a) - T_1) = 1$ means for $G = \sl(2)$. The decomposition $M_0(\A) = M_0(\A)^1 \times \AAA_0$ is given by the norm map on the ideles and is equivalent to $\I_\Q = \I^1 \times (\R^*)^0$. As before, we can write $a = \begin{pmatrix} y^{1/2} & 0 \\ 0 & y^{-1/2} \end{pmatrix}$ and $\Delta_0 = \{\beta_1 = e_1 - e_2\}$. Write $T_1 = t_1 \varpi_1^\vee$. Then
 \[	\tau_0(H_0(a) - T_1) = 1 \Leftrightarrow \beta_1(H_0(a)) > \beta_1(T_1) \Leftrightarrow \log \mod{y} > t_1, \]
 that is, $y > \exp(t_1)$.
 \begin{theorem} \cite{MR147566}*{Theorem 6.5}
@@ -481,13 +482,12 @@ We now begin the proof of \cite{clay}*{Theorem 6.1} for $G=\sl(2)$. There are ma
 \[ k^T(x) = K_G(x, x) - \sum_{\delta \in P_0(\Q)\bs G(\Q)} \hat\tau_0(H_0(\delta x) - T) K_0(\delta x, \delta x). \]
 We multiply the first term above by the LHS of \cref{partition_lemma} which yields (for $P=G$),
 \[ F(x, T) + \sum_{\delta \in P_0(\Q)\bs G(\Q)} \tau_0(H_0(\delta x) - T) = 1. \]
-{\color{red} Align: }
-\begin{flalign*} 
-	\Rightarrow k^T(x) = F(x, T) K_G(x, x) \ +  
+\begin{multline*} 
+	\Rightarrow k^T(x) = F(x, T) K_G(x, x) \ + \\
 	\sum_{\delta \in P_0(\Q)\bs G(\Q)} \left( 
 		\tau_0(H_0(\delta x) - T) K_G(\delta x, \delta x) 
 		- \hat\tau_0(H_0(\delta x) - T) K_{P_0}(\delta x, \delta x) \right).
-\end{flalign*}
+\end{multline*}
 The first term (corresponding to $P=G$),
 \[ F(x, T) K_G(x, x) = F(x, T) \sum_{\gamma \in G(\Q)} f(x^{-1}\gamma x) \]
 is nonzero when $F(x, T)=1$, i.e., when the image of $x$ is in a compact subset of the Siegel set. Thus the integral over $G(\Q) \bs G(\A)^1$ of this term converges absolutely. It only remains to analyze the second term. Since $\tau_0(H-T) = 1$ if and only if $\hat\tau_0(H-T) = 1$ we may as well assume this to be the case. Thus we only need to consider the integral over $x \in G(\Q)\bs G(\A)$ for which $\tau_0(H_0(x) - T) = \hat\tau_0(H_0(x) - T) = 1$. Thus $x$ lies in the ``upper'' unbounded subset of the Siegel domain of \cref{fig:sd}. We would like to show the integral
@@ -495,15 +495,15 @@ is nonzero when $F(x, T)=1$, i.e., when the image of $x$ is in a compact subset 
 	\int_{G(\Q)\bs G(\A)^1} \sum_{\delta \in P_0(\Q)\bs G(\Q)} \tau_0(H_0(\delta x) - T) \left(K_G(x, x) - K_0(\delta x, \delta x) \right) \d x \\
 	= \int_{P_0(\Q)\bs G(\A)^1} \tau_0(H_0(x) - T) \Big( K_G(x, x) - K_0(x, x) \Big) \d x
 \end{flalign*}
-converges absolutely. Write $x = p_0 a_0 k$ where $p_0 \in P_0(\Q) \bs M_0(\A)^1 N_0(\A), a_0 \in A_0(\R)^\circ$ and $k \in K$. Since $p_0$ and $k$ belong to compact sets, it suffices to consider the integral over $a_0 \in A_0(\R)^\circ$ such that 
+converges absolutely. Write $x = p_0 a_0 k$ where $p_0 \in P_0(\Q) \bs M_0(\A)^1 N_0(\A), a_0 \in \AAA_0$ and $k \in K$. Since $p_0$ and $k$ belong to compact sets, it suffices to consider the integral over $a_0 \in \AAA_0$ such that 
 \[ \tau_0(H_0(a_0)-T) = 1. \]
 
 Let 
-\begin{flalign*}
-	K_{P_0, G}(x) & := K_G(x, x) - K_0(x, x) \\
-			& = \sum_{\mu \in G(\Q)} f(x^{-1}\mu x) - \sum_{\gamma \in M_0(\Q)} \int_{N_0(\A)} 
+\[
+	K_{P_0, G}(x) := K_G(x, x) - K_0(x, x) 
+			= \sum_{\mu \in G(\Q)} f(x^{-1}\mu x) - \sum_{\gamma \in M_0(\Q)} \int_{N_0(\A)} 
 				f(x^{-1} \gamma n x) \d n.
-\end{flalign*}
+\]
 Arthur uses the compactness of $f$ to show the first sum over $G(\Q)$ can in fact be taken over $P_0(\Q)$. He carries out the example computation for $G = \sl(2)$ on p. 44 in \cite{clay}. Thus, 
 \[ k_{P_0, G}(x) = \sum_{\mu \in M_0(\Q)} \left[\sum_{\nu \in N_0(\Q)} f(x^{-1} \mu \nu x) -
 		\int_{N_0(\A)} f(x^{-1} \mu n x) \d n \right]. \]
@@ -535,9 +535,7 @@ Before delving into the geometric expansion, we will review two important proper
 \begin{enumerate}
 	\item For any $f \in \CCC_c^\infty(G(\A))$, the function
 		\[ T \mapsto J^T(f) \]
-		defined for $T \in \aaa_0$ sufficiently regular, is a polynomial in $T$ with degree $\leq a_0^G := \dim \aaa_0^G$. 
-		
-		Using this result we define $J(f)$ as $J^{T_0}(f)$ where $T_0 \in \aaa_0$ is a unique point such that the distribution $J^{T_0}(f)$ is independent of the choice of $P_0 \in \PPP(M_0)$, the set of minimal parabolic subgroups with Levi $M_0$. For $\sl(2)$ and in general for $\sl(n)$ and $\gl(n), T_0 \in \aaa_0$ is the origin.
+		defined for $T \in \aaa_0$ sufficiently regular, is a polynomial in $T$ with degree at most $a_0^G := \dim \aaa_0^G$. Using this result we define $J(f)$ as $J^{T_0}(f)$ where $T_0 \in \aaa_0$ is a unique point such that the distribution $J^{T_0}(f)$ is independent of the choice of $P_0 \in \PPP(M_0)$, the set of minimal parabolic subgroups with Levi $M_0$. For $\sl(2)$ and in general for $\sl(n)$ and $\gl(n), T_0 \in \aaa_0$ is the origin.
 		
 	\item A distribution $I$ on $G(\A)$ is called \underline{invariant} if $I(f^y) = I(f)$ for every $y \in G(\A)$ where $f^y(x) = f(yxy^{-1})$. Arthur defines a map
 	\[ \CCC_c^\infty(G(\A)) \to \CCC_c^\infty(M(\A)) \]
@@ -549,11 +547,9 @@ Before delving into the geometric expansion, we will review two important proper
 
 We now define the coarse conjugacy classes of Arthur. Recall that any element $\gamma \in G(\Q)$ has a Jordan decomposition
 \[ \gamma = \gamma_s \gamma_u, \]
-where $\gamma_s$ (resp. $\gamma_u$) is semisimple (resp. unipotent). Define two elements $\gamma, \gamma' \in G(\Q)$ to be \underline{$\O$-equivalent} if $\gamma_s$ and $\gamma_s'$ are conjugate over $G(\Q)$. Let $\O = \O^G$ denote the set of such equivalence classes which we will denote as \underline{coarse-conjugacy} or \underline{Arthur-conjugacy classes}. 
-
-Clearly there is a bijection between coarse conjugacy classes and semisimple conjugacy classes in $G(\Q)$, namely 
+where $\gamma_s$ (resp. $\gamma_u$) is semisimple (resp. unipotent). Define two elements $\gamma, \gamma' \in G(\Q)$ to be \underline{$\O$-equivalent} if $\gamma_s$ and $\gamma_s'$ are conjugate over $G(\Q)$. Let $\O = \O^G$ denote the set of such equivalence classes which we will denote as \underline{coarse-conjugacy} or \underline{Arthur-conjugacy classes}. There is a bijection between coarse conjugacy classes and semisimple conjugacy classes in $G(\Q)$, namely 
 \[ \o \in \O \mapsto [\gamma_s : \gamma \in \o ]. \]
-Observe that if $1 \in \o$ then $\o$ consists of all unipotent elements in $G(\Q)$ and is known as the unipotent orbit (or unipotent variety) and denoted as $\UUU$. A class $\o \in \O$ is called \underline{anisotropic} if it does not intersect $P(\Q)$ for any proper parabolic subgroup in $G$ (not necessarily standard). 
+Observe that if $1 \in \o$ then $\o$ consists of all unipotent elements in $G(\Q)$ and is known as the \underline{unipotent orbit} (or \underline{unipotent variety}) and denoted as $\UUU$. A class $\o \in \O$ is called \underline{anisotropic} if it does not intersect $P(\Q)$ for any proper parabolic subgroup in $G$ (not necessarily standard). 
 
 \begin{lemma}
 	An element $\gamma \in G(\Q)$ represents an anisotropic class if and only if the maximal $\Q$-split torus in the connected component of the centralizer $H$ of $\gamma$ in $G$ is $A_G$. 
@@ -562,9 +558,9 @@ Observe that if $1 \in \o$ then $\o$ consists of all unipotent elements in $G(\Q
 Let us investigate the Arthur-conjugacy classes in $\sl(2)$. In the case of $\gl(n)$ they are in bijection with characteristic polynomials so for $\gl(2)$, every $\o \in \O^{\gl(2)}$ is one of the following types. Let $p$ be the characteristic polynomial of any semisimple element in $\o$. 
 \begin{enumerate}
 	\item $p$ is irreducible over $\Q$ and splits into distinct roots in a quadratic extension $L$ of $\Q$.
-	\item $p$ factors into distinct roots over $\Q$, say $\gamma = \begin{pmatrix} a & \\ & b \end{pmatrix}: 
+	\item $p$ factors into distinct roots over $\Q$, say $\gamma = \begin{pmatrix} a & 0 \\ 0 & b \end{pmatrix}: 
 			a, b \in \gl(1)$,
-	\item $p$ has a unique root in $\Q^*$, say $\gamma = \begin{pmatrix} a & \\ & a \end{pmatrix}: a \in \gl(1)$,
+	\item $p$ has a unique root in $\Q^*$, say $\gamma = \begin{pmatrix} a & 0 \\ 0 & a \end{pmatrix}: a \in \gl(1)$,
 \end{enumerate}
 When we look at $\sl(2)$ if two classes $\o, \o' \in \O^{\sl(2)}$ have different characteristic polynomials then $\o \neq \o'$. On the other hand we would like to analyze the case when $\o \neq \o'$ but they have the same characteristic polynomial. Fix a class $\o \in \O^{\sl(2)}$ and let $p$ be the associated characteristic polynomial. We have the three possibilities. 
 \begin{enumerate}
@@ -636,7 +632,7 @@ For `generic' classes $\o \in \O$, Arthur gives an explicit description of $J_{\
 	\item It is \underline{unramified}, i.e., the centralizer $G(\Q)_\gamma$ is contained in $M_P(\Q)$ where $(P, \alpha)$ is the anisotropic rational datum attached to $\o$. 
 \end{itemize}
 The first condition is equivalent to having no nontrivial unipotent elements in the centralizer of $\gamma$ for any $\gamma \in \o$. This implies that the connected component $H(\Q)$ of the centralizer $G(\Q)_\gamma$ is contained in $M_P(\Q)$. The second condition is clearly stronger. To see an example where the first condition holds but not the second, consider the example of 
-\[ \gamma = \begin{pmatrix} 1 & \\ & -1 \end{pmatrix} \in G = \operatorname{PGL}(2). \]
+\[ \gamma = \begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix} \in G = \operatorname{PGL}(2). \]
 In this case, $G(\Q)_\gamma$ is the product of the minimal torus with a group of order two so $H(\Q) \subseteq M_P(\Q)$ but $G(\Q)_\gamma \not\subseteq M_P(\Q)$. 
 
 The result of these two assumptions is that if $(P, \alpha)$ and $(P', \alpha')$ are two representatives of the unramified class $\o$, then there is a ``unique'' element in $W(\aaa_P, \aaa_{P'})$ mapping $\alpha$ to $\alpha'$. Arthur analyzes this case and proves \cite{duke}*{\S 8} for such classes that
@@ -648,10 +644,10 @@ where $\gamma$ is any element in the $M_P(\Q)$-conjugacy class $\alpha$ and $v_P
 Suppose $G = \sl(2)$ and let $\o \in \O$ be the class corresponding to an irreducible characteristic polynomial and the rational datum $[(G, \alpha)]$. It is easy to see that the two conditions above are satisfied. For any $\gamma \in \alpha$, the centralizer $H_\gamma$ (which is connected) is an anisotropic torus over $\Q$ so the space
 \[ M_P(\Q)_\gamma\bs M_P(\A)_\gamma = G(\Q)_\gamma \bs G(\A)_\gamma^1 \]
 is compact. Its volume is the first term above. The term $v_M(x)$ equals 1 when $M=G$. Thus the contribution of these classes to the geometric side is
-\[ J_{\o}(f) = \vol(G(\Q)_\gamma \bs G(\A)_\gamma) \int_{G(\A)_\gamma \bs G(\A)} f(x^{-1} \gamma x) \d x. \]
-This expression agrees exactly with that in the co-compact case. 
+\[ J_{\o}(f) = \vol(G(\Q)_\gamma \bs G(\A)_\gamma) \int_{G(\A)_\gamma \bs G(\A)} f(x^{-1} \gamma x) \d x \]
+and this expression agrees exactly with that in the co-compact case. 
 
-Suppose $\o$ corresponds to the case when the characteristic polynomial has distinct roots, say $t$ and $t^{-1}$. Assume $\sigma = \begin{pmatrix} t & \\ & t^{-1} \end{pmatrix} \in \o$. If $\gamma \in \o$ then its Jordan decomposition would be $\gamma = (g\sigma g^{-1}) . u$ where $u$ is unipotent and $g \in G(\Q)$. Then $g^{-1} u g$ would be in $M_0(\Q)$, the centralizer of $\sigma$. Thus $u=1$ so $\o$ consists of semisimple elements only. Moreover $G(\Q)_\sigma = M_0(\Q)$ so both conditions are satisfied and 
+Suppose $\o$ corresponds to the case when the characteristic polynomial has distinct roots, say $t$ and $t^{-1}$. Assume $\sigma = \begin{pmatrix} t & 0 \\ 0 & t^{-1} \end{pmatrix} \in \o$. If $\gamma \in \o$ then its Jordan decomposition would be $\gamma = (g\sigma g^{-1}) . u$ where $u$ is unipotent and $g \in G(\Q)$. Then $g^{-1} u g$ would be in $M_0(\Q)$, the centralizer of $\sigma$. Thus $u=1$ so $\o$ consists of semisimple elements only. Moreover $G(\Q)_\sigma = M_0(\Q)$ so both conditions are satisfied and 
 \begin{flalign*}
 	J_{\o}(f) &=  \vol(M_0(\Q) \bs M_0(\A)^1) \int_{G(\A)_\gamma \bs G(\A)} f(x^{-1} \gamma x) v_{M_0}(x) \d x \\
 			&= \vol(\Q^*\bs \I^1) \int_{M_0(\A) \bs G(\A)}  f(x^{-1} \gamma x) v_{M_0}(x) \d x.
@@ -700,7 +696,7 @@ Given $f \in \CCC_c^\infty(G(\A))$ there is a finite set $S$ of places containin
 \end{equation}
 where $D(\gamma)$ is the generalized Weyl discriminant. Using combinatorial identities associated with products of $(G, M)$-families, Arthur proves an expression for $J_M(\gamma, f)$ in terms of finite sums of products of local orbital integrals $J_M(\gamma_v, f_v)$. Thus $J_M(\gamma, f)$ is to be regarded as a local object. 
 
-The expression for $J_M(\gamma, f)$ is not well-defined when $\o$ is not anisotropic. The extreme case of this is when $\o$ is the unipotent variety containing $\gamma = 1$ in $\sl(2)$. Here $v_P(x)$ is undefined and the integral in \cref{jm} does not converge. Arthur explains the solution he implements in this situation with an example of the group $\gl(2)$ but the same works for $\sl(2)$. Take $a = \begin{pmatrix} t & \\ & t^{-1} \end{pmatrix}$ with $t \neq \pm 1$ and calculate $J_{M_0}(a\gamma, f)$ where $\gamma = 1$. Arthur notes that adding a factor $r_{M_0}^G(a) = \log \mod{t^2 - t^{-2}}$ to $J_{M_0}(f)$ gives a locally integrable function around $a=1$. He defines
+The expression for $J_M(\gamma, f)$ is not well-defined when $\o$ is not anisotropic. The extreme case of this is when $\o$ is the unipotent variety containing $\gamma = 1$ in $\sl(2)$. Here $v_P(x)$ is undefined and the integral in \cref{jm} does not converge. Arthur explains the solution he implements in this situation with an example of the group $\gl(2)$ but the same works for $\sl(2)$. Take $a = \begin{pmatrix} t & 0 \\ 0 & t^{-1} \end{pmatrix}$ with $t \neq \pm 1$ and calculate $J_{M_0}(a\gamma, f)$ where $\gamma = 1$. Arthur notes that adding a factor $r_{M_0}^G(a) = \log \mod{t^2 - t^{-2}}$ to $J_{M_0}(f)$ gives a locally integrable function around $a=1$. He defines
 \begin{equation} \label{lim_orbint}
 	J_{M_0}(1, f) = \lim_{a \to 1} J_{M_0}(a, f) + r_{M_0}^G(a) J_G(a, f).
 \end{equation}
@@ -826,24 +822,24 @@ Let us consider the case of $G = \sl(2)$. When $P=G$ then $\sigma$ is a cuspidal
 \end{enumerate}
 
 If $s \in W(\aaa_P, \aaa_{P'})$ we define the \underline{intertwining operator} (see \cite{MR2683009}*{\S 6}, \cite{MW}*{II.1.6})
-\[ M(s, \lambda) : \HHH_P \to \HHH_{P'} \]
+\[ M(s, \lambda) = M_{P'|P}(s, \lambda) : \HHH_P \to \HHH_{P'} \]
 by
 \[ (M(s, \lambda)\phi)(x) = \int \phi(w_x^{-1}n x) \exp(\sprod{\lambda + \rho_P}{H_P(w_s^{-1}n x)})
 				 \exp(\sprod{- s\lambda + \rho_{P'}}{H_{P'}(x)}) \d n, \]
-where the integral is taken over $n \in N'(\A) \cap w_s N(\A)w_s^{-1} \bs N'(\A)$. As the name suggests, it intertwines $\III_P(\lambda)$ with $\III_{P'}(s\lambda)$ which is an equivalent way of saying the diagram below commutes. 
+where the integral is taken over $n \in N'(\A) \cap w_s N(\A)w_s^{-1} \bs N'(\A)$. It is a deep consequence of Langlands' theory of Eisenstein series that this integral converges absolutely for $\lambda$ in a ``positive'' cone in $i\aaa_M^*$ and has meromorphic continuation to $\aaa_{M, \C}^*$. As the name suggests, it intertwines $\III_P(\lambda)$ with $\III_{P'}(s\lambda)$ which is an equivalent way of saying the diagram below commutes. 
 \[ \xymatrix{
 	\HHH_P \ar[r]^{\III_P(\lambda)} \ar[d]_{M(s, \lambda)} & \HHH_P \ar[d]^{M(s, \lambda)} \\
 	\HHH_{P'} \ar[r]^{\III_{P'}(s\lambda)} & \HHH_{P'}.
  } \]
 Moreover,
 \[ E(x, \III_P(\lambda, y)\phi, \lambda) = E(xy, \phi, \lambda). \]
-These are the most important properties of Eisenstein series and intertwining operators. Formally they are easy to prove but to prove they converge and define meromorphic functions is very difficult.
+Intertwining operators and Eisenstein series play a central role in the theory of automorphic forms. The statements above are easy to prove formally but to prove they converge and define meromorphic functions is very difficult.
 
 Now we will define the decomposition
 \[ \Ltwo(G(\Q)\bs G(\A)) = \bigoplus_\PPP \Ltwo_{\PPP-\cusp}(G(\Q)\bs G(\A)) \]
 which will lead us to the coarse spectral decomposition. Let $\HHH_{P, \cusp}$ be the subspace of vectors $\phi \in \HHH_P$ such that for almost every $x \in G(\A)$, the function
 \[ \phi_x : m \mapsto \phi(mx) , \qquad m \in M(\A) \]
-is in $\Ltwo_{\cusp}(M(\Q)\bs M(\A)^1)$. Then clearly,
+is in $\Ltwo_{\cusp}(M(\Q)\bs M(\A)^1)$. Then
 \[ \HHH_{P, \cusp} = \bigoplus_\sigma \HHH_{P, \cusp, \sigma} \]
 where $\HHH_{P, \cusp, \sigma}$ consists of functions in $\HHH_{P, \cusp}$ which transform according to $\sigma$. Suppose $\Psi(\lambda)$ is an entire function of $\lambda \in \aaa_{P, \C}^*$ of Paley-Wiener type, with values in a finite dimensional subspace of functions
 \[ \{ x \mapsto \Psi(\lambda, x) \} \subseteq \HHH_{P, \cusp, \sigma}^\circ. \]
@@ -878,11 +874,9 @@ Then,
 We repeat the procedure replacing $G$ with any standard parabolic subgroup and get the decomposition 
 \[ K_P(x, y) = \sum_{\chi \in \XXX} K_{P, \chi}(x, y). \]
 This gives the decomposition
-\begin{align*}
-	k^T(x) & = \sum_{\chi \in \XXX} k_\chi^T(x) \\
-			& = \sum_P (-1)^{\apg} \sum_{\delta \in P(\Q)\bs G(\Q)} K_{P, \chi}(\delta x, \delta x)
-				\hat\tau_P(H_P(\delta x) - T).
-\end{align*}
+\begin{equation*}
+	k^T(x) = \sum_{\chi \in \XXX} k_\chi^T(x)  = \sum_P (-1)^{\apg} \sum_{\delta \in P(\Q)\bs G(\Q)} K_{P, \chi}(\delta x, \delta x) \hat\tau_P(H_P(\delta x) - T).
+\end{equation*}
 To prove the convergence of 
 \[ \int_{G(\Q)\bs G(\A)^1} \sum_{\chi \in \XXX} \mod{k_\chi^T (x)} \d x \]
 is quite nontrivial and Arthur uses the truncation operator here. We will not go into the details but refer to Section 13 in the Clay notes. 
@@ -893,16 +887,11 @@ For $J_\chi(f)$ where $\chi$ is an unramified classes corresponding to $(P, \sig
 \[ J_\chi(f) = m_{\cusp}(\sigma) \int_{i\aaa_P^*} \trace\left(\MMM_P(\sigma_\lambda) \III_P(\sigma_\lambda, f)\right) \d \lambda. \]
 We now briefly describe the terms involved and compute them for $G=\sl(2)$. Here $m_{\cusp}(\sigma)$ is the multiplicity of $\sigma$ in the representation $R_{M_P, \cusp}$. The operator $\MMM_P(\sigma_\lambda)$ is a smooth function in $\lambda \in i\aaa_P^*$ corresponding to a $(G, M)$-family of intertwining operators which we describe as follows. 
 
-For $\sigma$ an irreducible representation of $M_0(\A)^1$ and $\lambda \in \aaa_{M, \C}^*, \III_P(\sigma_\lambda)$ denotes the induced representation
+For an irreducible representation $\sigma$ of $M(\A)^1$ and $\lambda \in \aaa_{M, \C}^*, \III_P(\sigma_\lambda)$ denotes the induced representation
 \[ \Ind_{P(\A)}^{G(\A)} \left( nm \mapsto \sigma(m) \exp(\sprod{\lambda}{H_M(m)}) \right). \]
-The operator $\III_P(\sigma_\lambda, f)$ is obtained from this representation by integrating over $f$ in the usual manner. The space of this operator is $\HHH_P$ and in particular is independent of $\lambda \in \aaa_{M, \C}^*$. Given $Q \in \PPP(M)$ there is a unique $s \in W(\aaa_P, \aaa_Q)$ such that $s(P) = Q$. The operator
-\[ M_{Q|P}(s, \lambda) = M(s, \lambda) = M_{Q|P}(\lambda): \HHH_P \to \HHH_Q \]
-defined by
-\[ (M(s, \lambda)\Phi)(x) = \int \Phi(w_s^{-1}nx) \exp(\sprod{\lambda + \rho_P}{H_P(w_x^{-1}nx)}) 
-		\exp(-\sprod{s\lambda + \rho_Q}{H_Q(x)}) \d n \]
-where the integral is taken over $N_Q(\A) \cap w_s N_P(\A) w_s^{-1} \bs N_Q(\A)$ intertwines the $G(\A)$-spaces $\HHH_P$ and $\HHH_Q$. It is a deep consequence of Langlands' theory of Eisenstein series that this integral converges absolutely for $\lambda$ in a ``positive'' cone in $i\aaa_M^*$ and has meromorphic continuation to $\aaa_{M, \C}^*$. These intertwining operators play a central role in the theory of automorphic forms. As $Q$ varies over $\PPP(M)$ or equivalently as $s$ varies over cosets of $W^G/W^M$, the family
+The operator $\III_P(\sigma_\lambda, f)$ is obtained from this representation by integrating over $f$ in the usual manner. The space of this operator is $\HHH_P$ and in particular is independent of $\lambda \in \aaa_{M, \C}^*$. Given $Q \in \PPP(M)$ there is a unique $s \in W(\aaa_P, \aaa_Q)$ such that $s(P) = Q$. As $Q$ varies over $\PPP(M)$ or equivalently as $s$ varies over cosets of $W^G/W^M$, the family
 \[ \{ M_{Q|P}(s, \lambda)^{-1} \circ M_{Q|P}(s, \lambda + \Lambda) : Q \in \PPP(M), \ \Lambda \in i\aaa_M^* \} \]
-can be seen to be a $(G, M)$-family and consequently gives rise to a smooth function of $\lambda \in i\aaa_M^*$, namely
+of intertwining operators can be seen to be a $(G, M)$-family and consequently gives rise to a smooth function of $\lambda \in i\aaa_M^*$, namely
 \[ \MMM_M(\sigma_\lambda) = \lim_{\Lambda \to 0} \ \sum_{Q \in \PPP(M)} \theta_Q(s\lambda)^{-1} M(\tilde w_s, \lambda)^{-1} M(\tilde w_s, \lambda + \Lambda). \]
 Estimates on this operator $\MMM_M(\sigma_\lambda)$ have been used to prove the absolute convergence of the spectral side for $\gl(n)$ by M{\"u}ller-Speh \cite{MS} and general $G$ by Finis-Lapid-M{\"u}ller \cite{FLM}.
 
@@ -912,12 +901,10 @@ reduces to $\trace \sigma(f)$. Since $P=G$ the integral vanishes and $\MMM_M(\si
 \[ J_\chi(f) = \trace \pi(f) \]
 where $\chi \leftrightarrow (G, \pi)$. The classes $\chi = [(P_0, \sigma), (P_0, \sigma^{-1})]$ for $\sigma$ a character of $M_0(\Q) \bs M_0(\A)^1$ with $\sigma^2 \neq 1$ are also unramified since the long element takes $\sigma$ to $\sigma^{-1}$ and vice versa. The contribution of such classes to the spectral side is given by an integral namely,
 \[ J_\chi(f) = \int_{i\aaa_0^*} \trace\left( \MMM_{M_0}(\sigma_\lambda) \III_{P_0}(\sigma_\lambda, f) \right) \d \lambda. \]
-Note that the multiplicity $m_{\text{cusp}}(\sigma)$ is 1 by an application of the Peter-Weyl theorem since the group $M_0(\Q)\bs M_0(\A)^1$ is compact. 
+Note that the multiplicity $m_{\text{cusp}}(\sigma)$ is 1 by an application of the Peter-Weyl theorem since the group $M_0(\Q)\bs M_0(\A)^1$ is compact and abelian. 
 
 
-Since the classes $(P_0, \sigma)$ are not unramified when $\sigma^2 = 1$, we need to analyze them using the fine spectral expansion that Arthur develops in \cite{MR681738}. The analysis of the spectral side is very technical and depends on a previous result on the Paley-Wiener theorem \cite{MR697608} so we will content ourselves with describing the final statement and the terms therein. 
-% It makes use, among other things, of truncated Eisenstein series, a combinatorial analysis of various $(G, M)$-families and the existence of normalizing factors which normalize the intertwining operators. 
-For $\chi \in \XXX$, the expression for $J_\chi(f)$ is given as a sum over standard Levi subgroups $M \subseteq L, \pi \in \Pi_{\text{unit}}(M(\A)^1), s \in W^L(M)_{\reg}$ of 
+Since the classes $(P_0, \sigma)$ are not unramified when $\sigma^2 = 1$, we need to analyze them using the fine spectral expansion that Arthur develops in \cite{MR681738}. The analysis of the spectral side is very technical and depends on a previous result on the Paley-Wiener theorem \cite{MR697608} so we will content ourselves with describing the final statement and the terms therein. For $\chi \in \XXX$, the expression for $J_\chi(f)$ is given as a sum over standard Levi subgroups $M \subseteq L, \pi \in \Pi_{\text{unit}}(M(\A)^1), s \in W^L(M)_{\reg}$ of 
 \begin{equation} \label{fine_spec} 
 	\frac{\mod{W_0^M}}{\mod{W_0^G}} \left| \det \left(s - 1|_{\aaa_M^G} \right) \right|^{-1} 
 		\int_{i\aaa_L^* / i\aaa_G^*} \trace \left( \MMM_L(P, \lambda) M_P(s, 0) \III_{P, \chi, \pi}(\lambda, f) \right) \d \lambda. 
@@ -1014,12 +1001,14 @@ where $\aaa_{G, S}$ is a closed subgroup of $\aaa_G$ which equals $\aaa_G$ if $S
 When $G = \sl(2), \aaa_{G, S} = 0$ and $G(\Q_S)^Z$ is nonempty if and only if $Z = 0$. 
 
 The idea is to be able to define continuous linear maps from $\HHH_{\text{ac}}(G(\Q_S))$ to $\III_{\text{ac}}(M(\Q_S))$ where $M$ is a Levi subgroup of $G$. To such a subgroup $M, \pi \in \Pi(M(\Q_S)), \lambda \in \aaa_{M, \C}^*$ and $Z \in \aaa_{G, S}$, Arthur defines a meromorphic function
-\[ J_M(\pi_\lambda, f^Z) := \trace \left( \RRR_M(\pi_\lambda, P) \III_P(\pi_\lambda, f^Z) \right) \]
+\begin{equation} \label{eq:jmpi}
+J_M(\pi_\lambda, f^Z) := \trace \left( \RRR_M(\pi_\lambda, P) \III_P(\pi_\lambda, f^Z) \right)
+\end{equation}
 and its natural extension for $X \in \aaa_{M, S}$ namely
 \[ J_M(\pi, X, f) := \int_{i\aaa_M^* / i\aaa_G^*} J_M(\pi_\lambda, f^Z) \exp(-\sprod{\lambda}{X}) \d \lambda. \]
-Note the formal resemblance with \cref{jmpi}. Using this Arthur defines the map
+Note the formal resemblance with \cref{jmpi}. Using this he defines the map
 \[ \phi_M : \HHH_{\text{ac}}(G(\Q_S)) \to \III_{\text{ac}}(M(\Q_S)) \]
-where $\phi_M(f)(\pi, X) = \phi_M(f, \pi, X) = J_M(\pi, X, f)$ with $\pi \in \Pi_{\text{temp}}(M(\Q_S))$ and $X \in \aaa_{M, S}$. He shows \cite{MR999488} that $\phi_M$ is a continuous linear transform. We now state a theorem about the existence of the aforementioned Fourier transform $I \mapsto \widehat I$ and the invariant trace formula defined in terms of the invariant distributions $I_M(\gamma, f)$ and $I_M(\pi, f)$. 
+where $\phi_M(f)(\pi, X) = \phi_M(f, \pi, X) = J_M(\pi, X, f)$ with $\pi \in \Pi_{\text{temp}}(M(\Q_S))$ and $X \in \aaa_{M, S}$. He shows \cite{MR999488} that $\phi_M$ is a continuous linear transform. We now state theorems that assert the existence of the aforementioned Fourier transform $I \mapsto \widehat I$ and the invariant trace formula defined in terms of these invariant distributions. 
 
 \begin{theorem} \label{inv_geom}
 For $\gamma \in M(\Q_S)$ and $f \in \HHH_{\text{ac}}(G(\Q_S))$ there are invariant linear forms $I_M(\gamma, f)$ that are supported on characters (meaning $\widehat I_M(\circ, f)$ exists), and which satisfy 
@@ -1054,19 +1043,28 @@ f(\gamma) = \int_{\widehat{M_0(\Q_S)^1}} \pi(\gamma) \widehat f(\pi) \d \pi,
 \end{equation}
 which equals the second term in \cite{clay}*{Equation (22.13)}. 
 
-On the other hand, 
+Looking at the spectral side when $M = G$ we have
 \[ I_G(\pi, X, f) = J_G(\pi, X, f) = J_G(\pi, 0, f) = \trace \pi(f). \]
-When $M = M_0$, 
-\[ I_{M_0}(\pi, X, f) = J_{M_0}(\pi, X, f) - \widehat I_{M_0}^{M_0}(\pi, X, \phi_{M_0}(f)) \]
-and
-\[ \widehat I_{M_0}^{M_0}(\pi, X, \phi_{M_0}(f)) = I_{M_0}^{M_0}(\pi, X, f) = J_{M_0}^{M_0}(\pi, 0, f) \]
-so $I_{M_0}(\pi, X, f) = 0$. 
+When $M = M_0$, \cref{inv_spec} implies that 
+\begin{flalign*}
+ I_{M_0}(\pi, X, f) &= J_{M_0}(\pi, X, f) - \widehat I_{M_0}^{M_0}(\pi, X, \phi_{M_0}(f)) \\
+ 		&= J_{M_0}(\pi, X, f) - \phi_{M_0}(f, \pi, X). 
+\end{flalign*}
+When $\pi$ is tempered the two terms in the RHS agree so $I_{M_0}(\pi, X, f) = 0$. On the other hand, the contribution of the trivial representation to the spectral side is nonzero. To compute it more explicitly, we make the assumption that $S = \{v_\infty\}$. Suppose that $\pi \simeq \mathbb{1}_{\mu}$ for $\mu \in \aaa_{M_0, \C}^*$ and $\Re(\mu)$ is in general position. Then 
+\[ J_{M_0}(\pi, X, f) = \int_{i\aaa_{M_0}^*} J_{M_0}(\mathbb 1_{\mu + \lambda}, f) \exp(-\lambda(X)) \d \lambda \]
+and 
+\[ \phi_{M_0}(f, \pi, X) = \exp{(\mu(X))} \int_{i\aaa_{M_0}^*} J_{M_0}(\mathbb 1_\lambda, f) \exp(-\lambda(X)) \d \lambda. \]
+The first term in these integrands is an analytic function of $\mu \in \aaa_{M_0, \C}^*$ defined in terms of the normalized intertwining operators, see \cref{eq:jmpi}. By an application of the residue theorem, $I_{M_0}(f, \pi, X)$ which is the difference $J_{M_0}(\pi, X, f) - \phi_{M_0}(f, \pi, X)$, is the finite sum of residues
+\begin{equation} \label{eq:res_J}
+	\sum_\eta \Res_{\Lambda = \eta} \left( J_{M_0}(\mathbb 1_\Lambda, f) \exp((\mu - \Lambda)(X)) \right).
+\end{equation}
+The term on the spectral side corresponding to the Levi subgroup $M_0$ is given as a sum over $\mu \in \aaa_{M_0, \C}^*$ of the terms in \cref{eq:res_J}. Note that this is a finite sum.
 
 Thus the invariant trace formula for $\sl(2)$ is given by
 \begin{subequations}
 \begin{align}
- I_{\text{geom}}(f) = \lim_S \sum_{\gamma \in \Gamma(G)_S} a^G(\gamma) & J_G(\gamma, f) + \frac{1}{2} \sum_{\gamma \in \Gamma(M_0)_S} \left[ a^{M_0}(\gamma) J_{M_0}(\gamma, f) - f(\gamma) \right], \\
- I_{\text{spec}}(f) & = \sum_{\substack{\pi \text{ cusp} \\ \text{ form of } G}} \trace \pi(f). 
+ I_{\text{geom}}(f) = \lim_S \sum_{\gamma \in \Gamma(G)_S} a^G(\gamma) J_G(\gamma, f) + \frac{1}{2} \sum_{\gamma \in \Gamma(M_0)_S} \left[ a^{M_0}(\gamma) J_{M_0}(\gamma, f) - f(\gamma) \right], \\
+ I_{\text{spec}}(f) = \sum_{\substack{\pi \text{ cusp} \\ \text{ form of } G}} \trace \pi(f) + \frac{1}{2} \sum_{\mu \in \aaa_{M_0, \C}^*} \sum_\eta \Res_{\Lambda = \eta} \left( J_{M_0}(\mathbb 1_\Lambda, f) \exp((\mu - \Lambda)(X)) \right). 
 \end{align}
 \end{subequations}
 
@@ -1097,420 +1095,19 @@ This function is not of compact support so cannot be directly applied to the tra
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %     	Arthur notes errata
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\textbf{Note}: A list of typographical errors in the Clay notes can be found at \url{https://github.com/aaparab/nus_langlands/blob/master/arthur_clay_typos.pdf}. For any changes or suggestions please contact the author via email or create an issue on the Github webpage. 
+\textbf{Note}: A list of typographical errors in the Clay notes can be found at \url{https://github.com/aaparab/nus_langlands/blob/master/arthur_clay_typos.pdf}. For any corrections or suggestions please contact the author via email or create an issue on the Github webpage. 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     	Acknowledgements
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Acknowledgements}
+The notes are based on a mini-course given at IMS of National University of Singapore in December 2018. The author thanks Professors Dihua Jiang and Lei Zhang for the invitation and hospitality. He also thanks the referee for finding a mistake in an earlier version.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %     Bibliography
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{bibdiv}
-\begin{biblist}*{labels={alphabetic}}
-
-    \bib{duke}{article} % Arthur - A trace fromula I (1978)
-    {
-       author={Arthur, James G.},
-       title={A trace formula for reductive groups. I. Terms associated to
-       classes in $G({\bf Q})$},
-       journal={Duke Math. J.},
-       volume={45},
-       date={1978},
-       number={4},
-       pages={911--952},
-       issn={0012-7094},
-       review={\MR{518111}},
-    }
-
-	\bib{MR625344}{article}
-	{
-       author={Arthur, James},
-       title={The trace formula in invariant form},
-       journal={Ann. of Math. (2)},
-       volume={114},
-       date={1981},
-       number={1},
-       pages={1--74},
-       issn={0003-486X},
-       review={\MR{625344}},
-       doi={10.2307/1971376},
-    }
-    
-    \bib{MR681738}{article}{
-       author={Arthur, James},
-       title={On a family of distributions obtained from Eisenstein series. II.
-       Explicit formulas},
-       journal={Amer. J. Math.},
-       volume={104},
-       date={1982},
-       number={6},
-       pages={1289--1336},
-       issn={0002-9327},
-       review={\MR{681738}},
-       doi={10.2307/2374062},
-    }
-    
-    \bib{MR697608}{article}{
-       author={Arthur, James},
-       title={A Paley-Wiener theorem for real reductive groups},
-       journal={Acta Math.},
-       volume={150},
-       date={1983},
-       number={1-2},
-       pages={1--89},
-       issn={0001-5962},
-       review={\MR{697608}},
-       doi={10.1007/BF02392967},
-    }
-    
-	\bib{MR828844}{article}{
-       author={Arthur, James},
-       title={A measure on the unipotent variety},
-       journal={Canad. J. Math.},
-       volume={37},
-       date={1985},
-       number={6},
-       pages={1237--1274},
-       issn={0008-414X},
-       review={\MR{828844}},
-       doi={10.4153/CJM-1985-067-0},
-    }
-
-    \bib{MR835041}{article}{
-       author={Arthur, James},
-       title={On a family of distributions obtained from orbits},
-       journal={Canad. J. Math.},
-       volume={38},
-       date={1986},
-       number={1},
-       pages={179--214},
-       issn={0008-414X},
-       review={\MR{835041}},
-       doi={10.4153/CJM-1986-009-4},
-    }
-    
-	\bib{MR932848}{article}{
-       author={Arthur, James},
-       title={The local behaviour of weighted orbital integrals},
-       journal={Duke Math. J.},
-       volume={56},
-       date={1988},
-       number={2},
-       pages={223--293},
-       issn={0012-7094},
-       review={\MR{932848}},
-       doi={10.1215/S0012-7094-88-05612-8},
-    }
-    
-    \bib{MR999488}{article}{
-       author={Arthur, James},
-       title={Intertwining operators and residues. I. Weighted characters},
-       journal={J. Funct. Anal.},
-       volume={84},
-       date={1989},
-       number={1},
-       pages={19--84},
-       issn={0022-1236},
-       review={\MR{999488}},
-       doi={10.1016/0022-1236(89)90110-9},
-    }
-
-    \bib{clay}{article}{		% Clay notes
-       author={Arthur, James},
-       title={An introduction to the trace formula},
-       conference={
-          title={Harmonic analysis, the trace formula, and Shimura varieties},
-       },
-       book={
-          series={Clay Math. Proc.},
-          volume={4},
-          publisher={Amer. Math. Soc., Providence, RI},
-       },
-       date={2005},
-       pages={1--263},
-       review={\MR{2192011}},
-    }
-
-    \bib{MR147566}{article}{
-       author={Borel, Armand},
-       author={Harish-Chandra},
-       title={Arithmetic subgroups of algebraic groups},
-       journal={Ann. of Math. (2)},
-       volume={75},
-       date={1962},
-       pages={485--535},
-       issn={0003-486X},
-       review={\MR{147566}},
-       doi={10.2307/1970210},
-    }
-
-	\bib{MR546598}{article} % Corvallis -- Borel & Jacquet 
-    {
-       author={Borel, A.},
-       author={Jacquet, H.},
-       title={Automorphic forms and automorphic representations},
-       note={With a supplement ``On the notion of an automorphic
-       representation''\ by R. P. Langlands},
-       conference={
-          title={Automorphic forms, representations and $L$-functions},
-          address={Proc. Sympos. Pure Math., Oregon State Univ., Corvallis,
-          Ore.},
-          date={1977},
-       },
-       book={
-          series={Proc. Sympos. Pure Math., XXXIII},
-          publisher={Amer. Math. Soc., Providence, R.I.},
-       },
-       date={1979},
-       pages={189--207},
-       review={\MR{546598}},
-    }
-
-    \bib{MR1431508}{book}{
-       author={Bump, Daniel},
-       title={Automorphic forms and representations},
-       series={Cambridge Studies in Advanced Mathematics},
-       volume={55},
-       publisher={Cambridge University Press, Cambridge},
-       date={1997},
-       pages={xiv+574},
-       isbn={0-521-55098-X},
-       review={\MR{1431508}},
-       doi={10.1017/CBO9780511609572},
-    }
-    
-    \bib{FL11b}{article} %FL11 Combinatorial setup
-    {
-       author={Finis, Tobias},
-       author={Lapid, Erez},
-       title={On the spectral side of Arthur's trace formula---combinatorial setup},
-       journal={Ann. of Math. (2)},
-       volume={174},
-       date={2011},
-       number={1},
-       pages={197--223},
-       issn={0003-486X},
-       review={\MR{2811598}},
-       doi={10.4007/annals.2011.174.1.6},
-    }
-
-   \bib{FL16}{article} %Geometric side FINAL
-   {
-	   author={Finis, Tobias},
-	   author={Lapid, Erez},
-	   title={On the continuity of the geometric side of the trace formula},
-	   journal={Acta Math. Vietnam.},
-	   volume={41},
-	   date={2016},
-	   number={3},
-	   pages={425--455},
-	   issn={0251-4184},
-	   review={\MR{3534542}},
-	   doi={10.1007/s40306-016-0176-x},
-	}
-
-    \bib{FLM}{article} % FLM .. 
-    {
-       author={Finis, Tobias},
-       author={Lapid, Erez},
-       author={M{\"u}ller, Werner},
-       title={On the spectral side of Arthur's trace formula---absolute
-       convergence},
-       journal={Ann. of Math. (2)},
-       volume={174},
-       date={2011},
-       number={1},
-       pages={173--195},
-       issn={0003-486X},
-       review={\MR{2811597}},
-       doi={10.4007/annals.2011.174.1.5},
-    }
-
-    \bib{MR1071179}{book}{
-       author={Gel\cprime fand, I. M.},
-       author={Graev, M. I.},
-       author={Pyatetskii-Shapiro, I. I.},
-       title={Representation theory and automorphic functions},
-       series={Generalized Functions},
-       volume={6},
-       note={Translated from the Russian by K. A. Hirsch;
-       Reprint of the 1969 edition},
-       publisher={Academic Press, Inc., Boston, MA},
-       date={1990},
-       pages={xviii+426},
-       isbn={0-12-279506-7},
-       review={\MR{1071179}},
-    }
-    
-    \bib{MR0401654}{book}{
-       author={Jacquet, H.},
-       author={Langlands, R. P.},
-       title={Automorphic forms on ${\rm GL}(2)$},
-       series={Lecture Notes in Mathematics, Vol. 114},
-       publisher={Springer-Verlag, Berlin-New York},
-       date={1970},
-       pages={vii+548},
-       review={\MR{0401654}},
-    }
-
-    \bib{MR0249539}{article}{
-       author={Langlands, R. P.},
-       title={Eisenstein series},
-       conference={
-          title={Algebraic Groups and Discontinuous Subgroups},
-          address={Proc. Sympos. Pure Math., Boulder, Colo.},
-          date={1965},
-       },
-       book={
-          publisher={Amer. Math. Soc., Providence, R.I.},
-       },
-       date={1966},
-       pages={235--252},
-       review={\MR{0249539}},
-    }
-
-    \bib{MR0579181}{book}{
-       author={Langlands, Robert P.},
-       title={On the functional equations satisfied by Eisenstein series},
-       series={Lecture Notes in Mathematics, Vol. 544},
-       publisher={Springer-Verlag, Berlin-New York},
-       date={1976},
-       pages={v+337},
-       review={\MR{0579181}},
-    }
-
-    \bib{MR2058622}{article}{
-       author={Langlands, Robert P.},
-       title={Beyond endoscopy},
-       conference={
-          title={Contributions to automorphic forms, geometry, and number
-          theory},
-       },
-       book={
-          publisher={Johns Hopkins Univ. Press, Baltimore, MD},
-       },
-       date={2004},
-       pages={611--697},
-       review={\MR{2058622}},
-    }
-        
-    \bib{MW}{book} %   Moeglin Waldspurger
-    {
-       author={M{\oe}glin, C.},
-       author={Waldspurger, J.-L.},
-       title={Spectral decomposition and Eisenstein series},
-       series={Cambridge Tracts in Mathematics},
-       volume={113},
-       note={Une paraphrase de l'\'Ecriture [A paraphrase of Scripture]},
-       publisher={Cambridge University Press, Cambridge},
-       date={1995},
-       pages={xxviii+338},
-       isbn={0-521-41893-3},
-       review={\MR{1361168}},
-       doi={10.1017/CBO9780511470905}
-    }
-    
-    \bib{MR141672}{article}{
-       author={Mostow, G. D.},
-       author={Tamagawa, T.},
-       title={On the compactness of arithmetically defined homogeneous spaces},
-       journal={Ann. of Math. (2)},
-       volume={76},
-       date={1962},
-       pages={446--463},
-       issn={0003-486X},
-       review={\MR{141672}},
-       doi={10.2307/1970368},
-    }
-    
-    \bib{MS}{article}		% Muller Speh
-    {
-       author={M\"uller, W.},
-       author={Speh, B.},
-       title={Absolute convergence of the spectral side of the Arthur trace
-       formula for ${\rm GL}_n$},
-       note={With an appendix by E. M.\ Lapid},
-       journal={Geom. Funct. Anal.},
-       volume={14},
-       date={2004},
-       number={1},
-       pages={58--93},
-       issn={1016-443X},
-       review={\MR{2053600}},
-       doi={10.1007/s00039-004-0452-0},
-    }
-	    
-   \bib{MR3220933}{article}		% Ngo, PS article
-   {
-       author={Ng\^o, Bao Ch\^au},
-       title={On a certain sum of automorphic $L$-functions},
-       conference={
-       title={Automorphic forms and related geometry: assessing the legacy of
-          I. I. Piatetski-Shapiro},
-          },
-       book={
-          series={Contemp. Math.},
-          volume={614},
-          publisher={Amer. Math. Soc., Providence, RI},
-       },
-       date={2014},
-       pages={337--343},
-       review={\MR{3220933}},
-       doi={10.1090/conm/614/12270},
-    }
-
-    \bib{Par19}{article}{
-       author={Parab, Abhishek},
-       title={Absolute convergence of the twisted trace formula},
-       journal={Math. Z.},
-       volume={292},
-       date={2019},
-       number={1-2},
-       pages={529--567},
-       issn={0025-5874},
-       review={\MR{3968914}},
-       doi={10.1007/s00209-019-02290-0},
-    }
-    
-    \bib{MR1792292}{article}{
-       author={Ramakrishnan, Dinakar},
-       title={Modularity of the Rankin-Selberg $L$-series, and multiplicity one
-       for ${\rm SL}(2)$},
-       journal={Ann. of Math. (2)},
-       volume={152},
-       date={2000},
-       number={1},
-       pages={45--111},
-       issn={0003-486X},
-       review={\MR{1792292}},
-       doi={10.2307/2661379},
-    }
-
-    \bib{MR1068677}{article}{
-       author={Stern, Leonid},
-       title={On the equality of norm groups of global fields},
-       journal={J. Number Theory},
-       volume={36},
-       date={1990},
-       number={1},
-       pages={108--126},
-       issn={0022-314X},
-       review={\MR{1068677}},
-       doi={10.1016/0022-314X(90)90009-G},
-    }
-    
-    \bib{MR2683009}{book}{
-       author={Shahidi, Freydoon},
-       title={Eisenstein series and automorphic $L$-functions},
-       series={American Mathematical Society Colloquium Publications},
-       volume={58},
-       publisher={American Mathematical Society, Providence, RI},
-       date={2010},
-       pages={vi+210},
-       isbn={978-0-8218-4989-7},
-       review={\MR{2683009}},
-       doi={10.1090/coll/058},
-    }
-    
-\end{biblist}
-\end{bibdiv}
+\bibliography{sl2bib}{}
+\bibliographystyle{amsalpha}
 
 \end{document}  
