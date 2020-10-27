@@ -4,10 +4,8 @@
 .out
 .DS_Store
 Referee*
-*.sty
-*.cls
-
-
+Parab_copyright.pdf
+nus_sl2/*
 
 # General
 .DS_Store
